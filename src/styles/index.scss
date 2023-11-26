@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
+}
+
+.game-window {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 20rem;
+  padding: 0.6rem;
+  margin: 4rem auto 0 auto;
+  border: solid black 0.2rem;
+  border-radius: 0.2rem;
+
+  .info-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1rem;
+    border: solid black 0.1rem;
+    border-radius: 0.2rem;
+
+    .info-field__level-info,
+    .info_field__game-info {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+      .info-field__indicator {
+        display: block;
+        max-width: 5rem;
+        width: 100%;
+        padding: 0.5rem;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+}
