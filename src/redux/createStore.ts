@@ -29,4 +29,6 @@ const createStore = () => {
   };
 };
 
-export default createStore;
+const store = createStore();
+
+export default store;
