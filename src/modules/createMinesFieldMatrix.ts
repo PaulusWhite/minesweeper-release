@@ -1,5 +1,6 @@
 // Modules
 import getGameSettingsData from "./getGameSettingsData";
+import setGameSettings from "./setGameSettings";
 // Interfaces
 import IGameSettings from "../interfaces/IGameSettings";
 import { ICell } from "../interfaces/IRedux";
@@ -19,12 +20,13 @@ const getMinedCellsList = (minesQuantity: number, totalCellsQuantity: number): n
 };
 
 const createMinesFieldMatrix = (): ICell[][] => {
+  setGameSettings(); // Initialize game settings
+
   const gameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
   const { rowCellsQuantity, columnCellsQuantity, minesQuantity } = gameSettingsData;
   const totalCellsQuantity: number = rowCellsQuantity * columnCellsQuantity;
 
   const minedCellsList: number[] = getMinedCellsList(minesQuantity, totalCellsQuantity);
-  console.log(minedCellsList);
 
   const minesFieldMatrix: ICell[][] = [] as ICell[][];
 

@@ -1,8 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import "./styles/index.scss";
 
 // Modules
-import setGameSettings from "./modules/setGameSettings";
 import setBasicLayout from "./modules/setBasicLayout";
 
-setGameSettings();
 setBasicLayout();
