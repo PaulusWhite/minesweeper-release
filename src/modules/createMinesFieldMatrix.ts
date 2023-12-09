@@ -1,6 +1,7 @@
 // Modules
 import getGameSettingsData from "./getGameSettingsData";
 import setGameSettings from "./setGameSettings";
+import getFieldMatrixMine from "./getFieldMatrixMine";
 // Interfaces
 import IGameSettings from "../interfaces/IGameSettings";
 import { ICell } from "../interfaces/IRedux";
@@ -13,10 +14,36 @@ const getMinedCellsList = (minesQuantity: number, totalCellsQuantity: number): n
     const maxValue = totalCellsQuantity;
 
     const serialNumber = Math.floor(Math.random() * (maxValue - minValue) + minValue);
+
     if (minedCellsList.indexOf(serialNumber) === -1) minedCellsList.push(serialNumber);
   }
 
   return minedCellsList;
+};
+
+const setCellsNextMinesQuantity = (fieldMatrix: ICell[][]) => {
+  const { rowCellsQuantity } = getGameSettingsData() as IGameSettings;
+
+  fieldMatrix.forEach((cellsColumn: ICell[]) => {
+    cellsColumn.forEach((cell: ICell) => {
+      if (cell.isMined) {
+        for (let i = -1; i < 1; i++) {
+          const topNextCell = getFieldMatrixMine(fieldMatrix, cell.serialNumber - rowCellsQuantity + i);
+          const bottomNextCell = getFieldMatrixMine(fieldMatrix, cell.serialNumber + rowCellsQuantity + i);
+
+          topNextCell && (topNextCell.minesAround += 1);
+          bottomNextCell && (bottomNextCell.minesAround += 1);
+        }
+
+        const leftNextCell = getFieldMatrixMine(fieldMatrix, cell.serialNumber - 1);
+        const rightNextCell = getFieldMatrixMine(fieldMatrix, cell.serialNumber + 1);
+        leftNextCell && (leftNextCell.minesAround += 1);
+        rightNextCell && (rightNextCell.minesAround += 1);
+      }
+    });
+  });
+
+  return fieldMatrix;
 };
 
 const createMinesFieldMatrix = (): ICell[][] => {
@@ -28,13 +55,15 @@ const createMinesFieldMatrix = (): ICell[][] => {
 
   const minedCellsList: number[] = getMinedCellsList(minesQuantity, totalCellsQuantity);
 
-  const minesFieldMatrix: ICell[][] = [] as ICell[][];
+  let minesFieldMatrix: ICell[][] = [] as ICell[][];
 
-  for (let i = 0; i < rowCellsQuantity; i++) {
-    const rowArr: ICell[] = [];
+  for (let i = 0; i < columnCellsQuantity; i++) {
+    const columnArr: ICell[] = [];
+    const firstRowCellIndex = i * rowCellsQuantity;
+    const lastRowCellIndex = firstRowCellIndex + rowCellsQuantity;
 
-    for (let x = 0; x < columnCellsQuantity; x++) {
-      const serialNumber = +(`${i}` + x);
+    for (let x = firstRowCellIndex; x < lastRowCellIndex; x++) {
+      const serialNumber = x;
       const isMined = minedCellsList.indexOf(serialNumber) !== -1 ? true : false;
       const cellObj: ICell = {
         isMined,
@@ -43,11 +72,13 @@ const createMinesFieldMatrix = (): ICell[][] => {
         serialNumber,
       };
 
-      rowArr.push(cellObj);
+      columnArr.push(cellObj);
     }
 
-    minesFieldMatrix.push(rowArr);
+    minesFieldMatrix.push(columnArr);
   }
+
+  minesFieldMatrix = setCellsNextMinesQuantity(minesFieldMatrix);
 
   return minesFieldMatrix;
 };
