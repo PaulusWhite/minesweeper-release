@@ -1,6 +1,5 @@
 // Modules
 import getGameSettingsData from "./getGameSettingsData";
-import setGameSettings from "./setGameSettings";
 import getFieldMatrixMine from "./getFieldMatrixMine";
 // Interfaces
 import IGameSettings from "../interfaces/IGameSettings";
@@ -37,6 +36,7 @@ const setCellsNextMinesQuantity = (fieldMatrix: ICell[][]) => {
 
         const leftNextCell = getFieldMatrixMine(fieldMatrix, cell.serialNumber - 1);
         const rightNextCell = getFieldMatrixMine(fieldMatrix, cell.serialNumber + 1);
+
         leftNextCell && (leftNextCell.minesAround += 1);
         rightNextCell && (rightNextCell.minesAround += 1);
       }
@@ -47,8 +47,6 @@ const setCellsNextMinesQuantity = (fieldMatrix: ICell[][]) => {
 };
 
 const createMinesFieldMatrix = (): ICell[][] => {
-  setGameSettings(); // Initialize game settings
-
   const gameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
   const { rowCellsQuantity, columnCellsQuantity, minesQuantity } = gameSettingsData;
   const totalCellsQuantity: number = rowCellsQuantity * columnCellsQuantity;

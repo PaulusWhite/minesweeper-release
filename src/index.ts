@@ -3,10 +3,9 @@ import "./styles/index.scss";
 
 // Modules
 import setBasicLayout from "./modules/setBasicLayout";
+import setGameSettings from "./modules/setGameSettings";
+import setMinesField from "./modules/setMinesField";
 
-// store
-import store from "./redux/createStore";
-
+setGameSettings(); // init initial game settings
 setBasicLayout();
-
-console.log(store.getState());
+setMinesField();
