@@ -26,7 +26,7 @@ const setCellsNextMinesQuantity = (fieldMatrix: ICell[][]) => {
   fieldMatrix.forEach((cellsColumn: ICell[]) => {
     cellsColumn.forEach((cell: ICell) => {
       if (cell.isMined) {
-        for (let i = -1; i < 1; i++) {
+        for (let i = -1; i <= 1; i++) {
           const topNextCell = getFieldMatrixMine(fieldMatrix, cell.serialNumber - rowCellsQuantity + i);
           const bottomNextCell = getFieldMatrixMine(fieldMatrix, cell.serialNumber + rowCellsQuantity + i);
 
