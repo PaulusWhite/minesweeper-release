@@ -1,6 +1,6 @@
-const Cell = () => {
+const Cell = (index: number) => {
   const view = `
-  <span class="cell"></span>
+  <span class="cell" data-cell-index="${index}"></span>
   `;
 
   return view;
