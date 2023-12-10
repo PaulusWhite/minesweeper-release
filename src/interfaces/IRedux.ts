@@ -9,9 +9,9 @@ interface IState {
   state: ICell[][];
 }
 
-interface IAction {
+interface IAction<T> {
   type: string;
-  payload?: number;
+  payload?: T;
 }
 
 export { ICell, IState, IAction };

@@ -1,22 +1,22 @@
 // Interfaces
 import { IState, IAction } from "../interfaces/IRedux";
 // Modules
-import createMinesFieldMatrix from "../modules/createMinesFieldMatrix";
+// import createMinesFieldMatrix from "../modules/createMinesFieldMatrix";
 // ActionTypes
-import INIT from "./actionTypes";
+import { INIT } from "./actionTypes";
 // RootReducer
 import rootReducer from "./rootReducer";
 
 const createStore = () => {
   const initState = {
-    state: createMinesFieldMatrix(),
+    state: [],
   };
 
   let state: IState = rootReducer(initState, { type: INIT });
   const subscribers: CallableFunction[] = [];
 
   return {
-    dispatch(action: IAction) {
+    dispatch<T>(action: IAction<T>) {
       state = rootReducer(state, action);
       subscribers.forEach((subscriber) => subscriber());
     },

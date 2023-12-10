@@ -5,10 +5,9 @@ import "./styles/index.scss";
 import setBasicLayout from "./modules/setBasicLayout";
 import setGameSettings from "./modules/setGameSettings";
 import createMinesField from "./modules/createMinesField";
+import setGameAction from "./modules/setGameAction";
 
-import store from "./redux/createStore";
 setGameSettings(); // init initial game settings
 setBasicLayout();
 createMinesField();
-
-console.log(store.getState().state);
+setGameAction();
