@@ -1,6 +1,11 @@
 // Modules
 import getGameSettingsData from "./getGameSettingsData";
-import getFieldMatrixMine from "./getFieldMatrixMine";
+
+import getTargetCellAdjacentCells from "./common/getTargetCellAdjacentCells";
+// Utils
+import getCellColumnIndex from "../utils/getCellColumnIndex";
+import getCellIndex from "../utils/getCellIndex";
+
 // Interfaces
 import IGameSettings from "../interfaces/IGameSettings";
 import IMinedCelslListData from "../interfaces/ICreateMinesFieldMatrix";
@@ -22,47 +27,21 @@ const getMinedCellsList = (minedCellsListData: IMinedCelslListData): number[] =>
   return minedCellsList;
 };
 
-const isNextCellValid = (nextCellsColumn: ICell[] | undefined, nextCell: ICell | undefined): boolean => {
-  if (!nextCell || !nextCellsColumn) return false;
-
-  const isNextCellValid: boolean = nextCellsColumn.some((cell: ICell) => cell.serialNumber === nextCell.serialNumber);
-
-  return isNextCellValid;
-};
-
 const setCellsNextMinesQuantity = (fieldMatrix: ICell[][]) => {
   const { rowCellsQuantity } = getGameSettingsData() as IGameSettings;
 
-  fieldMatrix.forEach((cellsColumn: ICell[], cellsColumnIndex: number) => {
+  fieldMatrix.forEach((cellsColumn: ICell[]) => {
     cellsColumn.forEach((cell: ICell) => {
       if (!cell.isMined) return;
 
-      for (let i = -1; i <= 1; i++) {
-        const topNextCell: ICell | undefined = getFieldMatrixMine(fieldMatrix, cell.serialNumber - rowCellsQuantity + i);
-        const bottomNextCell: ICell | undefined = getFieldMatrixMine(fieldMatrix, cell.serialNumber + rowCellsQuantity + i);
-        const prevCellsColumn: ICell[] = fieldMatrix[cellsColumnIndex - 1];
-        const nextCellsColumn: ICell[] = fieldMatrix[cellsColumnIndex + 1];
+      const adjacentCellsArr: ICell[] = getTargetCellAdjacentCells(cell, fieldMatrix, rowCellsQuantity);
 
-        if (topNextCell && isNextCellValid(prevCellsColumn, topNextCell)) {
-          topNextCell.minesAround += 1;
-        }
+      adjacentCellsArr.forEach((adjacentCell: ICell) => {
+        const adjacentCellColumnIndex: number = getCellColumnIndex(adjacentCell.serialNumber, rowCellsQuantity);
+        const adjacentCellIndex: number = getCellIndex(adjacentCell.serialNumber, rowCellsQuantity);
 
-        if (bottomNextCell && isNextCellValid(nextCellsColumn, bottomNextCell)) {
-          bottomNextCell.minesAround += 1;
-        }
-      }
-
-      const leftNextCell: ICell | undefined = getFieldMatrixMine(fieldMatrix, cell.serialNumber - 1);
-      const rightNextCell: ICell | undefined = getFieldMatrixMine(fieldMatrix, cell.serialNumber + 1);
-      const currentCellsColumn: ICell[] = fieldMatrix[cellsColumnIndex];
-
-      if (leftNextCell && isNextCellValid(currentCellsColumn, leftNextCell)) {
-        leftNextCell.minesAround += 1;
-      }
-
-      if (rightNextCell && isNextCellValid(currentCellsColumn, rightNextCell)) {
-        rightNextCell.minesAround += 1;
-      }
+        fieldMatrix[adjacentCellColumnIndex][adjacentCellIndex].minesAround += 1;
+      });
     });
   });
 
