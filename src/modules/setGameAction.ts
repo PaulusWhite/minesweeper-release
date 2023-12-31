@@ -4,9 +4,9 @@ import store from "../redux/createStore";
 import createMinesFieldMatrixAction from "../redux/actions,";
 // modules
 import createMinesFieldMatrix from "./createMinesFieldMatrix";
-// import getFieldMatrixMine from "./getFieldMatrixMine";
-// // interfaces
-// import { ICell } from "../interfaces/IRedux";
+import getFieldMatrixMine from "./getFieldMatrixMine";
+// interfaces
+import { ICell } from "../interfaces/IRedux";
 // import IOpenedCellData from "../interfaces/IOpenedCellData";
 
 const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
@@ -17,9 +17,10 @@ const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
   clickedCell.classList.add("cell__open");
 
   // const openedCellsData: IOpenedCellData[] = [];
-  // const minesFieldMatrix: ICell[][] = store.getState().state;
+  const minesFieldMatrix: ICell[][] = store.getState().state;
 
-  // const matrixCellData: ICell = getFieldMatrixMine(minesFieldMatrix, clickedCellIndex) as ICell;
+  const matrixCellData = getFieldMatrixMine(minesFieldMatrix, clickedCellIndex);
+  console.log(matrixCellData);
 };
 
 const setGameAction = () => {

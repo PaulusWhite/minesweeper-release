@@ -38,8 +38,8 @@ const setCellsNextMinesQuantity = (fieldMatrix: ICell[][]) => {
       if (!cell.isMined) return;
 
       for (let i = -1; i <= 1; i++) {
-        const topNextCell = getFieldMatrixMine(fieldMatrix, cell.serialNumber - rowCellsQuantity + i);
-        const bottomNextCell = getFieldMatrixMine(fieldMatrix, cell.serialNumber + rowCellsQuantity + i);
+        const topNextCell: ICell | undefined = getFieldMatrixMine(fieldMatrix, cell.serialNumber - rowCellsQuantity + i);
+        const bottomNextCell: ICell | undefined = getFieldMatrixMine(fieldMatrix, cell.serialNumber + rowCellsQuantity + i);
         const prevCellsColumn: ICell[] = fieldMatrix[cellsColumnIndex - 1];
         const nextCellsColumn: ICell[] = fieldMatrix[cellsColumnIndex + 1];
 
@@ -52,8 +52,8 @@ const setCellsNextMinesQuantity = (fieldMatrix: ICell[][]) => {
         }
       }
 
-      const leftNextCell = getFieldMatrixMine(fieldMatrix, cell.serialNumber - 1);
-      const rightNextCell = getFieldMatrixMine(fieldMatrix, cell.serialNumber + 1);
+      const leftNextCell: ICell | undefined = getFieldMatrixMine(fieldMatrix, cell.serialNumber - 1);
+      const rightNextCell: ICell | undefined = getFieldMatrixMine(fieldMatrix, cell.serialNumber + 1);
       const currentCellsColumn: ICell[] = fieldMatrix[cellsColumnIndex];
 
       if (leftNextCell && isNextCellValid(currentCellsColumn, leftNextCell)) {
@@ -88,6 +88,7 @@ const createMinesFieldMatrix = (firstClickCellIndex: number): ICell[][] => {
       const isMined = minedCellsList.indexOf(serialNumber) !== -1 ? true : false;
       const cellObj: ICell = {
         isMined,
+        isOpened: false,
         isFlag: false,
         minesAround: 0,
         serialNumber,
