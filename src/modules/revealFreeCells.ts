@@ -5,6 +5,9 @@ import getTargetCellAdjacentCells from "./common/getTargetCellAdjacentCells";
 import { ICell } from "../interfaces/IRedux";
 import IRevealNextCellsData from "../interfaces/IClickActions";
 
+//Utils
+import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
+
 const revealNextCells = (revealNextCellsData: IRevealNextCellsData): Map<number, ICell> => {
   const { cell, fieldMatrix, rowCellsQuantity, prevRevealedNextCellsMap } = revealNextCellsData;
   const revealedNextCellsMap: Map<number, ICell> = prevRevealedNextCellsMap ? prevRevealedNextCellsMap : new Map();
@@ -40,7 +43,7 @@ const revealNextCells = (revealNextCellsData: IRevealNextCellsData): Map<number,
 };
 
 const revealFreeCells = (cell: ICell, fieldMatrix: ICell[][], rowCellsQuantity: number) => {
-  const mineField: HTMLDivElement = document.querySelector(".field") as HTMLDivElement;
+  const mineField: HTMLDivElement = getMineFieldHTMLNode()
   const revealedNextCellsMap: Map<number, ICell> = revealNextCells({ cell, fieldMatrix, rowCellsQuantity });
 
   revealedNextCellsMap.forEach((cellData: ICell, serialNumber: number) => {

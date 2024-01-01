@@ -10,10 +10,14 @@ import getGameSettingsData from "./common/getGameSettingsData";
 import revealFreeCells from "./revealFreeCells";
 import getFieldMatrixMine from "./common/getFieldMatrixMine";
 import revealAllCells from "./revealAllCells";
+import checkIsPlayWon from "./checkIsPlayWon";
 
 //Interfaces
 import IGameSettings from "../interfaces/IGameSettings";
 import { ICell } from "../interfaces/IRedux";
+
+//Utils
+import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
 
 const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
   const clickedCell: HTMLSpanElement = field.children[clickedCellIndex] as HTMLSpanElement;
@@ -27,15 +31,16 @@ const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
   const matrixCellData: ICell = getFieldMatrixMine(fieldMatrix, clickedCellIndex) as ICell;
 
   if (matrixCellData.isMined) {
-    revealAllCells();
+    revealAllCells("cell__mined");
     return;
   }
 
   revealFreeCells(matrixCellData, fieldMatrix, rowCellsQuantity);
+  checkIsPlayWon();
 };
 
 const setGameAction = () => {
-  const mineField: HTMLDivElement = document.querySelector(".field") as HTMLDivElement;
+  const mineField: HTMLDivElement = getMineFieldHTMLNode();
   let isFirstCellClick: boolean = true; // indicator for creating mines matrix after first click
 
   mineField.addEventListener("click", (Event: Event) => {
