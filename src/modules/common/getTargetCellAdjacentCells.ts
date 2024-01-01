@@ -2,7 +2,7 @@
 import { ICell } from "../../interfaces/IRedux";
 
 // Modules
-import getFieldMatrixMine from "../getFieldMatrixMine";
+import getFieldMatrixMine from "./getFieldMatrixMine";
 
 // Utils
 import getCellColumnIndex from "../../utils/getCellColumnIndex";

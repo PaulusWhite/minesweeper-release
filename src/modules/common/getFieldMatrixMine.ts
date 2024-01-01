@@ -2,12 +2,12 @@
 import getGameSettingsData from "./getGameSettingsData";
 
 // Utils
-import getCellColumnIndex from "../utils/getCellColumnIndex";
-import getCellIndex from "../utils/getCellIndex";
+import getCellColumnIndex from "../../utils/getCellColumnIndex";
+import getCellIndex from "../../utils/getCellIndex";
 
 // Interface
-import { ICell } from "../interfaces/IRedux";
-import IGameSettings from "../interfaces/IGameSettings";
+import { ICell } from "../../interfaces/IRedux";
+import IGameSettings from "../../interfaces/IGameSettings";
 
 const getFieldMatrixMine = (fieldMatrix: ICell[][], serialNumber: number): ICell | undefined => {
   const { rowCellsQuantity } = getGameSettingsData() as IGameSettings;

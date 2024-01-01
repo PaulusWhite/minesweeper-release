@@ -2,7 +2,7 @@
 import IGameSettings from "../interfaces/IGameSettings";
 
 // Modules
-import getGameSettingsData from "./getGameSettingsData";
+import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./setGameSettingsData";
 
 const DEFAULT_GAME_SETTINGS_DATA: IGameSettings = {

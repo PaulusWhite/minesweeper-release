@@ -1,5 +1,5 @@
 // Modules
-import getGameSettingsData from "./getGameSettingsData";
+import getGameSettingsData from "./common/getGameSettingsData";
 import setMinesFieldGridStyle from "./setMinesFieldGridStyle";
 // Interfaces
 import IGameSettings from "../interfaces/IGameSettings";

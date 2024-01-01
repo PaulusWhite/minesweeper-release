@@ -1,5 +1,5 @@
 // Modules
-import getGameSettingsData from "./getGameSettingsData";
+import getGameSettingsData from "./common/getGameSettingsData";
 
 import getTargetCellAdjacentCells from "./common/getTargetCellAdjacentCells";
 // Utils

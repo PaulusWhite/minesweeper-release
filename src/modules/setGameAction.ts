@@ -6,9 +6,9 @@ import createMinesFieldMatrixAction from "../redux/actions,";
 
 // modules
 import createMinesFieldMatrix from "./createMinesFieldMatrix";
-import getGameSettingsData from "./getGameSettingsData";
+import getGameSettingsData from "./common/getGameSettingsData";
 import revealFreeCells from "./revealFreeCells";
-import getFieldMatrixMine from "./getFieldMatrixMine";
+import getFieldMatrixMine from "./common/getFieldMatrixMine";
 
 //Interfaces
 import IGameSettings from "../interfaces/IGameSettings";
