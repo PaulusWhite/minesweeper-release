@@ -1,26 +1,31 @@
-// // store
+//store
 import store from "../redux/createStore";
-// actions
+
+//actions
 import createMinesFieldMatrixAction from "../redux/actions,";
+
 // modules
 import createMinesFieldMatrix from "./createMinesFieldMatrix";
+import getGameSettingsData from "./getGameSettingsData";
+import revealFreeCells from "./revealFreeCells";
 import getFieldMatrixMine from "./getFieldMatrixMine";
-// interfaces
+
+//Interfaces
+import IGameSettings from "../interfaces/IGameSettings";
 import { ICell } from "../interfaces/IRedux";
-// import IOpenedCellData from "../interfaces/IOpenedCellData";
 
 const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
   const clickedCell: HTMLSpanElement = field.children[clickedCellIndex] as HTMLSpanElement;
+  const { rowCellsQuantity } = getGameSettingsData() as IGameSettings;
 
-  if (clickedCell.classList.contains("cell__open")) return;
+  if (clickedCell.classList.contains("cell__open") || clickedCell.classList.contains("cell__indicated")) return;
 
   clickedCell.classList.add("cell__open");
 
-  // const openedCellsData: IOpenedCellData[] = [];
-  const minesFieldMatrix: ICell[][] = store.getState().state;
+  const fieldMatrix: ICell[][] = store.getState().state;
+  const matrixCellData: ICell = getFieldMatrixMine(fieldMatrix, clickedCellIndex) as ICell;
 
-  const matrixCellData = getFieldMatrixMine(minesFieldMatrix, clickedCellIndex);
-  console.log(matrixCellData);
+  revealFreeCells(matrixCellData, fieldMatrix, rowCellsQuantity);
 };
 
 const setGameAction = () => {
