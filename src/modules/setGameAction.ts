@@ -2,13 +2,14 @@
 import store from "../redux/createStore";
 
 //actions
-import createMinesFieldMatrixAction from "../redux/actions,";
+import createMineFieldMatrixAction from "../redux/actions,";
 
 // modules
-import createMinesFieldMatrix from "./createMinesFieldMatrix";
+import createMineFieldMatrix from "./createMineFieldMatrix";
 import getGameSettingsData from "./common/getGameSettingsData";
 import revealFreeCells from "./revealFreeCells";
 import getFieldMatrixMine from "./common/getFieldMatrixMine";
+import revealAllCells from "./revealAllCells";
 
 //Interfaces
 import IGameSettings from "../interfaces/IGameSettings";
@@ -25,14 +26,19 @@ const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
   const fieldMatrix: ICell[][] = store.getState().state;
   const matrixCellData: ICell = getFieldMatrixMine(fieldMatrix, clickedCellIndex) as ICell;
 
+  if (matrixCellData.isMined) {
+    revealAllCells();
+    return;
+  }
+
   revealFreeCells(matrixCellData, fieldMatrix, rowCellsQuantity);
 };
 
 const setGameAction = () => {
-  const field: HTMLDivElement = document.querySelector(".field") as HTMLDivElement;
+  const mineField: HTMLDivElement = document.querySelector(".field") as HTMLDivElement;
   let isFirstCellClick: boolean = true; // indicator for creating mines matrix after first click
 
-  field.addEventListener("click", (Event: Event) => {
+  mineField.addEventListener("click", (Event: Event) => {
     const target: HTMLElement = Event.target as HTMLElement;
 
     if (target.closest(".cell")) {
@@ -41,11 +47,11 @@ const setGameAction = () => {
       if (isFirstCellClick) {
         isFirstCellClick = !isFirstCellClick;
 
-        const minesFieldMatrix = createMinesFieldMatrix(clickedCellIndex);
-        store.dispatch(createMinesFieldMatrixAction(minesFieldMatrix));
+        const mineFieldMatrix = createMineFieldMatrix(clickedCellIndex);
+        store.dispatch(createMineFieldMatrixAction(mineFieldMatrix));
       }
 
-      clickCell(field, clickedCellIndex);
+      clickCell(mineField, clickedCellIndex);
     }
   });
 };

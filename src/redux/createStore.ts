@@ -1,7 +1,7 @@
 // Interfaces
 import { IState, IAction } from "../interfaces/IRedux";
 // Modules
-// import createMinesFieldMatrix from "../modules/createMinesFieldMatrix";
+// import createMineFieldMatrix from "../modules/createMineFieldMatrix";
 // ActionTypes
 import { INIT } from "./actionTypes";
 // RootReducer

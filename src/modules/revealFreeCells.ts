@@ -40,11 +40,11 @@ const revealNextCells = (revealNextCellsData: IRevealNextCellsData): Map<number,
 };
 
 const revealFreeCells = (cell: ICell, fieldMatrix: ICell[][], rowCellsQuantity: number) => {
-  const minesField: HTMLDivElement = document.querySelector(".field") as HTMLDivElement;
+  const mineField: HTMLDivElement = document.querySelector(".field") as HTMLDivElement;
   const revealedNextCellsMap: Map<number, ICell> = revealNextCells({ cell, fieldMatrix, rowCellsQuantity });
 
   revealedNextCellsMap.forEach((cellData: ICell, serialNumber: number) => {
-    const fieldCell: HTMLSpanElement = minesField.children[serialNumber] as HTMLSpanElement;
+    const fieldCell: HTMLSpanElement = mineField.children[serialNumber] as HTMLSpanElement;
 
     if (cellData.isOpened) {
       fieldCell.classList.add("cell__open");

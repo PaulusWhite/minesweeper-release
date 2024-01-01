@@ -8,7 +8,7 @@ import getCellIndex from "../utils/getCellIndex";
 
 // Interfaces
 import IGameSettings from "../interfaces/IGameSettings";
-import IMinedCelslListData from "../interfaces/ICreateMinesFieldMatrix";
+import IMinedCelslListData from "../interfaces/ICreateMineFieldMatrix";
 import { ICell } from "../interfaces/IRedux";
 
 const getMinedCellsList = (minedCellsListData: IMinedCelslListData): number[] => {
@@ -48,14 +48,14 @@ const setCellsNextMinesQuantity = (fieldMatrix: ICell[][]) => {
   return fieldMatrix;
 };
 
-const createMinesFieldMatrix = (firstClickCellIndex: number): ICell[][] => {
+const createMineFieldMatrix = (firstClickCellIndex: number): ICell[][] => {
   const gameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
   const { rowCellsQuantity, columnCellsQuantity, minesQuantity } = gameSettingsData;
   const totalCellsQuantity: number = rowCellsQuantity * columnCellsQuantity;
 
   const minedCellsList: number[] = getMinedCellsList({ minesQuantity, totalCellsQuantity, firstClickCellIndex });
 
-  let minesFieldMatrix: ICell[][] = [] as ICell[][];
+  let mineFieldMatrix: ICell[][] = [] as ICell[][];
 
   for (let i = 0; i < columnCellsQuantity; i++) {
     const columnArr: ICell[] = [];
@@ -76,12 +76,12 @@ const createMinesFieldMatrix = (firstClickCellIndex: number): ICell[][] => {
       columnArr.push(cellObj);
     }
 
-    minesFieldMatrix.push(columnArr);
+    mineFieldMatrix.push(columnArr);
   }
 
-  minesFieldMatrix = setCellsNextMinesQuantity(minesFieldMatrix);
+  mineFieldMatrix = setCellsNextMinesQuantity(mineFieldMatrix);
 
-  return minesFieldMatrix;
+  return mineFieldMatrix;
 };
 
-export default createMinesFieldMatrix;
+export default createMineFieldMatrix;

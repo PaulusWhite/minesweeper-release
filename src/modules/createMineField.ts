@@ -1,22 +1,22 @@
 // Modules
 import getGameSettingsData from "./common/getGameSettingsData";
-import setMinesFieldGridStyle from "./setMinesFieldGridStyle";
+import setMineFieldGridStyle from "./setMineFieldGridStyle";
 // Interfaces
 import IGameSettings from "../interfaces/IGameSettings";
 // Components
 import Cell from "../components/Cell";
 
-const createMinesField = () => {
+const createMineField = () => {
   const gameSettingsData = getGameSettingsData() as IGameSettings;
   const { rowCellsQuantity, columnCellsQuantity } = gameSettingsData;
   const totalCells = gameSettingsData.columnCellsQuantity * gameSettingsData.rowCellsQuantity;
-  const field: HTMLDivElement = document.querySelector(".field") as HTMLDivElement;
+  const mineField: HTMLDivElement = document.querySelector(".field") as HTMLDivElement;
 
   for (let i = 0; i < totalCells; i++) {
-    field.innerHTML += Cell(i);
+    mineField.innerHTML += Cell(i);
   }
 
-  setMinesFieldGridStyle(rowCellsQuantity, columnCellsQuantity);
+  setMineFieldGridStyle(rowCellsQuantity, columnCellsQuantity);
 };
 
-export default createMinesField;
+export default createMineField;

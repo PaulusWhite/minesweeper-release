@@ -9,8 +9,8 @@ const rootReducer = <T>(state: IState, action: IAction<T>): IState => {
     return state;
   }
   if (action.type === CREATE_MINES_FIELD_MATRIX) {
-    const minesFieldMatrix: ICell[][] = action.payload as ICell[][];
-    state.state = minesFieldMatrix;
+    const mineFieldMatrix: ICell[][] = action.payload as ICell[][];
+    state.state = mineFieldMatrix;
   }
 
   return state;
