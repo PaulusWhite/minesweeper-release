@@ -12,6 +12,7 @@ import getFieldMatrixMine from "./common/getFieldMatrixMine";
 import revealAllCells from "./revealAllCells";
 import checkIsPlayWon from "./checkIsPlayWon";
 import setCellFlag from "./setCellFlag";
+import setMovesCounterValue from "./setMovesCounterValue";
 
 //Interfaces
 import IGameSettings from "../interfaces/IGameSettings";
@@ -30,6 +31,8 @@ const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
 
   const fieldMatrix: ICell[][] = store.getState().state;
   const matrixCellData: ICell = getFieldMatrixMine(fieldMatrix, clickedCellIndex) as ICell;
+
+  setMovesCounterValue();
 
   if (matrixCellData.isMined) {
     revealAllCells("cell__mined");
