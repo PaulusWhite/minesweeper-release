@@ -7,6 +7,7 @@ button {
   outline: none;
   background: none;
 }
+//
 
 body {
   min-height: 100vh;
@@ -39,10 +40,16 @@ body {
       justify-content: center;
       width: 100%;
 
+      .info-field__restart-btn,
+      .info-field__settings-btn {
+        cursor: pointer;
+      }
+
       .info-field__indicator {
         display: block;
-        max-width: 5rem;
+        max-width: 7rem;
         width: 100%;
+        margin: 0.5rem 0.7rem;
         padding: 0.5rem;
         text-align: center;
       }
@@ -79,9 +86,9 @@ body {
 }
 
 .cell__mined-revealed {
-  background-color: rgb(119, 50, 50)
+  background-color: rgb(119, 50, 50);
 }
 
-.cell__flagged{
+.cell__flagged {
   background-color: rgb(238, 135, 152);
 }

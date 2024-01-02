@@ -9,6 +9,7 @@ const InfoField = () => {
       </span>
 
       <button class="info-field__restart-btn info-field__indicator">restart</button>
+      <button class="info-field__settings-btn info-field__indicator">Settings</button>
     </div>
 
     <div class="info_field__game-info">
