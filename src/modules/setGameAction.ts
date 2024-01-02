@@ -11,6 +11,7 @@ import revealFreeCells from "./revealFreeCells";
 import getFieldMatrixMine from "./common/getFieldMatrixMine";
 import revealAllCells from "./revealAllCells";
 import checkIsPlayWon from "./checkIsPlayWon";
+import setCellFlag from "./setCellFlag";
 
 //Interfaces
 import IGameSettings from "../interfaces/IGameSettings";
@@ -47,16 +48,31 @@ const setGameAction = () => {
     const target: HTMLElement = Event.target as HTMLElement;
 
     if (target.closest(".cell")) {
+      if (target.classList.contains("cell__flagged")) return;
+
       const clickedCellIndex: number = +(target.dataset.cellIndex as string);
 
       if (isFirstCellClick) {
         isFirstCellClick = !isFirstCellClick;
 
-        const mineFieldMatrix = createMineFieldMatrix(clickedCellIndex);
+        const mineFieldMatrix: ICell[][] = createMineFieldMatrix(clickedCellIndex);
         store.dispatch(createMineFieldMatrixAction(mineFieldMatrix));
       }
 
       clickCell(mineField, clickedCellIndex);
+    }
+  });
+
+  mineField.addEventListener("contextmenu", (Event) => {
+    Event.preventDefault();
+
+    const target: HTMLElement = Event.target as HTMLElement;
+
+    if (target.closest(".cell")) {
+      if (target.classList.contains("cell__open") || target.classList.contains("cell__indicated")) return;
+
+      const clickedCellIndex: number = +(target.dataset.cellIndex as string);
+      setCellFlag(mineField, clickedCellIndex);
     }
   });
 };

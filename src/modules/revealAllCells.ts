@@ -15,6 +15,8 @@ const revealAllCells = (minedCellStyle: "cell__mined" | "cell__mined-revealed") 
     cellsColumn.forEach((cell: ICell) => {
       const fieldCell: HTMLSpanElement = mineField.children[cell.serialNumber] as HTMLSpanElement;
 
+      fieldCell.classList.remove("cell__flagged");
+
       if (cell.isMined) {
         fieldCell.classList.add(minedCellStyle);
       } else if (cell.minesAround !== 0 && !cell.isMined) {

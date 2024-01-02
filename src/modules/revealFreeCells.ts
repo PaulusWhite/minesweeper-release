@@ -43,11 +43,13 @@ const revealNextCells = (revealNextCellsData: IRevealNextCellsData): Map<number,
 };
 
 const revealFreeCells = (cell: ICell, fieldMatrix: ICell[][], rowCellsQuantity: number) => {
-  const mineField: HTMLDivElement = getMineFieldHTMLNode()
+  const mineField: HTMLDivElement = getMineFieldHTMLNode();
   const revealedNextCellsMap: Map<number, ICell> = revealNextCells({ cell, fieldMatrix, rowCellsQuantity });
 
   revealedNextCellsMap.forEach((cellData: ICell, serialNumber: number) => {
     const fieldCell: HTMLSpanElement = mineField.children[serialNumber] as HTMLSpanElement;
+
+    if (fieldCell.classList.contains("cell__flagged")) return;
 
     if (cellData.isOpened) {
       fieldCell.classList.add("cell__open");
