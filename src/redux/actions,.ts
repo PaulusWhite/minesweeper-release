@@ -1,7 +1,7 @@
-// actions types
+//actions types
 import { CREATE_MINES_FIELD_MATRIX } from "./actionTypes";
 
-// Interfaces
+//Interfaces
 import { ICell, IAction } from "../interfaces/IRedux";
 
 const createMineFieldMatrixAction = <T>(mineFieldMatrix: ICell[][]): IAction<T> => ({

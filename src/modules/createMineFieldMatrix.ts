@@ -1,12 +1,12 @@
-// Modules
+//Modules
 import getGameSettingsData from "./common/getGameSettingsData";
-
 import getTargetCellAdjacentCells from "./common/getTargetCellAdjacentCells";
-// Utils
+
+//Utils
 import getCellColumnIndex from "../utils/getCellColumnIndex";
 import getCellIndex from "../utils/getCellIndex";
 
-// Interfaces
+//Interfaces
 import IGameSettings from "../interfaces/IGameSettings";
 import IMinedCelslListData from "../interfaces/ICreateMineFieldMatrix";
 import { ICell } from "../interfaces/IRedux";
@@ -17,10 +17,10 @@ const getMinedCellsList = (minedCellsListData: IMinedCelslListData): number[] =>
   while (minedCellsList.length < minedCellsListData.minesQuantity) {
     const minValue: number = 0;
     const maxValue: number = minedCellsListData.totalCellsQuantity;
-
     const serialNumber: number = Math.floor(Math.random() * (maxValue - minValue) + minValue);
 
     if (serialNumber === minedCellsListData.firstClickCellIndex) continue;
+
     if (minedCellsList.indexOf(serialNumber) === -1) minedCellsList.push(serialNumber);
   }
 
@@ -52,9 +52,7 @@ const createMineFieldMatrix = (firstClickCellIndex: number): ICell[][] => {
   const gameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
   const { rowCellsQuantity, columnCellsQuantity, minesQuantity } = gameSettingsData;
   const totalCellsQuantity: number = rowCellsQuantity * columnCellsQuantity;
-
   const minedCellsList: number[] = getMinedCellsList({ minesQuantity, totalCellsQuantity, firstClickCellIndex });
-
   let mineFieldMatrix: ICell[][] = [] as ICell[][];
 
   for (let i = 0; i < columnCellsQuantity; i++) {

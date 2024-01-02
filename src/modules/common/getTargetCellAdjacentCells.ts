@@ -1,10 +1,10 @@
 //Interfaces
 import { ICell } from "../../interfaces/IRedux";
 
-// Modules
+//Modules
 import getFieldMatrixMine from "./getFieldMatrixMine";
 
-// Utils
+//Utils
 import getCellColumnIndex from "../../utils/getCellColumnIndex";
 
 const isNextCellValid = (nextCellsColumn: ICell[] | undefined, nextCell: ICell | undefined): boolean => {
@@ -22,7 +22,7 @@ const getTargetCellAdjacentCells = (cell: ICell, fieldMatrix: ICell[][], rowCell
   for (let i = -1; i <= 1; i++) {
     const topNextCell: ICell | undefined = getFieldMatrixMine(fieldMatrix, cell.serialNumber - rowCellsQuantity + i);
     const bottomNextCell: ICell | undefined = getFieldMatrixMine(fieldMatrix, cell.serialNumber + rowCellsQuantity + i);
-
+    
     const prevCellsColumn: ICell[] = fieldMatrix[cellColumnIndex - 1];
     const nextCellsColumn: ICell[] = fieldMatrix[cellColumnIndex + 1];
 

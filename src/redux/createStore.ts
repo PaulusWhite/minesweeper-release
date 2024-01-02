@@ -1,10 +1,10 @@
-// Interfaces
+//Interfaces
 import { IState, IAction } from "../interfaces/IRedux";
-// Modules
-// import createMineFieldMatrix from "../modules/createMineFieldMatrix";
-// ActionTypes
+
+//ActionTypes
 import { INIT } from "./actionTypes";
-// RootReducer
+
+//RootReducer
 import rootReducer from "./rootReducer";
 
 const createStore = () => {

@@ -1,4 +1,4 @@
-// Components
+//Components
 import GameWindow from "../components/GameWindow";
 
 const setBasicLayout = () => {

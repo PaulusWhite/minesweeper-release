@@ -3,18 +3,15 @@ const InfoField = () => {
   <div class="info-field">
 
     <div class="info-field__level-info">
-
       <span class="info-field__bombs-info info-field__indicator">
         <span class="info-field__bomb-icon"></span>
         <span class="info-field__bombs-quantity"></span>
       </span>
 
       <button class="info-field__restart-btn info-field__indicator">restart</button>
-      
     </div>
 
     <div class="info_field__game-info">
-
       <span class="info-field__time-counter info-field__indicator">
         <span class="info-field__time-counter-icon"></span>
         <span class="info-field__time-counter-value"></span>
@@ -29,9 +26,8 @@ const InfoField = () => {
         <span class="info-field__flags-counter-icon"></span>
         <span class="info-field__flags-counter-value"></span>
       </span>
-
     </div>
-
+    
   </div>
   `;
 

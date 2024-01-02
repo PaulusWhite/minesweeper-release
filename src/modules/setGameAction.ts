@@ -4,7 +4,7 @@ import store from "../redux/createStore";
 //actions
 import createMineFieldMatrixAction from "../redux/actions,";
 
-// modules
+//Modules
 import createMineFieldMatrix from "./createMineFieldMatrix";
 import getGameSettingsData from "./common/getGameSettingsData";
 import revealFreeCells from "./revealFreeCells";
@@ -59,6 +59,7 @@ const setGameAction = () => {
         isFirstCellClick = !isFirstCellClick;
 
         const mineFieldMatrix: ICell[][] = createMineFieldMatrix(clickedCellIndex);
+
         store.dispatch(createMineFieldMatrixAction(mineFieldMatrix));
       }
 
@@ -75,6 +76,7 @@ const setGameAction = () => {
       if (target.classList.contains("cell__open") || target.classList.contains("cell__indicated")) return;
 
       const clickedCellIndex: number = +(target.dataset.cellIndex as string);
+
       setCellFlag(mineField, clickedCellIndex);
     }
   });

@@ -1,11 +1,11 @@
-// Modules
+//Modules
 import getGameSettingsData from "./getGameSettingsData";
 
-// Utils
+//Utils
 import getCellColumnIndex from "../../utils/getCellColumnIndex";
 import getCellIndex from "../../utils/getCellIndex";
 
-// Interface
+//Interface
 import { ICell } from "../../interfaces/IRedux";
 import IGameSettings from "../../interfaces/IGameSettings";
 

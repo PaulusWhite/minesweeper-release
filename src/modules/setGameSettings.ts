@@ -1,7 +1,7 @@
 //interfaces
 import IGameSettings from "../interfaces/IGameSettings";
 
-// Modules
+//Modules
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./setGameSettingsData";
 

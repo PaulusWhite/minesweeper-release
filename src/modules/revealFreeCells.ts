@@ -1,7 +1,7 @@
-// Modules
+//Modules
 import getTargetCellAdjacentCells from "./common/getTargetCellAdjacentCells";
 
-// Interfaces
+//Interfaces
 import { ICell } from "../interfaces/IRedux";
 import IRevealNextCellsData from "../interfaces/IClickActions";
 
@@ -17,7 +17,7 @@ const revealNextCells = (revealNextCellsData: IRevealNextCellsData): Map<number,
   } else {
     cell.isOpened = true;
     revealedNextCellsMap.set(cell.serialNumber, cell);
-
+    
     const adjacentCells: ICell[] = getTargetCellAdjacentCells(cell, fieldMatrix, rowCellsQuantity);
     const adjacentCellsMap: Map<number, ICell> = new Map();
 

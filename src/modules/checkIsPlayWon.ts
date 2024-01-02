@@ -4,7 +4,7 @@ import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
 //Interfaces
 import IGameSettings from "../interfaces/IGameSettings";
 
-// Modules
+//Modules
 import getGameSettingsData from "./common/getGameSettingsData";
 import revealAllCells from "./revealAllCells";
 
