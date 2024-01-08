@@ -1,8 +1,6 @@
 const DifficultySettingsSection = () => {
   const view = `
     <section class="difficulty-settings">
-      <button class="difficulty-settings__btn">game difficulty</button>
-
       <table class="difficulty-settings__table">
 
         <tr class="values-names-list">

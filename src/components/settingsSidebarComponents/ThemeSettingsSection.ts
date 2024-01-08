@@ -3,13 +3,13 @@ const ThemeSettingsSection = () => {
     <section class="theme-settings">
       <button class="theme-settings__btn">game theme</button>
 
-      <div class="themes-list">
-        <span class="themes-list__default theme"></span>
-        <span class="themes-list__construction theme"></span>
-        <span class="themes-list__nature theme"></span>
-        <span class="themes-list__weather theme"></span>
-        <span class="themes-list__sea theme"></span>
-      </div>
+      <ul class="themes-list">
+        <li class="themes-list__default theme"></li>
+        <li class="themes-list__construction theme"></li>
+        <li class="themes-list__nature theme"></li>
+        <li class="themes-list__weather theme"></li>
+        <li class="themes-list__sea theme"></li>
+      </ul>
     </section>
   `;
 
