@@ -1,4 +1,4 @@
-import CloseBtn from "./CloseBtn";
+import CloseBtn from "./common/CloseBtn";
 
 const SettingsSidebar = () => {
   const view = `
