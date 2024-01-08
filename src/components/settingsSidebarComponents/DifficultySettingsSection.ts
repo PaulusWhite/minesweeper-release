@@ -1,6 +1,9 @@
+//Components
+import CloseBtn from "../common/CloseBtn";
+
 const DifficultySettingsSection = () => {
   const view = `
-    <section class="difficulty-settings">
+    <section class="difficulty-settings settings-section">
       <table class="difficulty-settings__table">
 
         <tr class="values-names-list">
@@ -59,6 +62,7 @@ const DifficultySettingsSection = () => {
       </table>
 
       <button class="difficulty-settings__apply-btn">Save</button>
+      ${CloseBtn("difficulty-settings__close-btn")}
     </section>
   `;
 
