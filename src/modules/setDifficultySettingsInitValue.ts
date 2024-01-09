@@ -4,7 +4,7 @@ import getGameSettingsData from "./common/getGameSettingsData";
 //Interfaces
 import IGameSettings from "../interfaces/IGameSettings";
 
-const setDifficultySettingsValue = () => {
+const setDifficultySettingsInitValue = () => {
   const { difficulty } = getGameSettingsData() as IGameSettings;
   const { lvlValue } = difficulty;
 
@@ -15,4 +15,4 @@ const setDifficultySettingsValue = () => {
   });
 };
 
-export default setDifficultySettingsValue;
+export default setDifficultySettingsInitValue;

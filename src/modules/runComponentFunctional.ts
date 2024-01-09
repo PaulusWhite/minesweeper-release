@@ -1,9 +1,9 @@
 //Modules
-import setDifficultySettingsValue from "./setDifficultySettingsValue";
+import setDifficultySettingsInitValue from "./setDifficultySettingsInitValue";
 
 const runComponentFunctional = (url: "/difficulty" | "/save" | "/load" | "/theme") => {
   if (url === "/difficulty") {
-    setDifficultySettingsValue();
+    setDifficultySettingsInitValue();
   }
 };
 
