@@ -126,6 +126,7 @@ body {
   background-color: rgb(238, 135, 152);
 }
 //
+
 .settings-section {
   position: absolute;
   top: 0;
@@ -137,6 +138,17 @@ body {
   height: 100vh;
 
   background-color: white;
+}
+
+.difficulty-settings {
+  display: flex;
+  flex-direction: column;
+
+  .difficulty-settings__apply-btn {
+    margin-top: 3rem;
+    font-size: 2rem;
+    cursor: pointer;
+  }
 }
 
 //Common components

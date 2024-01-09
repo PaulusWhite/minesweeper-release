@@ -8,9 +8,9 @@ const DifficultySettingsSection = () => {
 
         <tr class="values-names-list">
           <th class="values-names-list__value-name empty-value-name"></th>
-          <th class="values-names-list__value-name>cells in width</th>
-          <th class="values-names-list__value-name>cells in height</th>
-          <th class="values-names-list__value-name>mines quantity</th>
+          <th class="values-names-list__value-name">cells in width</th>
+          <th class="values-names-list__value-name">cells in height</th>
+          <th class="values-names-list__value-name">mines quantity</th>
         </tr>
 
         <tr class="easy-lvl">
@@ -46,7 +46,7 @@ const DifficultySettingsSection = () => {
         <tr class="custom-lvl">
           <th class="custom-lvl__difficulty-lvl-name">
             <input type="radio" name="difficulty" id="custom">
-            <label for="difficulty">Expert</label>
+            <label for="difficulty">Custom</label>
           </th>
           <th class="custom-lvl__row-cells-value">
             <input type="number" id="custom-lvl__row-cells-custom-value">
