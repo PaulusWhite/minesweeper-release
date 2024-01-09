@@ -7,7 +7,7 @@ import setGameSettingsData from "./setGameSettingsData";
 
 const DEFAULT_GAME_SETTINGS_DATA: IGameSettings = {
   difficulty: {
-    lvlValue: "custom",
+    lvlValue: "easy-lvl",
     rowCellsQuantity: 10,
     columnCellsQuantity: 10,
     minesQuantity: 10,

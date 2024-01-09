@@ -9,6 +9,7 @@ import IRouter from "./interfaces/IRouter";
 
 //Modules
 import runGameFunctional from "./modules/runGameFunctional";
+import runComponentFunctional from "./modules/runComponentFunctional";
 
 const removeSettingsSection = () => {
   const settingsSection: HTMLElement | null = document.querySelector(".settings-section");
@@ -43,6 +44,7 @@ const router = () => {
       removeSettingsSection();
       document.body.innerHTML += route.view;
       closeSettingsSection();
+      runComponentFunctional(route.path);
     }
   });
 
