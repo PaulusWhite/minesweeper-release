@@ -28,7 +28,8 @@ const getMinedCellsList = (minedCellsListData: IMinedCelslListData): number[] =>
 };
 
 const setCellsNextMinesQuantity = (fieldMatrix: ICell[][]) => {
-  const { rowCellsQuantity } = getGameSettingsData() as IGameSettings;
+  const gameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
+  const { rowCellsQuantity } = gameSettingsData.difficulty;
 
   fieldMatrix.forEach((cellsColumn: ICell[]) => {
     cellsColumn.forEach((cell: ICell) => {
@@ -50,7 +51,7 @@ const setCellsNextMinesQuantity = (fieldMatrix: ICell[][]) => {
 
 const createMineFieldMatrix = (firstClickCellIndex: number): ICell[][] => {
   const gameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
-  const { rowCellsQuantity, columnCellsQuantity, minesQuantity } = gameSettingsData;
+  const { rowCellsQuantity, columnCellsQuantity, minesQuantity } = gameSettingsData.difficulty;
   const totalCellsQuantity: number = rowCellsQuantity * columnCellsQuantity;
   const minedCellsList: number[] = getMinedCellsList({ minesQuantity, totalCellsQuantity, firstClickCellIndex });
   let mineFieldMatrix: ICell[][] = [] as ICell[][];

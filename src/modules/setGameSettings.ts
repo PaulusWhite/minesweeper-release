@@ -6,9 +6,12 @@ import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./setGameSettingsData";
 
 const DEFAULT_GAME_SETTINGS_DATA: IGameSettings = {
-  rowCellsQuantity: 10,
-  columnCellsQuantity: 10,
-  minesQuantity: 10,
+  difficulty: {
+    lvlValue: "custom",
+    rowCellsQuantity: 10,
+    columnCellsQuantity: 10,
+    minesQuantity: 10,
+  },
   iconsStyle: "default",
 };
 

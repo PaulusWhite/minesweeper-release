@@ -12,9 +12,9 @@ import Cell from "../components/Cell";
 import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
 
 const createMineField = () => {
-  const gameSettingsData = getGameSettingsData() as IGameSettings;
-  const { rowCellsQuantity, columnCellsQuantity } = gameSettingsData;
-  const totalCells = gameSettingsData.columnCellsQuantity * gameSettingsData.rowCellsQuantity;
+  const gameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
+  const { columnCellsQuantity, rowCellsQuantity } = gameSettingsData.difficulty;
+  const totalCells = columnCellsQuantity * rowCellsQuantity;
   const mineField: HTMLDivElement = getMineFieldHTMLNode();
 
   for (let i = 0; i < totalCells; i++) {

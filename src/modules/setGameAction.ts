@@ -23,7 +23,7 @@ import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
 
 const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
   const clickedCell: HTMLSpanElement = field.children[clickedCellIndex] as HTMLSpanElement;
-  const { rowCellsQuantity } = getGameSettingsData() as IGameSettings;
+  const { difficulty } = getGameSettingsData() as IGameSettings;
 
   if (clickedCell.classList.contains("cell__open") || clickedCell.classList.contains("cell__indicated")) return;
 
@@ -39,7 +39,7 @@ const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
     return;
   }
 
-  revealFreeCells(matrixCellData, fieldMatrix, rowCellsQuantity);
+  revealFreeCells(matrixCellData, fieldMatrix, difficulty.rowCellsQuantity);
   checkIsPlayWon();
 };
 

@@ -14,7 +14,7 @@ const showWinMessage = () => {
 
 const checkIsPlayWon = () => {
   const mineField: HTMLDivElement = getMineFieldHTMLNode();
-  const { minesQuantity } = getGameSettingsData() as IGameSettings;
+  const { difficulty } = getGameSettingsData() as IGameSettings;
   let remainedCellsQuantity: number = 0;
 
   [].forEach.call(mineField.children, (fieldCell) => {
@@ -24,7 +24,7 @@ const checkIsPlayWon = () => {
     if (cell.classList.length === 1) remainedCellsQuantity++;
   });
 
-  if (remainedCellsQuantity === minesQuantity) {
+  if (remainedCellsQuantity === difficulty.minesQuantity) {
     revealAllCells("cell__mined-revealed");
     showWinMessage();
   }
