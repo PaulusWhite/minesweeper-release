@@ -1,5 +1,5 @@
 //interfaces
-import IGameSettings from "../interfaces/IGameSettings";
+import { IGameSettings } from "../interfaces/IGameSettings";
 
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";
@@ -12,7 +12,7 @@ const DEFAULT_GAME_SETTINGS_DATA: IGameSettings = {
     columnCellsQuantity: 10,
     minesQuantity: 10,
   },
-  iconsStyle: "default",
+  theme: "default",
 };
 
 const setGameSettings = () => {

@@ -1,5 +1,5 @@
 //Interfaces
-import IGameSettings from "../interfaces/IGameSettings";
+import { IGameSettings } from "../interfaces/IGameSettings";
 
 const GAME_SETTINGS_DATA_NAME = "game-settings-data";
 

@@ -3,7 +3,7 @@ import getGameSettingsData from "./common/getGameSettingsData";
 import setMineFieldGridStyle from "./setMineFieldGridStyle";
 
 //Interfaces
-import IGameSettings from "../interfaces/IGameSettings";
+import { IGameSettings } from "../interfaces/IGameSettings";
 
 //Components
 import Cell from "../components/Cell";

@@ -7,7 +7,7 @@ import getCellIndex from "../../utils/getCellIndex";
 
 //Interface
 import { ICell } from "../../interfaces/IRedux";
-import IGameSettings from "../../interfaces/IGameSettings";
+import { IGameSettings } from "../../interfaces/IGameSettings";
 
 const getFieldMatrixMine = (fieldMatrix: ICell[][], serialNumber: number): ICell | undefined => {
   const { difficulty } = getGameSettingsData() as IGameSettings;

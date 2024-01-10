@@ -7,7 +7,7 @@ import getCellColumnIndex from "../utils/getCellColumnIndex";
 import getCellIndex from "../utils/getCellIndex";
 
 //Interfaces
-import IGameSettings from "../interfaces/IGameSettings";
+import { IGameSettings } from "../interfaces/IGameSettings";
 import IMinedCelslListData from "../interfaces/ICreateMineFieldMatrix";
 import { ICell } from "../interfaces/IRedux";
 

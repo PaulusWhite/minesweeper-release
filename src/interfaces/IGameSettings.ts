@@ -23,12 +23,20 @@ interface ICustomLvl {
   rowCellsQuantity: number;
   columnCellsQuantity: number;
   minesQuantity: number;
-  lvlValue: "custom";
+  lvlValue: "custom-lvl";
 }
 
 interface IGameSettings {
-  iconsStyle: "default" | "construction" | "nature" | "weather" | "sea";
+  theme: "default" | "construction" | "nature" | "weather" | "sea";
   difficulty: IEasyLvl | IMediumLvl | IHardLvl | ICustomLvl;
 }
 
-export default IGameSettings;
+interface IDifficultySettingsData {
+  "easy-lvl": IEasyLvl;
+  "medium-lvl": IMediumLvl;
+  "hard-lvl": IHardLvl;
+}
+
+type TDifficultyLvl = IEasyLvl | IMediumLvl | IHardLvl | ICustomLvl;
+
+export { IGameSettings, IDifficultySettingsData, IEasyLvl, IMediumLvl, IHardLvl, TDifficultyLvl };

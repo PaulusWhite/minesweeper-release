@@ -16,7 +16,7 @@ const DifficultySettingsSection = () => {
         <tr class="easy-lvl">
           <th class="easy-lvl__difficulty-lvl-name">
             <input type="radio" name="difficulty" id="easy-lvl">
-            <label for="difficulty">Beginner</label>
+            <label for="easy-lvl">Beginner</label>
           </th>
           <th class="easy-lvl__row-cells-value">10</th>
           <th class="easy-lvl__column-cells-value">10</th>
@@ -26,7 +26,7 @@ const DifficultySettingsSection = () => {
         <tr class="medium-lvl">
           <th class="medium-lvl__difficulty-lvl-name">
             <input type="radio" name="difficulty" id="medium-lvl">
-            <label for="difficulty">Intermediate</label>
+            <label for="medium-lvl">Intermediate</label>
           </th>
           <th class="medium-lvl__row-cells-value">15</th>
           <th class="medium-lvl__column-cells-value">15</th>
@@ -35,8 +35,8 @@ const DifficultySettingsSection = () => {
 
         <tr class="hard-lvl">
           <th class="hard-lvl__difficulty-lvl-name">
-            <input type="radio" name="difficulty" id="hard">
-            <label for="difficulty">Expert</label>
+            <input type="radio" name="difficulty" id="hard-lvl">
+            <label for="hard-lvl">Expert</label>
           </th>
           <th class="hard-lvl__row-cells-value">25</th>
           <th class="hard-lvl__column-cells-value">25</th>
@@ -45,17 +45,17 @@ const DifficultySettingsSection = () => {
 
         <tr class="custom-lvl">
           <th class="custom-lvl__difficulty-lvl-name">
-            <input type="radio" name="difficulty" id="custom">
-            <label for="difficulty">Custom</label>
+            <input type="radio" name="difficulty" id="custom-lvl">
+            <label for="custom-lvl">Custom</label>
           </th>
           <th class="custom-lvl__row-cells-value">
-            <input type="number" id="custom-lvl__row-cells-custom-value">
+            <input class="custom-lvl__input-number" id="custom-lvl__row-cells-custom-value">
           </th>
           <th class="custom-lvl__column-cells-value">
-            <input type="number" id="custom-lvl__width-cells-custom-value">
+            <input class="custom-lvl__input-number" id="custom-lvl__width-cells-custom-value">
           </th>
           <th class="custom-lvl__mines-quantity-value">
-            <input type="number" id="custom-lvl__mines-quantity-custom-value">
+            <input class="custom-lvl__input-number" id="custom-lvl__mines-quantity-custom-value">
           </th>
         </tr>
 

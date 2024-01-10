@@ -2,7 +2,7 @@
 import getGameSettingsData from "./common/getGameSettingsData";
 
 //Interfaces
-import IGameSettings from "../interfaces/IGameSettings";
+import { IGameSettings } from "../interfaces/IGameSettings";
 
 const setInitInfoFieldData = () => {
   const gameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;

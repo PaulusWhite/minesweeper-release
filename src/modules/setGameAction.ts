@@ -15,7 +15,7 @@ import setCellFlag from "./setCellFlag";
 import setMovesCounterValue from "./setMovesCounterValue";
 
 //Interfaces
-import IGameSettings from "../interfaces/IGameSettings";
+import { IGameSettings } from "../interfaces/IGameSettings";
 import { ICell } from "../interfaces/IRedux";
 
 //Utils
