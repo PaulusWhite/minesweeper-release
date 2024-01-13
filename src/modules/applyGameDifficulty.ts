@@ -1,10 +1,21 @@
+// //Store
+// import store from "../redux/createStore";
+
 //Interfaces
-import { IDifficultySettingsData, IEasyLvl, IMediumLvl, IHardLvl, TDifficultyLvl } from "../interfaces/IGameSettings";
+import { IDifficultySettingsData, IEasyLvl, IMediumLvl, IHardLvl, TDifficultyLvl, ICustomLvl } from "../interfaces/IGameSettings";
 import { IGameSettings } from "../interfaces/IGameSettings";
+// import { ICell } from "../interfaces/IRedux";
 
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./setGameSettingsData";
+import createMineField from "./createMineField";
+import setInitInfoFieldData from "./setInitInfoFieldData";
+
+const MAX_CELLS_QUANTITY = 1600;
+const MIN_CELLS_QUANTITY_IN_DIRECTION = 5;
+const MIN_MINES_QUANTITY = 10;
+const MAX_MINES_PRECENT_OF_THE_CELLS = 70;
 
 const DIFFICULTY_LEVELS_DATA: IDifficultySettingsData = {
   "easy-lvl": {
@@ -27,6 +38,11 @@ const DIFFICULTY_LEVELS_DATA: IDifficultySettingsData = {
   },
 };
 
+const rerenderMinesField = () => {
+  createMineField();
+  setInitInfoFieldData();
+};
+
 const setDifficultySettingsData = (newDifficultyLvl: TDifficultyLvl) => {
   const currentGameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
   const { theme } = currentGameSettingsData;
@@ -37,6 +53,51 @@ const setDifficultySettingsData = (newDifficultyLvl: TDifficultyLvl) => {
   };
 
   setGameSettingsData(newGameSettingsData);
+  rerenderMinesField();
+};
+
+const getNewCustomDifficultyLvlData = (): ICustomLvl | null => {
+  const widthCellsInput: HTMLInputElement = document.querySelector("#custom-lvl__row-cells-custom-value") as HTMLInputElement;
+  const heightCellsInput: HTMLInputElement = document.querySelector("#custom-lvl__width-cells-custom-value") as HTMLInputElement;
+  const minesInput: HTMLInputElement = document.querySelector("#custom-lvl__mines-quantity-custom-value") as HTMLInputElement;
+
+  const widthCellsQuantity: number = +widthCellsInput.value;
+  const heightCellsQuantity: number = +heightCellsInput.value;
+  const minesQuantity: number = +minesInput.value;
+
+  let newDifficultyLvl: ICustomLvl | null = null;
+
+  const totalCellsQuantity: number = widthCellsQuantity * heightCellsQuantity;
+  const minesPrecentOfCells: number = (minesQuantity * 100) / totalCellsQuantity; // 100 is procent
+
+  if (widthCellsQuantity * heightCellsQuantity > MAX_CELLS_QUANTITY) {
+    alert("Max cells quantity can be no more than 1600");
+    return newDifficultyLvl;
+  }
+
+  if (widthCellsQuantity < MIN_CELLS_QUANTITY_IN_DIRECTION || heightCellsQuantity < MIN_CELLS_QUANTITY_IN_DIRECTION) {
+    alert("Min cells quantity in any direction can not be less than 5");
+    return newDifficultyLvl;
+  }
+
+  if (minesQuantity < MIN_MINES_QUANTITY) {
+    alert("MIN Mines quantity can not be less than 10");
+    return newDifficultyLvl;
+  }
+
+  if (minesPrecentOfCells > MAX_MINES_PRECENT_OF_THE_CELLS) {
+    alert("Max mines procent of total cells quantity cen not be more than 70");
+    return newDifficultyLvl;
+  }
+
+  newDifficultyLvl = {
+    lvlValue: "custom-lvl",
+    rowCellsQuantity: widthCellsQuantity,
+    columnCellsQuantity: heightCellsQuantity,
+    minesQuantity: minesQuantity,
+  };
+
+  return newDifficultyLvl;
 };
 
 const applyGameDifficulty = () => {
@@ -51,6 +112,11 @@ const applyGameDifficulty = () => {
         const newDifficultyLvl: IEasyLvl | IMediumLvl | IHardLvl = DIFFICULTY_LEVELS_DATA[inputId];
 
         setDifficultySettingsData(newDifficultyLvl);
+      }
+      if (lvlInput.checked && lvlInput.id === "custom-lvl") {
+        const newDifficultyLvl: ICustomLvl | null = getNewCustomDifficultyLvlData();
+
+        if (newDifficultyLvl) setDifficultySettingsData(newDifficultyLvl);
       }
     });
   });

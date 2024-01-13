@@ -39,4 +39,4 @@ interface IDifficultySettingsData {
 
 type TDifficultyLvl = IEasyLvl | IMediumLvl | IHardLvl | ICustomLvl;
 
-export { IGameSettings, IDifficultySettingsData, IEasyLvl, IMediumLvl, IHardLvl, TDifficultyLvl };
+export { IGameSettings, IDifficultySettingsData, IEasyLvl, IMediumLvl, IHardLvl, TDifficultyLvl, ICustomLvl };

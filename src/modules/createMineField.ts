@@ -16,6 +16,7 @@ const createMineField = () => {
   const { columnCellsQuantity, rowCellsQuantity } = gameSettingsData.difficulty;
   const totalCells = columnCellsQuantity * rowCellsQuantity;
   const mineField: HTMLDivElement = getMineFieldHTMLNode();
+  mineField.innerHTML = "";
 
   for (let i = 0; i < totalCells; i++) {
     mineField.innerHTML += Cell(i);
