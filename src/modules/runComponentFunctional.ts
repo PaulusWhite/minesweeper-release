@@ -1,5 +1,5 @@
 //Modules
-import setDifficultySettingsInitValue from "./setDifficultySettingsInitValue";
+import setDifficultySettingsInitValue from "./common/setDifficultySettingsInitValue";
 import validateCustomDifficultyInput from "./validateCustomDifficultyInput";
 import applyGameDifficulty from "./applyGameDifficulty";
 

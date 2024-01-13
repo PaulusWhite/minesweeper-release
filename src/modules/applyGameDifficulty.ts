@@ -1,16 +1,16 @@
-// //Store
-// import store from "../redux/createStore";
+//Utils
+import getCustomDifficultyInputs from "../utils/getCustomDifficultyInputs";
 
 //Interfaces
 import { IDifficultySettingsData, IEasyLvl, IMediumLvl, IHardLvl, TDifficultyLvl, ICustomLvl } from "../interfaces/IGameSettings";
 import { IGameSettings } from "../interfaces/IGameSettings";
-// import { ICell } from "../interfaces/IRedux";
 
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./setGameSettingsData";
 import createMineField from "./createMineField";
 import setInitInfoFieldData from "./setInitInfoFieldData";
+import setDifficultySettingsInitValue from "./common/setDifficultySettingsInitValue";
 
 const MAX_CELLS_QUANTITY = 1600;
 const MIN_CELLS_QUANTITY_IN_DIRECTION = 5;
@@ -90,10 +90,7 @@ const validateCustomSettings = (widthCellsQuantity: number, heightCellsQuantity:
 };
 
 const getNewCustomDifficultyLvlData = (): ICustomLvl | null => {
-  const widthCellsInput: HTMLInputElement = document.querySelector("#custom-lvl__row-cells-custom-value") as HTMLInputElement;
-  const heightCellsInput: HTMLInputElement = document.querySelector("#custom-lvl__width-cells-custom-value") as HTMLInputElement;
-  const minesInput: HTMLInputElement = document.querySelector("#custom-lvl__mines-quantity-custom-value") as HTMLInputElement;
-
+  const { widthCellsInput, heightCellsInput, minesInput } = getCustomDifficultyInputs();
   const widthCellsQuantity: number = +widthCellsInput.value;
   const heightCellsQuantity: number = +heightCellsInput.value;
   const minesQuantity: number = +minesInput.value;
@@ -126,6 +123,7 @@ const applyGameDifficulty = () => {
         const newDifficultyLvl: IEasyLvl | IMediumLvl | IHardLvl = DIFFICULTY_LEVELS_DATA[inputId];
 
         setDifficultySettingsData(newDifficultyLvl);
+        setDifficultySettingsInitValue();
       }
       if (lvlInput.checked && lvlInput.id === "custom-lvl") {
         const newDifficultyLvl: ICustomLvl | null = getNewCustomDifficultyLvlData();
@@ -134,6 +132,7 @@ const applyGameDifficulty = () => {
 
         setDifficultySettingsData(newDifficultyLvl);
         clearCustomInputs();
+        setDifficultySettingsInitValue();
       }
     });
   });

@@ -37,6 +37,21 @@ interface IDifficultySettingsData {
   "hard-lvl": IHardLvl;
 }
 
+interface ICustomDifficultyInputs {
+  widthCellsInput: HTMLInputElement;
+  heightCellsInput: HTMLInputElement;
+  minesInput: HTMLInputElement;
+}
+
 type TDifficultyLvl = IEasyLvl | IMediumLvl | IHardLvl | ICustomLvl;
 
-export { IGameSettings, IDifficultySettingsData, IEasyLvl, IMediumLvl, IHardLvl, TDifficultyLvl, ICustomLvl };
+export {
+  IGameSettings,
+  IDifficultySettingsData,
+  IEasyLvl,
+  IMediumLvl,
+  IHardLvl,
+  TDifficultyLvl,
+  ICustomLvl,
+  ICustomDifficultyInputs,
+};
