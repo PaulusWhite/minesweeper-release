@@ -56,6 +56,39 @@ const setDifficultySettingsData = (newDifficultyLvl: TDifficultyLvl) => {
   rerenderMinesField();
 };
 
+const clearCustomInputs = () => {
+  const customInputs: NodeListOf<HTMLInputElement> = document.querySelectorAll(".custom-lvl input");
+
+  customInputs.forEach((input: HTMLInputElement) => (input.value = ""));
+};
+
+const validateCustomSettings = (widthCellsQuantity: number, heightCellsQuantity: number, minesQuantity: number): boolean => {
+  const totalCellsQuantity: number = widthCellsQuantity * heightCellsQuantity;
+  const minesPrecentOfCells: number = (minesQuantity * 100) / totalCellsQuantity; // 100 is procent
+
+  if (totalCellsQuantity > MAX_CELLS_QUANTITY) {
+    alert("Max cells quantity can be no more than 1600");
+    return false;
+  }
+
+  if (widthCellsQuantity < MIN_CELLS_QUANTITY_IN_DIRECTION || heightCellsQuantity < MIN_CELLS_QUANTITY_IN_DIRECTION) {
+    alert("Min cells quantity in any direction can not be less than 5");
+    return false;
+  }
+
+  if (minesQuantity < MIN_MINES_QUANTITY) {
+    alert("MIN Mines quantity can not be less than 10");
+    return false;
+  }
+
+  if (minesPrecentOfCells > MAX_MINES_PRECENT_OF_THE_CELLS) {
+    alert("Max mines procent of total cells quantity cen not be more than 70");
+    return false;
+  }
+
+  return true;
+};
+
 const getNewCustomDifficultyLvlData = (): ICustomLvl | null => {
   const widthCellsInput: HTMLInputElement = document.querySelector("#custom-lvl__row-cells-custom-value") as HTMLInputElement;
   const heightCellsInput: HTMLInputElement = document.querySelector("#custom-lvl__width-cells-custom-value") as HTMLInputElement;
@@ -67,28 +100,9 @@ const getNewCustomDifficultyLvlData = (): ICustomLvl | null => {
 
   let newDifficultyLvl: ICustomLvl | null = null;
 
-  const totalCellsQuantity: number = widthCellsQuantity * heightCellsQuantity;
-  const minesPrecentOfCells: number = (minesQuantity * 100) / totalCellsQuantity; // 100 is procent
+  const isSettingsValid: boolean = validateCustomSettings(widthCellsQuantity, heightCellsQuantity, minesQuantity);
 
-  if (widthCellsQuantity * heightCellsQuantity > MAX_CELLS_QUANTITY) {
-    alert("Max cells quantity can be no more than 1600");
-    return newDifficultyLvl;
-  }
-
-  if (widthCellsQuantity < MIN_CELLS_QUANTITY_IN_DIRECTION || heightCellsQuantity < MIN_CELLS_QUANTITY_IN_DIRECTION) {
-    alert("Min cells quantity in any direction can not be less than 5");
-    return newDifficultyLvl;
-  }
-
-  if (minesQuantity < MIN_MINES_QUANTITY) {
-    alert("MIN Mines quantity can not be less than 10");
-    return newDifficultyLvl;
-  }
-
-  if (minesPrecentOfCells > MAX_MINES_PRECENT_OF_THE_CELLS) {
-    alert("Max mines procent of total cells quantity cen not be more than 70");
-    return newDifficultyLvl;
-  }
+  if (!isSettingsValid) return null;
 
   newDifficultyLvl = {
     lvlValue: "custom-lvl",
@@ -116,7 +130,10 @@ const applyGameDifficulty = () => {
       if (lvlInput.checked && lvlInput.id === "custom-lvl") {
         const newDifficultyLvl: ICustomLvl | null = getNewCustomDifficultyLvlData();
 
-        if (newDifficultyLvl) setDifficultySettingsData(newDifficultyLvl);
+        if (!newDifficultyLvl) return;
+
+        setDifficultySettingsData(newDifficultyLvl);
+        clearCustomInputs();
       }
     });
   });
