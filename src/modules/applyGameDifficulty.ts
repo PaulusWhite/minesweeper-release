@@ -8,8 +8,7 @@ import { IGameSettings } from "../interfaces/IGameSettings";
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./setGameSettingsData";
-import createMineField from "./createMineField";
-import setInitInfoFieldData from "./setInitInfoFieldData";
+import rerenderMinesField from "./common/rerenderMinesField";
 import setDifficultySettingsInitValue from "./common/setDifficultySettingsInitValue";
 
 const MAX_CELLS_QUANTITY = 1600;
@@ -38,9 +37,16 @@ const DIFFICULTY_LEVELS_DATA: IDifficultySettingsData = {
   },
 };
 
-const rerenderMinesField = () => {
-  createMineField();
-  setInitInfoFieldData();
+const checkIfSettingsSame = (lvlInputs: NodeListOf<HTMLInputElement>): boolean => {
+  const currentGameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
+  const currentLvlValue: string = currentGameSettingsData.difficulty.lvlValue;
+  let isSettingsSame = false;
+
+  lvlInputs.forEach((lvlInput: HTMLInputElement) => {
+    if (currentLvlValue === lvlInput.id && lvlInput.checked) isSettingsSame = true;
+  });
+
+  return isSettingsSame;
 };
 
 const setDifficultySettingsData = (newDifficultyLvl: TDifficultyLvl) => {
@@ -116,6 +122,11 @@ const applyGameDifficulty = () => {
 
   applyBtn.addEventListener("click", () => {
     const lvlInputs: NodeListOf<HTMLInputElement> = document.getElementsByName("difficulty") as NodeListOf<HTMLInputElement>;
+    const isSettingsSame: boolean = checkIfSettingsSame(lvlInputs);
+
+    if (isSettingsSame) return;
+
+    console.log("CLICK");
 
     lvlInputs.forEach((lvlInput: HTMLInputElement) => {
       if (lvlInput.checked && lvlInput.id !== "custom-lvl") {
@@ -125,6 +136,7 @@ const applyGameDifficulty = () => {
         setDifficultySettingsData(newDifficultyLvl);
         setDifficultySettingsInitValue();
       }
+
       if (lvlInput.checked && lvlInput.id === "custom-lvl") {
         const newDifficultyLvl: ICustomLvl | null = getNewCustomDifficultyLvlData();
 
