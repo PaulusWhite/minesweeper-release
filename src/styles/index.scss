@@ -166,28 +166,6 @@ body {
   .saved-games-list,
   .data-entry-list {
     margin-bottom: 10rem;
-
-    .data-entry-list__game,
-    .saved-games-list__game {
-      display: flex;
-      margin: 0.3rem 0;
-      border: solid black 0.1rem;
-
-      .data-entry-list__name,
-      .saved-games-list__name {
-        width: 40rem;
-        font-size: 2rem;
-      }
-
-      .data-entry-list__clearBtn,
-      .data-entry-list__saveBtn,
-      .saved-games-list__clearBtn,
-      .data-entry-list__loadBtn {
-        margin: 0 0.5rem;
-        font-size: 1.5rem;
-        cursor: pointer;
-      }
-    }
   }
 }
 
@@ -223,5 +201,24 @@ body {
 
   &:hover {
     transform: rotate(90deg);
+  }
+}
+
+.saved-record {
+  display: flex;
+  margin: 0.3rem 0;
+  border: solid black 0.1rem;
+
+  .saved-record__name {
+    width: 40rem;
+    font-size: 2rem;
+  }
+
+  .saved-record__clear-btn,
+  .saved-record__load-btn,
+  .saved-record__save-btn {
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
   }
 }

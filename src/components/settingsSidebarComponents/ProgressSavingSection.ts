@@ -1,39 +1,17 @@
 //Components
 import CloseBtn from "../common/CloseBtn";
+import SavedRecord from "../common/SavedRecord";
 
 const ProgressSavingSection = () => {
   const view = `
     <section class="progress-saving-section settings-section">
+
       <ul class="data-entry-list">
-        <li class="data-entry-list__game" data-entry-game="1">
-          <span class="data-entry-list__name"></span>
-          <button class="data-entry-list__clearBtn">Clear</button>
-          <button class="data-entry-list__saveBtn">Save</button>
-        </li>
-
-        <li class="data-entry-list__game" data-entry-game="2">
-          <span class="data-entry-list__name"></span>
-          <button class="data-entry-list__clearBtn">Clear</button>
-          <button class="data-entry-list__saveBtn">Save</button>
-        </li>
-
-        <li class="data-entry-list__game" data-entry-game="3">
-          <span class="data-entry-list__name"></span>
-          <button class="data-entry-list__clearBtn">Clear</button>
-          <button class="data-entry-list__saveBtn">Save</button>
-        </li>
-
-        <li class="data-entry-list__game" data-entry-game="4">
-          <span class="data-entry-list__name"></span>
-          <button class="data-entry-list__clearBtn">Clear</button>
-          <button class="data-entry-list__saveBtn">Save</button>
-        </li>
-
-        <li class="data-entry-list__game" data-entry-game="5">
-          <span class="data-entry-list__name"></span>
-          <button class="data-entry-list__clearBtn">Clear</button>
-          <button class="data-entry-list__saveBtn">Save</button>
-        </li>
+        ${SavedRecord(0, "Save")}
+        ${SavedRecord(1, "Save")}
+        ${SavedRecord(2, "Save")}
+        ${SavedRecord(3, "Save")}
+        ${SavedRecord(4, "Save")}
       </ul>
 
       ${CloseBtn("progress-saving-section__close-btn")}
