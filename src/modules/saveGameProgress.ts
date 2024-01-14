@@ -3,7 +3,7 @@ import store from "../redux/createStore";
 
 //Interfaces
 import { ICell } from "../interfaces/IRedux";
-import { IGameSettings, ISavedGame, IEasyLvl, IMediumLvl, IHardLvl, ICustomLvl } from "../interfaces/IGameSettings";
+import { IGameSettings, ISavedGame, TDifficultyLvl } from "../interfaces/IGameSettings";
 
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";
@@ -70,7 +70,7 @@ const saveProgress = () => {
       const recordId: number = +(record.dataset.savedRecordId as string);
 
       const name = recordName ? recordName : `Record ${recordId}`;
-      const gameDifficulty: IEasyLvl | IMediumLvl | IHardLvl | ICustomLvl = currentGameSettings.difficulty;
+      const gameDifficulty: TDifficultyLvl = currentGameSettings.difficulty;
 
       const prevRecordData: ISavedGame = currentGameSettings.savedProgress[recordId];
       const newRecordData: ISavedGame = { ...prevRecordData, name, state: currentGameState, gameDifficulty };

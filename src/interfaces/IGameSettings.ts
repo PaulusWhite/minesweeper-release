@@ -29,16 +29,18 @@ interface ICustomLvl {
   lvlValue: "custom-lvl";
 }
 
+type TDifficultyLvl = IEasyLvl | IMediumLvl | IHardLvl | ICustomLvl;
+
 interface ISavedGame {
   id: number;
   name: string | null;
   state: ICell[][] | null;
-  gameDifficulty: IEasyLvl | IMediumLvl | IHardLvl | ICustomLvl | null;
+  gameDifficulty: TDifficultyLvl | null;
 }
 
 interface IGameSettings {
   theme: "default" | "construction" | "nature" | "weather" | "sea";
-  difficulty: IEasyLvl | IMediumLvl | IHardLvl | ICustomLvl;
+  difficulty: TDifficultyLvl;
   savedProgress: ISavedGame[];
 }
 
@@ -53,8 +55,6 @@ interface ICustomDifficultyInputs {
   heightCellsInput: HTMLInputElement;
   minesInput: HTMLInputElement;
 }
-
-type TDifficultyLvl = IEasyLvl | IMediumLvl | IHardLvl | ICustomLvl;
 
 export {
   IGameSettings,
