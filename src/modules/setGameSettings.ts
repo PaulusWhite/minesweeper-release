@@ -14,6 +14,7 @@ const getDefaultSavedProgress = (): ISavedGame[] => {
     savedProgress.push({
       id: i,
       name: null,
+      state: null,
     });
   }
 

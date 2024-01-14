@@ -1,3 +1,6 @@
+//Interfaces
+import { ICell } from "./IRedux";
+
 interface IEasyLvl {
   rowCellsQuantity: 10;
   columnCellsQuantity: 10;
@@ -29,6 +32,7 @@ interface ICustomLvl {
 interface ISavedGame {
   id: number;
   name: string | null;
+  state: ICell[][] | null;
 }
 
 interface IGameSettings {

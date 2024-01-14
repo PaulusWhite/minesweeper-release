@@ -14,7 +14,7 @@ import setDifficultySettingsInitValue from "./common/setDifficultySettingsInitVa
 const MAX_CELLS_QUANTITY = 1600;
 const MIN_CELLS_QUANTITY_IN_DIRECTION = 5;
 const MIN_MINES_QUANTITY = 10;
-const MAX_MINES_PRECENT_OF_THE_CELLS = 70;
+const MAX_MINES_PRECENT_OF_THE_CELLS = 17;
 
 const DIFFICULTY_LEVELS_DATA: IDifficultySettingsData = {
   "easy-lvl": {
