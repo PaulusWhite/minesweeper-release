@@ -3,7 +3,7 @@ import { IGameSettings, ISavedGame } from "../interfaces/IGameSettings";
 
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";
-import setGameSettingsData from "./setGameSettingsData";
+import setGameSettingsData from "./common/setGameSettingsData";
 
 const MAX_SAVED_PROGRESS_QUANTITY = 5;
 

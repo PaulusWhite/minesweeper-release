@@ -68,6 +68,7 @@ const createMineFieldMatrix = (firstClickCellIndex: number): ICell[][] => {
         isMined,
         isOpened: false,
         isFlag: false,
+        isIndicated: false,
         minesAround: 0,
         serialNumber,
       };

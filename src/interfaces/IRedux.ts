@@ -2,6 +2,7 @@ interface ICell {
   isMined: boolean;
   isFlag: boolean;
   isOpened: boolean;
+  isIndicated: boolean;
   minesAround: number;
   serialNumber: number;
 }

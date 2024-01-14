@@ -1,8 +1,11 @@
-//Midules
+//Modules
 import getGameSettingsData from "./common/getGameSettingsData";
 
 //Interfaces
 import { IGameSettings } from "../interfaces/IGameSettings";
+
+//Modules
+import saveProgress from "./saveProgress";
 
 const EMPTY_RECORD_NAME: string = "The Record is empty";
 
@@ -17,6 +20,8 @@ const handleProgressRecords = (listClass: "saved-games-list" | "data-entry-list"
 
     recordName.innerHTML = recordDataName ? recordDataName : EMPTY_RECORD_NAME;
   });
+
+  if (listClass === "data-entry-list") saveProgress();
 };
 
 export default handleProgressRecords;
