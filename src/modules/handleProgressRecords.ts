@@ -6,7 +6,7 @@ import { IGameSettings } from "../interfaces/IGameSettings";
 
 const EMPTY_RECORD_NAME: string = "The Record is empty";
 
-const setSavedProgressDataSettings = (listClass: "saved-games-list" | "data-entry-list") => {
+const handleProgressRecords = (listClass: "saved-games-list" | "data-entry-list") => {
   const settingsData: IGameSettings = getGameSettingsData() as IGameSettings;
   const { savedProgress } = settingsData;
   const savedRecords: NodeListOf<HTMLLIElement> = document.querySelectorAll(`.${listClass} .saved-record`);
@@ -19,4 +19,4 @@ const setSavedProgressDataSettings = (listClass: "saved-games-list" | "data-entr
   });
 };
 
-export default setSavedProgressDataSettings;
+export default handleProgressRecords;
