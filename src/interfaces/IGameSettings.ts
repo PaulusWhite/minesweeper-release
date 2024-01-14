@@ -33,6 +33,7 @@ interface ISavedGame {
   id: number;
   name: string | null;
   state: ICell[][] | null;
+  gameDifficulty: IEasyLvl | IMediumLvl | IHardLvl | ICustomLvl | null;
 }
 
 interface IGameSettings {
