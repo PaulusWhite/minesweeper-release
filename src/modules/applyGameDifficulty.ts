@@ -51,11 +51,12 @@ const checkIfSettingsSame = (lvlInputs: NodeListOf<HTMLInputElement>): boolean =
 
 const setDifficultySettingsData = (newDifficultyLvl: TDifficultyLvl) => {
   const currentGameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
-  const { theme } = currentGameSettingsData;
+  const { theme, savedProgress } = currentGameSettingsData;
 
   const newGameSettingsData: IGameSettings = {
     difficulty: newDifficultyLvl,
     theme,
+    savedProgress,
   };
 
   setGameSettingsData(newGameSettingsData);
@@ -125,8 +126,6 @@ const applyGameDifficulty = () => {
     const isSettingsSame: boolean = checkIfSettingsSame(lvlInputs);
 
     if (isSettingsSame) return;
-
-    console.log("CLICK");
 
     lvlInputs.forEach((lvlInput: HTMLInputElement) => {
       if (lvlInput.checked && lvlInput.id !== "custom-lvl") {

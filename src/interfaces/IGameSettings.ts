@@ -26,9 +26,15 @@ interface ICustomLvl {
   lvlValue: "custom-lvl";
 }
 
+interface ISavedGame {
+  id: number;
+  name: string | null;
+}
+
 interface IGameSettings {
   theme: "default" | "construction" | "nature" | "weather" | "sea";
   difficulty: IEasyLvl | IMediumLvl | IHardLvl | ICustomLvl;
+  savedProgress: ISavedGame[];
 }
 
 interface IDifficultySettingsData {
@@ -54,4 +60,5 @@ export {
   TDifficultyLvl,
   ICustomLvl,
   ICustomDifficultyInputs,
+  ISavedGame,
 };

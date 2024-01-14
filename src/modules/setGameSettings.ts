@@ -1,9 +1,24 @@
 //interfaces
-import { IGameSettings } from "../interfaces/IGameSettings";
+import { IGameSettings, ISavedGame } from "../interfaces/IGameSettings";
 
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./setGameSettingsData";
+
+const MAX_SAVED_PROGRESS_QUANTITY = 5;
+
+const getDefaultSavedProgress = (): ISavedGame[] => {
+  const savedProgress: ISavedGame[] = [];
+
+  for (let i = 0; i < MAX_SAVED_PROGRESS_QUANTITY; i++) {
+    savedProgress.push({
+      id: i,
+      name: null,
+    });
+  }
+
+  return savedProgress;
+};
 
 const DEFAULT_GAME_SETTINGS_DATA: IGameSettings = {
   difficulty: {
@@ -13,6 +28,7 @@ const DEFAULT_GAME_SETTINGS_DATA: IGameSettings = {
     minesQuantity: 10,
   },
   theme: "default",
+  savedProgress: getDefaultSavedProgress(),
 };
 
 const setGameSettings = () => {
