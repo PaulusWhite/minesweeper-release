@@ -12,6 +12,7 @@ import setGameAction from "./modules/setGameAction";
 import setInitInfoFieldData from "./modules/setInitInfoFieldData";
 import displaySettingsSidebar from "./modules/displaySettingsSidebar";
 import setSidebarMenuRouter from "./modules/setSidebarMenuRouter";
+import restartGame from "./modules/restartGame";
 
 setGameSettings(); // init initial game settings
 setBasicLayout();
@@ -20,4 +21,5 @@ setGameAction();
 setInitInfoFieldData();
 displaySettingsSidebar();
 setSidebarMenuRouter();
+restartGame();
 router();
