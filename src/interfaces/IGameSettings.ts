@@ -48,7 +48,7 @@ interface ISavedGame {
 interface IGameSettings {
   theme: "default" | "construction" | "nature" | "weather" | "sea";
   difficulty: TDifficultyLvl;
-  savedProgress: ISavedGame[];
+  savedProgress: (ISavedGame | null)[];
 }
 
 interface IDifficultySettingsData {

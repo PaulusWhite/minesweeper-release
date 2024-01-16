@@ -80,7 +80,7 @@ const saveProgress = () => {
       if (!currentGameState) return; // If player tries to save the game with no move made
 
       const currentGameSettings: IGameSettings = getGameSettingsData() as IGameSettings;
-      const savedProgress: ISavedGame[] = currentGameSettings.savedProgress;
+      const savedProgress: (ISavedGame | null)[] = currentGameSettings.savedProgress;
 
       const record: HTMLLIElement = target.parentElement as HTMLLIElement;
       const recordId: number = +(record.dataset.savedRecordId as string);
@@ -88,7 +88,7 @@ const saveProgress = () => {
       const name = recordName ? recordName : `Record ${recordId}`;
       const gameDifficulty: TDifficultyLvl = currentGameSettings.difficulty;
 
-      const prevRecordData: ISavedGame = currentGameSettings.savedProgress[recordId];
+      const prevRecordData: ISavedGame = currentGameSettings.savedProgress[recordId] as ISavedGame;
       const gameInfo: IGameInfo = getGameInfo();
       const newRecordData: ISavedGame = { ...prevRecordData, name, state: currentGameState, gameDifficulty, gameInfo };
       savedProgress[recordId] = newRecordData;

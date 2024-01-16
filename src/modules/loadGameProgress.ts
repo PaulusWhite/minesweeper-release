@@ -61,14 +61,14 @@ const loadGameProgress = () => {
 
       const record: HTMLLIElement = target.parentElement as HTMLLIElement;
       const recordId: number = +(record.dataset.savedRecordId as string);
-      const recordGameData: ISavedGame = gameSettingsData.savedProgress[recordId];
-      const recordState: ICell[][] | null = recordGameData.state;
+      const recordGameData: ISavedGame | null = gameSettingsData.savedProgress[recordId];
 
-      if (recordState === null) {
+      if (recordGameData === null) {
         console.log("The record is empty");
         return;
       }
 
+      const recordState: ICell[][] = recordGameData.state as ICell[][];
       const recordGameDifficuty: TDifficultyLvl = recordGameData.gameDifficulty as TDifficultyLvl;
       const recordGameInfo: IGameInfo = recordGameData.gameInfo as IGameInfo;
 
