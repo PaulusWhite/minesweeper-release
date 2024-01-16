@@ -10,6 +10,7 @@ import IRouter from "./interfaces/IRouter";
 //Modules
 import runGameFunctional from "./modules/common/runGameFunctional";
 import runComponentFunctional from "./modules/runComponentFunctional";
+import hideSettingsSidebar from "./modules/common/hideSettingsSidebar";
 
 const removeSettingsSection = () => {
   const settingsSection: HTMLElement | null = document.querySelector(".settings-section");
@@ -56,6 +57,15 @@ const router = () => {
 
 const navigateTo = (url: string) => {
   window.history.pushState(null, "", url);
+
+  if (url === "/") {
+    hideSettingsSidebar();
+    removeSettingsSection();
+    runGameFunctional();
+
+    return;
+  }
+
   router();
 };
 

@@ -13,6 +13,9 @@ import setGameSettingsData from "./common/setGameSettingsData";
 import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
 import getGameInfoNodes from "../utils/getGameInfoNodes";
 
+//router
+import { navigateTo } from "../router";
+
 const getCurrentState = (): ICell[][] | undefined => {
   const mineField: HTMLDivElement = getMineFieldHTMLNode();
   const currentFieldMatrix: ICell[][] = store.getState().state;
@@ -91,6 +94,7 @@ const saveProgress = () => {
       savedProgress[recordId] = newRecordData;
 
       setGameSettingsData({ ...currentGameSettings, savedProgress });
+      navigateTo("/");
     }
   });
 };

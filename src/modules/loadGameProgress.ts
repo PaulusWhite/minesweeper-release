@@ -2,8 +2,6 @@
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./common/setGameSettingsData";
 import rerenderMinesField from "./common/rerenderMinesField";
-import hideSettingsSidebar from "./common/hideSettingsSidebar";
-import runGameFunctional from "./common/runGameFunctional";
 
 //Interfaces
 import { IGameSettings, TDifficultyLvl, ISavedGame, IGameInfo } from "../interfaces/IGameSettings";
@@ -79,8 +77,6 @@ const loadGameProgress = () => {
       revealCellsFromRecord(recordState);
       setRecordGameInfo(recordGameInfo);
       navigateTo("/");
-      hideSettingsSidebar();
-      runGameFunctional();
     }
   });
 };
