@@ -11,6 +11,7 @@ import setGameSettingsData from "./common/setGameSettingsData";
 
 //Utils
 import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
+import getGameInfoNodes from "../utils/getGameInfoNodes";
 
 const getCurrentState = (): ICell[][] | undefined => {
   const mineField: HTMLDivElement = getMineFieldHTMLNode();
@@ -51,10 +52,7 @@ const getCurrentState = (): ICell[][] | undefined => {
 };
 
 const getGameInfo = (): IGameInfo => {
-  const infoFieldGame: HTMLDivElement = document.querySelector(".info_field__game-info") as HTMLDivElement;
-  const timeCounter: HTMLSpanElement = infoFieldGame.firstElementChild?.lastElementChild as HTMLSpanElement;
-  const movesCounter: HTMLSpanElement = infoFieldGame.children[1].firstElementChild as HTMLSpanElement;
-  const flagsCounter: HTMLSpanElement = infoFieldGame.lastElementChild?.lastElementChild as HTMLSpanElement;
+  const { timeCounter, movesCounter, flagsCounter } = getGameInfoNodes();
 
   const gameInfo: IGameInfo = {
     timeCounter: timeCounter.innerHTML,

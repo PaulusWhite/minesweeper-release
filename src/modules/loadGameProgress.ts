@@ -4,11 +4,12 @@ import setGameSettingsData from "./common/setGameSettingsData";
 import rerenderMinesField from "./common/rerenderMinesField";
 
 //Interfaces
-import { IGameSettings, TDifficultyLvl, ISavedGame } from "../interfaces/IGameSettings";
+import { IGameSettings, TDifficultyLvl, ISavedGame, IGameInfo } from "../interfaces/IGameSettings";
 import { ICell } from "../interfaces/IRedux";
 
 //Utils
 import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
+import getGameInfoNodes from "../utils/getGameInfoNodes";
 
 const getMineFieldCellClass = (cell: ICell): string | null => {
   let className: string | null = null;
@@ -38,6 +39,14 @@ const revealCellsFromRecord = (recordState: ICell[][]) => {
   });
 };
 
+const setRecordGameInfo = (recordGameInfo: IGameInfo) => {
+  const { timeCounter, movesCounter, flagsCounter } = getGameInfoNodes();
+
+  timeCounter.innerHTML = recordGameInfo.timeCounter;
+  movesCounter.innerHTML = `${recordGameInfo.movesCounter}`;
+  flagsCounter.innerHTML = `${recordGameInfo.flagsCounter}`;
+};
+
 const loadGameProgress = () => {
   const progressList: HTMLUListElement = document.querySelector(".saved-games-list") as HTMLUListElement;
 
@@ -58,10 +67,12 @@ const loadGameProgress = () => {
       }
 
       const recordGameDifficuty: TDifficultyLvl = recordGameData.gameDifficulty as TDifficultyLvl;
+      const recordGameInfo: IGameInfo = recordGameData.gameInfo as IGameInfo;
 
       setGameSettingsData({ ...gameSettingsData, difficulty: recordGameDifficuty });
       rerenderMinesField();
       revealCellsFromRecord(recordState);
+      setRecordGameInfo(recordGameInfo);
     }
   });
 };
