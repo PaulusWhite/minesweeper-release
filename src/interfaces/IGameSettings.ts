@@ -32,9 +32,9 @@ interface ICustomLvl {
 type TDifficultyLvl = IEasyLvl | IMediumLvl | IHardLvl | ICustomLvl;
 
 interface IGameInfo {
-  time: string;
-  moves: number;
-  flagCounter: number;
+  timeCounter: string;
+  movesCounter: number;
+  flagsCounter: number;
 }
 
 interface ISavedGame {
@@ -73,4 +73,5 @@ export {
   ICustomLvl,
   ICustomDifficultyInputs,
   ISavedGame,
+  IGameInfo,
 };

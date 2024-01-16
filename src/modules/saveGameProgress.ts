@@ -3,7 +3,7 @@ import store from "../redux/createStore";
 
 //Interfaces
 import { ICell } from "../interfaces/IRedux";
-import { IGameSettings, ISavedGame, TDifficultyLvl } from "../interfaces/IGameSettings";
+import { IGameSettings, ISavedGame, TDifficultyLvl, IGameInfo } from "../interfaces/IGameSettings";
 
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";
@@ -50,6 +50,21 @@ const getCurrentState = (): ICell[][] | undefined => {
   return savedState;
 };
 
+const getGameInfo = (): IGameInfo => {
+  const infoFieldGame: HTMLDivElement = document.querySelector(".info_field__game-info") as HTMLDivElement;
+  const timeCounter: HTMLSpanElement = infoFieldGame.firstElementChild?.lastElementChild as HTMLSpanElement;
+  const movesCounter: HTMLSpanElement = infoFieldGame.children[1].firstElementChild as HTMLSpanElement;
+  const flagsCounter: HTMLSpanElement = infoFieldGame.lastElementChild?.lastElementChild as HTMLSpanElement;
+
+  const gameInfo: IGameInfo = {
+    timeCounter: timeCounter.innerHTML,
+    movesCounter: +movesCounter.innerHTML,
+    flagsCounter: +flagsCounter.innerHTML,
+  };
+
+  return gameInfo;
+};
+
 const saveProgress = () => {
   const progressList: HTMLUListElement = document.querySelector(".data-entry-list") as HTMLUListElement;
 
@@ -61,7 +76,7 @@ const saveProgress = () => {
 
       const recordName: string | null = prompt("Enter the record name");
 
-      if (!currentGameState) return;
+      if (!currentGameState) return; // If player tries to save the game with no move made
 
       const currentGameSettings: IGameSettings = getGameSettingsData() as IGameSettings;
       const savedProgress: ISavedGame[] = currentGameSettings.savedProgress;
@@ -73,7 +88,8 @@ const saveProgress = () => {
       const gameDifficulty: TDifficultyLvl = currentGameSettings.difficulty;
 
       const prevRecordData: ISavedGame = currentGameSettings.savedProgress[recordId];
-      const newRecordData: ISavedGame = { ...prevRecordData, name, state: currentGameState, gameDifficulty };
+      const gameInfo: IGameInfo = getGameInfo();
+      const newRecordData: ISavedGame = { ...prevRecordData, name, state: currentGameState, gameDifficulty, gameInfo };
       savedProgress[recordId] = newRecordData;
 
       setGameSettingsData({ ...currentGameSettings, savedProgress });
