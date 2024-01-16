@@ -13,6 +13,7 @@ import revealAllCells from "./revealAllCells";
 import checkIsPlayWon from "./checkIsPlayWon";
 import setCellFlag from "./setCellFlag";
 import setMovesCounterValue from "./setMovesCounterValue";
+import setGameTimer from "./setGameTimer";
 
 //Interfaces
 import { IGameSettings } from "../interfaces/IGameSettings";
@@ -61,6 +62,7 @@ const setGameAction = () => {
         const mineFieldMatrix: ICell[][] = createMineFieldMatrix(clickedCellIndex);
 
         store.dispatch(createMineFieldMatrixAction(mineFieldMatrix));
+        setGameTimer();
       }
 
       clickCell(mineField, clickedCellIndex);
