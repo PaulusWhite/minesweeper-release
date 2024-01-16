@@ -69,7 +69,7 @@ const loadGameProgress = () => {
       }
 
       const recordState: ICell[][] = recordGameData.state as ICell[][];
-      const recordGameDifficuty: TDifficultyLvl = recordGameData.gameDifficulty as TDifficultyLvl;
+      const recordGameDifficuty: TDifficultyLvl = recordGameData.gameDifficulty;
       const recordGameInfo: IGameInfo = recordGameData.gameInfo as IGameInfo;
 
       setGameSettingsData({ ...gameSettingsData, difficulty: recordGameDifficuty });

@@ -39,10 +39,10 @@ interface IGameInfo {
 
 interface ISavedGame {
   id: number;
-  name: string | null;
-  state: ICell[][] | null;
-  gameDifficulty: TDifficultyLvl | null;
-  gameInfo: IGameInfo | null;
+  name: string;
+  state: ICell[][];
+  gameDifficulty: TDifficultyLvl;
+  gameInfo: IGameInfo;
 }
 
 interface IGameSettings {

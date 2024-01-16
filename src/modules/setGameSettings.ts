@@ -1,5 +1,5 @@
 //interfaces
-import { IGameSettings, ISavedGame } from "../interfaces/IGameSettings";
+import { IGameSettings } from "../interfaces/IGameSettings";
 
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";
@@ -7,17 +7,11 @@ import setGameSettingsData from "./common/setGameSettingsData";
 
 const MAX_SAVED_PROGRESS_QUANTITY = 5;
 
-const getDefaultSavedProgress = (): ISavedGame[] => {
-  const savedProgress: ISavedGame[] = [];
+const getDefaultSavedProgress = (): null[] => {
+  const savedProgress: null[] = [];
 
   for (let i = 0; i < MAX_SAVED_PROGRESS_QUANTITY; i++) {
-    savedProgress.push({
-      id: i,
-      name: null,
-      state: null,
-      gameDifficulty: null,
-      gameInfo: null,
-    });
+    savedProgress.push(null);
   }
 
   return savedProgress;
