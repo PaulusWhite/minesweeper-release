@@ -16,6 +16,7 @@ const getDefaultSavedProgress = (): ISavedGame[] => {
       name: null,
       state: null,
       gameDifficulty: null,
+      gameInfo: null,
     });
   }
 

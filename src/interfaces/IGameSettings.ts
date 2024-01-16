@@ -31,11 +31,18 @@ interface ICustomLvl {
 
 type TDifficultyLvl = IEasyLvl | IMediumLvl | IHardLvl | ICustomLvl;
 
+interface IGameInfo {
+  time: string;
+  moves: number;
+  flagCounter: number;
+}
+
 interface ISavedGame {
   id: number;
   name: string | null;
   state: ICell[][] | null;
   gameDifficulty: TDifficultyLvl | null;
+  gameInfo: IGameInfo | null;
 }
 
 interface IGameSettings {

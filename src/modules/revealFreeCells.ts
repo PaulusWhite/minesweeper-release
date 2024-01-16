@@ -17,7 +17,7 @@ const revealNextCells = (revealNextCellsData: IRevealNextCellsData): Map<number,
   } else {
     cell.isOpened = true;
     revealedNextCellsMap.set(cell.serialNumber, cell);
-    
+
     const adjacentCells: ICell[] = getTargetCellAdjacentCells(cell, fieldMatrix, rowCellsQuantity);
     const adjacentCellsMap: Map<number, ICell> = new Map();
 
@@ -58,6 +58,8 @@ const revealFreeCells = (cell: ICell, fieldMatrix: ICell[][], rowCellsQuantity: 
 
     fieldCell.classList.add("cell__indicated");
     fieldCell.innerHTML = `${cellData.minesAround}`;
+
+    if (fieldCell.classList.contains("cell__open")) fieldCell.classList.remove("cell__open");
   });
 };
 
