@@ -8,7 +8,7 @@ import ThemeSettingsSection from "./components/settingsSidebarComponents/ThemeSe
 import IRouter from "./interfaces/IRouter";
 
 //Modules
-import runGameFunctional from "./modules/runGameFunctional";
+import runGameFunctional from "./modules/common/runGameFunctional";
 import runComponentFunctional from "./modules/runComponentFunctional";
 
 const removeSettingsSection = () => {

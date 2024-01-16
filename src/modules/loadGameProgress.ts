@@ -2,6 +2,8 @@
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./common/setGameSettingsData";
 import rerenderMinesField from "./common/rerenderMinesField";
+import hideSettingsSidebar from "./common/hideSettingsSidebar";
+import runGameFunctional from "./common/runGameFunctional";
 
 //Interfaces
 import { IGameSettings, TDifficultyLvl, ISavedGame, IGameInfo } from "../interfaces/IGameSettings";
@@ -10,6 +12,9 @@ import { ICell } from "../interfaces/IRedux";
 //Utils
 import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
 import getGameInfoNodes from "../utils/getGameInfoNodes";
+
+//router
+import { navigateTo } from "../router";
 
 const getMineFieldCellClass = (cell: ICell): string | null => {
   let className: string | null = null;
@@ -73,6 +78,9 @@ const loadGameProgress = () => {
       rerenderMinesField();
       revealCellsFromRecord(recordState);
       setRecordGameInfo(recordGameInfo);
+      navigateTo("/");
+      hideSettingsSidebar();
+      runGameFunctional();
     }
   });
 };
