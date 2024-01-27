@@ -7,6 +7,7 @@ import {IGameSettings} from "../interfaces/IGameSettings";
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";
 import revealAllCells from "./revealAllCells";
+import stopGameTimer from "./common/stopGameTimer";
 
 const showWinMessage = () => {
   alert("you are won!");
@@ -27,6 +28,7 @@ const checkIsPlayWon = () => {
   if (remainedCellsQuantity === difficulty.minesQuantity) {
     revealAllCells("cell__mined-revealed");
     showWinMessage();
+    stopGameTimer();
   }
 };
 

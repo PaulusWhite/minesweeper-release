@@ -14,6 +14,7 @@ import checkIsPlayWon from "./checkIsPlayWon";
 import setCellFlag from "./setCellFlag";
 import setMovesCounterValue from "./setMovesCounterValue";
 import setGameTimer from "./setGameTimer";
+import stopGameTimer from "./common/stopGameTimer";
 
 //Interfaces
 import { IGameSettings } from "../interfaces/IGameSettings";
@@ -39,6 +40,7 @@ const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
 
   if (matrixCellData.isMined) {
     revealAllCells("cell__mined");
+    stopGameTimer();
     return;
   }
 
