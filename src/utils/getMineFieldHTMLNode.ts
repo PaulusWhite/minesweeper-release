@@ -4,4 +4,4 @@ const getMineFieldHTMLNode = () => {
   return mineField;
 };
 
-export default getMineFieldHTMLNode
+export default getMineFieldHTMLNode;

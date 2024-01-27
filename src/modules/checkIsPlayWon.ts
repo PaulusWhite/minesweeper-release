@@ -2,7 +2,7 @@
 import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
 
 //Interfaces
-import {IGameSettings} from "../interfaces/IGameSettings";
+import { IGameSettings } from "../interfaces/IGameSettings";
 
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";

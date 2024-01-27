@@ -22,7 +22,7 @@ const getTargetCellAdjacentCells = (cell: ICell, fieldMatrix: ICell[][], rowCell
   for (let i = -1; i <= 1; i++) {
     const topNextCell: ICell | undefined = getFieldMatrixMine(fieldMatrix, cell.serialNumber - rowCellsQuantity + i);
     const bottomNextCell: ICell | undefined = getFieldMatrixMine(fieldMatrix, cell.serialNumber + rowCellsQuantity + i);
-    
+
     const prevCellsColumn: ICell[] = fieldMatrix[cellColumnIndex - 1];
     const nextCellsColumn: ICell[] = fieldMatrix[cellColumnIndex + 1];
 

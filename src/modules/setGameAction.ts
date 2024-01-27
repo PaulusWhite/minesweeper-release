@@ -67,10 +67,9 @@ const setGameAction = () => {
 
         store.dispatch(createMineFieldMatrixAction(mineFieldMatrix));
         setGameTimer();
-      }else{
-        if(!sessionStorage.getItem(GAME_TIMER_ID_NAME)) setGameTimer();
+      } else {
+        if (!sessionStorage.getItem(GAME_TIMER_ID_NAME)) setGameTimer();
       }
-
 
       clickCell(mineField, clickedCellIndex);
     }
