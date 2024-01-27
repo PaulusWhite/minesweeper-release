@@ -1,10 +1,12 @@
 //Utils
 import getGameInfoNodes from "../utils/getGameInfoNodes";
 
+const GAME_TIMER_ID_NAME: string = "gameTimer";
+
 const setGameTimer = () => {
   const { timeCounter } = getGameInfoNodes();
 
-  setInterval(() => {
+  const intervalID = setInterval(() => {
     const currentTimerValue: string = timeCounter.innerHTML;
     const [minValue, secValue] = currentTimerValue.split(":");
     let newSecValue: string = `${+secValue + 1}`;
@@ -23,6 +25,8 @@ const setGameTimer = () => {
 
     timeCounter.innerHTML = newTimerValue;
   }, 1000);
+
+  sessionStorage.setItem(GAME_TIMER_ID_NAME, `${intervalID}`);
 };
 
 export default setGameTimer;

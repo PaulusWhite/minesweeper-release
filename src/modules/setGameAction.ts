@@ -22,6 +22,8 @@ import { ICell } from "../interfaces/IRedux";
 //Utils
 import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
 
+const GAME_TIMER_ID_NAME: string = "gameTimer";
+
 const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
   const clickedCell: HTMLSpanElement = field.children[clickedCellIndex] as HTMLSpanElement;
   const { difficulty } = getGameSettingsData() as IGameSettings;
@@ -63,7 +65,10 @@ const setGameAction = () => {
 
         store.dispatch(createMineFieldMatrixAction(mineFieldMatrix));
         setGameTimer();
+      }else{
+        if(!sessionStorage.getItem(GAME_TIMER_ID_NAME)) setGameTimer();
       }
+
 
       clickCell(mineField, clickedCellIndex);
     }
