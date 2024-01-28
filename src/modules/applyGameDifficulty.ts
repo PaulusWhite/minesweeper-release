@@ -1,3 +1,9 @@
+//store
+import store from "../redux/createStore";
+
+//Actions
+import createMineFieldMatrixAction from "../redux/actions,";
+
 //Utils
 import getCustomDifficultyInputs from "../utils/getCustomDifficultyInputs";
 
@@ -61,6 +67,7 @@ const setDifficultySettingsData = (newDifficultyLvl: TDifficultyLvl) => {
 
   setGameSettingsData(newGameSettingsData);
   rerenderMinesField();
+  store.dispatch(createMineFieldMatrixAction([]));
 };
 
 const clearCustomInputs = () => {
