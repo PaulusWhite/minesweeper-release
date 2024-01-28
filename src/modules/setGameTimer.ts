@@ -1,7 +1,8 @@
 //Utils
 import getGameInfoNodes from "../utils/getGameInfoNodes";
 
-const GAME_TIMER_ID_NAME: string = "gameTimer";
+//Modules
+import { GAME_TIMER_ID_NAME } from "./common/resetGameTimer";
 
 const setGameTimer = () => {
   const { timeCounter } = getGameInfoNodes();

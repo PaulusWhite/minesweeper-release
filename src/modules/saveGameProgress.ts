@@ -8,6 +8,7 @@ import { IGameSettings, ISavedGame, TDifficultyLvl, IGameInfo } from "../interfa
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./common/setGameSettingsData";
+import setGameTimer from "./setGameTimer";
 
 //Utils
 import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
@@ -92,11 +93,19 @@ const saveProgress = () => {
 
       const mineFieldMatrix: ICell[][] = store.getState().state;
       const gameInfo: IGameInfo = getGameInfo();
-      const newRecordData: ISavedGame = { ...prevRecordData, name, state: currentGameState, gameDifficulty, gameInfo, mineFieldMatrix };
+      const newRecordData: ISavedGame = {
+        ...prevRecordData,
+        name,
+        state: currentGameState,
+        gameDifficulty,
+        gameInfo,
+        mineFieldMatrix,
+      };
       savedProgress[recordId] = newRecordData;
 
       setGameSettingsData({ ...currentGameSettings, savedProgress });
       navigateTo("/");
+      setGameTimer();
     }
   });
 };

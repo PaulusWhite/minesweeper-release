@@ -8,6 +8,8 @@ import createMineFieldMatrixAction from "../redux/actions,";
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./common/setGameSettingsData";
 import rerenderMinesField from "./common/rerenderMinesField";
+import { removeSStorageGameTimerID } from "./common/resetGameTimer";
+import setGameTimer from "./setGameTimer";
 
 //Interfaces
 import { IGameSettings, TDifficultyLvl, ISavedGame, IGameInfo } from "../interfaces/IGameSettings";
@@ -85,6 +87,8 @@ const loadGameProgress = () => {
       revealCellsFromRecord(recordState);
       setRecordGameInfo(recordGameInfo);
       navigateTo("/");
+      removeSStorageGameTimerID();
+      setGameTimer();
     }
   });
 };

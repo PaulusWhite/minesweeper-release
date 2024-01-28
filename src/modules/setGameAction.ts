@@ -15,6 +15,7 @@ import setCellFlag from "./setCellFlag";
 import setMovesCounterValue from "./setMovesCounterValue";
 import setGameTimer from "./setGameTimer";
 import stopGameTimer from "./common/stopGameTimer";
+import { GAME_TIMER_ID_NAME } from "./common/resetGameTimer";
 
 //Interfaces
 import { IGameSettings } from "../interfaces/IGameSettings";
@@ -22,8 +23,6 @@ import { ICell } from "../interfaces/IRedux";
 
 //Utils
 import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
-
-const GAME_TIMER_ID_NAME: string = "gameTimer";
 
 const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
   const clickedCell: HTMLSpanElement = field.children[clickedCellIndex] as HTMLSpanElement;
@@ -52,7 +51,7 @@ const checkIsFieldClicked = (): boolean => {
   const isState = store.getState().state.length;
 
   return !isState;
-}
+};
 
 const setGameAction = () => {
   const mineField: HTMLDivElement = getMineFieldHTMLNode();

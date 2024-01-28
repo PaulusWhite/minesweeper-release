@@ -1,7 +1,6 @@
 //Modules
 import rerenderMinesField from "./common/rerenderMinesField";
-
-const GAME_TIMER_ID_NAME: string = "gameTimer";
+import { GAME_TIMER_ID_NAME, removeSStorageGameTimerID } from "./common/resetGameTimer";
 
 const restartGame = () => {
   const restartBtn: HTMLButtonElement = document.querySelector(".info-field__restart-btn") as HTMLButtonElement;
@@ -9,7 +8,7 @@ const restartGame = () => {
   restartBtn.addEventListener("click", () => {
     const prevGameTimer: number = Number(sessionStorage.getItem(GAME_TIMER_ID_NAME));
 
-    sessionStorage.removeItem(GAME_TIMER_ID_NAME);
+    removeSStorageGameTimerID();
 
     clearInterval(prevGameTimer);
     rerenderMinesField();
