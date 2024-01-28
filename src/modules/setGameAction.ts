@@ -48,9 +48,15 @@ const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
   checkIsPlayWon();
 };
 
+const checkIsFieldClicked = (): boolean => {
+  const isState = store.getState().state.length;
+
+  return !isState;
+}
+
 const setGameAction = () => {
   const mineField: HTMLDivElement = getMineFieldHTMLNode();
-  let isFirstCellClick: boolean = true; // indicator for creating mines matrix after first click
+  let isFirstCellClick: boolean = checkIsFieldClicked(); // indicator for creating mines matrix after first click
 
   mineField.addEventListener("click", (Event: Event) => {
     const target: HTMLElement = Event.target as HTMLElement;

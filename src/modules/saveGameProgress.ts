@@ -89,8 +89,10 @@ const saveProgress = () => {
       const gameDifficulty: TDifficultyLvl = currentGameSettings.difficulty;
 
       const prevRecordData: ISavedGame = currentGameSettings.savedProgress[recordId] as ISavedGame;
+
+      const mineFieldMatrix: ICell[][] = store.getState().state;
       const gameInfo: IGameInfo = getGameInfo();
-      const newRecordData: ISavedGame = { ...prevRecordData, name, state: currentGameState, gameDifficulty, gameInfo };
+      const newRecordData: ISavedGame = { ...prevRecordData, name, state: currentGameState, gameDifficulty, gameInfo, mineFieldMatrix };
       savedProgress[recordId] = newRecordData;
 
       setGameSettingsData({ ...currentGameSettings, savedProgress });

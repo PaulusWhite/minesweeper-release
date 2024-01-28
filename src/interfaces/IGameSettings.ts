@@ -41,6 +41,7 @@ interface ISavedGame {
   id: number;
   name: string;
   state: ICell[][];
+  mineFieldMatrix: ICell[][];
   gameDifficulty: TDifficultyLvl;
   gameInfo: IGameInfo;
 }

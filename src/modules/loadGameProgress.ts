@@ -1,3 +1,9 @@
+//store
+import store from "../redux/createStore";
+
+//Actions
+import createMineFieldMatrixAction from "../redux/actions,";
+
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./common/setGameSettingsData";
@@ -69,9 +75,11 @@ const loadGameProgress = () => {
       }
 
       const recordState: ICell[][] = recordGameData.state as ICell[][];
+      const recordMineFieldMatrix: ICell[][] = recordGameData.mineFieldMatrix as ICell[][];
       const recordGameDifficuty: TDifficultyLvl = recordGameData.gameDifficulty;
       const recordGameInfo: IGameInfo = recordGameData.gameInfo as IGameInfo;
 
+      store.dispatch(createMineFieldMatrixAction(recordMineFieldMatrix));
       setGameSettingsData({ ...gameSettingsData, difficulty: recordGameDifficuty });
       rerenderMinesField();
       revealCellsFromRecord(recordState);
