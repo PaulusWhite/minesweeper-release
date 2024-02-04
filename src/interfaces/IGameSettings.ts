@@ -77,5 +77,5 @@ export {
   ICustomDifficultyInputs,
   ISavedGame,
   IGameInfo,
-  TTheme
+  TTheme,
 };

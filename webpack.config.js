@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
@@ -26,6 +28,10 @@ module.exports = {
           // Compiles Sass to CSS
           "sass-loader",
         ],
+      },
+      {
+        test: /\.(svg|webp|png|jpe?g|gif)$/i,
+        type: "asset/resource",
       },
     ],
   },
