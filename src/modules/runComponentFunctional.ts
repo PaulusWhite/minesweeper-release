@@ -17,7 +17,7 @@ const runComponentFunctional = (url: "/difficulty" | "/save" | "/load" | "/theme
   if (url === "/save") {
     handleProgressRecords("data-entry-list");
   }
-  if(url === "/theme") {
+  if (url === "/theme") {
     setGameThemeInitValue();
   }
 };

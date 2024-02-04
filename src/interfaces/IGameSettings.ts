@@ -46,8 +46,10 @@ interface ISavedGame {
   gameInfo: IGameInfo;
 }
 
+type TTheme = "default" | "construction" | "nature" | "weather" | "sea";
+
 interface IGameSettings {
-  theme: "default" | "construction" | "nature" | "weather" | "sea";
+  theme: TTheme;
   difficulty: TDifficultyLvl;
   savedProgress: (ISavedGame | null)[];
 }
@@ -75,4 +77,5 @@ export {
   ICustomDifficultyInputs,
   ISavedGame,
   IGameInfo,
+  TTheme
 };

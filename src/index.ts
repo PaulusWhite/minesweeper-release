@@ -13,9 +13,11 @@ import setInitInfoFieldData from "./modules/setInitInfoFieldData";
 import displaySettingsSidebar from "./modules/displaySettingsSidebar";
 import setSidebarMenuRouter from "./modules/setSidebarMenuRouter";
 import restartGame from "./modules/restartGame";
+import setGameTheme from "./modules/common/setGameTheme";
 
 setGameSettings(); // init initial game settings
 setBasicLayout();
+setGameTheme();
 createMineField();
 setGameAction();
 setInitInfoFieldData();

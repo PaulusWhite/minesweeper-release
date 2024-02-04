@@ -1,3 +1,60 @@
-#default {
+//colors
+$bgColor: #242b38;
+$whiteColor: #fafafa;
+$closedColor: #131721;
+$openColor: #4568da;
+$indicatedColor: #756ec5;
+$flaggedColor: #ff9b2f;
+$minedColor: #c41f13;
+$revealedColor: #61df47;
 
+#default {
+  background-color: $bgColor;
+
+  .game-window {
+    border-color: $whiteColor;
+    color: $whiteColor;
+
+    button {
+      color: $whiteColor;
+    }
+
+    .info-field {
+      border-color: $whiteColor;
+    }
+  }
+
+  //Components
+  .cell {
+    border-radius: 0.2rem;
+    background-color: $closedColor;
+    border-color: $closedColor;
+  }
+
+  //css mods for cell
+  .cell__open {
+    background-color: $openColor;
+  }
+
+  .cell__indicated {
+    background-color: $indicatedColor;
+    color: $whiteColor;
+  }
+
+  .cell__flagged {
+    background: url(./../icons/default/flag.svg) no-repeat $flaggedColor center;
+  }
+
+  .cell__mined {
+    background: url(./../icons/default/blow.svg) no-repeat $minedColor center;
+  }
+
+  .cell__mined-revealed {
+    background: url(./../icons/default/mine.svg) no-repeat $revealedColor center;
+  }
+
+  //info-field
+  .info-field__bomb-icon{
+    background: url(./../icons/default/mine.svg) no-repeat center;
+  }
 }
