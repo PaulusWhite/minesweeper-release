@@ -4,6 +4,7 @@ import { IGameSettings } from "../interfaces/IGameSettings";
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./common/setGameSettingsData";
+import setGameTheme from "./common/setGameTheme";
 
 const MAX_SAVED_PROGRESS_QUANTITY = 5;
 
@@ -34,6 +35,8 @@ const setGameSettings = () => {
   if (gameSettingsData) {
     setGameSettingsData(gameSettingsData);
   } else setGameSettingsData(DEFAULT_GAME_SETTINGS_DATA);
+
+  setGameTheme();
 };
 
 export default setGameSettings;
