@@ -60,11 +60,19 @@ body {
       .info-field__indicator {
         display: flex;
         justify-content: center;
+        align-items: center;
+        gap: .5rem;
         max-width: 7rem;
         width: 100%;
         margin: 0.5rem 0.7rem;
         padding: 0.5rem;
         text-align: center;
+
+        .info-field__icon{
+          display: block;
+          max-width: 100%;
+          width: 1.8rem;
+        }
       }
     }
   }
