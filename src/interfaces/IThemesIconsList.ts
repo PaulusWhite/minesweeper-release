@@ -1,11 +1,11 @@
 interface IIconsList {
-  mineIcon: string,
-  timerIcon: string,
-  flagIcon: string
+  mineIcon: string;
+  timerIcon: string;
+  flagIcon: string;
 }
 
 interface IThemesIconsList {
-  default: IIconsList
+  default: IIconsList;
 }
 
-export default IThemesIconsList
+export default IThemesIconsList;

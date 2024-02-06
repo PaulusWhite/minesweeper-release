@@ -6,7 +6,7 @@ $openColor: #4568da;
 $indicatedColor: #756ec5;
 $flaggedColor: #ff9b2f;
 $minedColor: #c41f13;
-$revealedColor: #61df47;
+$revealedColor: #57c340;
 
 #default {
   background-color: $bgColor;
@@ -56,5 +56,56 @@ $revealedColor: #61df47;
   //info-field
   .info-field__bomb-icon {
     background: url(./../icons/default/mine.svg) no-repeat center;
+  }
+
+  //settings-sidebar
+  .settings-sidebar {
+    background-color: $bgColor;
+
+    .settings-btn {
+      color: $whiteColor;
+    }
+  }
+
+  //difficulty-settings__table
+  .difficulty-settings__table {
+    color: $whiteColor;
+    border-color: $whiteColor;
+
+    tr {
+      background-color: $indicatedColor;
+    }
+  }
+
+  //difficulty-settings__apply-btn
+  .difficulty-settings__apply-btn {
+    color: $whiteColor;
+  }
+
+  //common close-btn
+  .close-btn {
+    * {
+      background-color: $whiteColor;
+    }
+  }
+
+  //settings-section
+  .settings-section {
+    background-color: $bgColor;
+  }
+
+  //common saved-record
+  .saved-record {
+    border-color: $whiteColor;
+    color: $whiteColor;
+    background-color: $indicatedColor;
+
+    .saved-record__clear-btn {
+      color: $whiteColor;
+    }
+    .saved-record__save-btn,
+    .saved-record__load-btn {
+      color: $whiteColor;
+    }
   }
 }

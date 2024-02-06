@@ -10,15 +10,13 @@ import defaultMineIcon from "../../icons/default/mineIcon.svg";
 import defaultTimerIcon from "../../icons/default/timerIcon.svg";
 import defaultFlagIcon from "../../icons/default/flagIcon.svg";
 
-
 const THEMES_ICONS: IThemesIconsList = {
   default: {
     mineIcon: defaultMineIcon,
     timerIcon: defaultTimerIcon,
-    flagIcon: defaultFlagIcon
-  }
-}
-
+    flagIcon: defaultFlagIcon,
+  },
+};
 
 const setThemeIcons = async (theme: TTheme) => {
   const mineImgIcon: HTMLImageElement = document.querySelector("#bomb-icon") as HTMLImageElement;
@@ -35,8 +33,7 @@ const setThemeIcons = async (theme: TTheme) => {
   timerImgIcon.alt = timerImgIcon.id;
   flagImgIcon.src = flagIconPath;
   flagImgIcon.alt = flagImgIcon.id;
-
-}
+};
 
 const setGameTheme = () => {
   let theme = getGameSettingsData()?.theme;
