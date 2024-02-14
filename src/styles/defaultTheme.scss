@@ -74,6 +74,22 @@ $revealedColor: #57c340;
 
     tr {
       background-color: $indicatedColor;
+
+      th {
+        label {
+          &::before {
+            border-color: $whiteColor;
+            background-color: $revealedColor;
+          }
+        }
+
+        //css-mod for label
+        .showRadio {
+          &::before {
+            display: block;
+          }
+        }
+      }
     }
   }
 

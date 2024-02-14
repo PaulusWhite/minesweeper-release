@@ -15,7 +15,7 @@ import { IGameSettings } from "../interfaces/IGameSettings";
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./common/setGameSettingsData";
 import rerenderMinesField from "./common/rerenderMinesField";
-import setDifficultySettingsInitValue from "./common/setDifficultySettingsInitValue";
+import { setRadioIndicator, setDifficultySettingsInitValue } from "./common/setDifficultySettingsInitValue";
 
 const MAX_CELLS_QUANTITY = 1600;
 const MIN_CELLS_QUANTITY_IN_DIRECTION = 5;
@@ -125,7 +125,23 @@ const getNewCustomDifficultyLvlData = (): ICustomLvl | null => {
   return newDifficultyLvl;
 };
 
+const clickGameDifficultyLvls = () => {
+  const allInputs: NodeListOf<HTMLInputElement> = document.querySelectorAll(`input[type="radio"]`);
+
+  allInputs.forEach((input: HTMLInputElement) => {
+    input.addEventListener("change", () => {
+      setRadioIndicator(input, true);
+
+      allInputs.forEach((anotherInput: HTMLInputElement) => {
+        if (anotherInput !== input) setRadioIndicator(anotherInput, false);
+      });
+    });
+  });
+};
+
 const applyGameDifficulty = () => {
+  clickGameDifficultyLvls();
+
   const applyBtn: HTMLButtonElement = document.querySelector(".difficulty-settings__apply-btn") as HTMLButtonElement;
 
   applyBtn.addEventListener("click", () => {

@@ -12,6 +12,10 @@ input {
   text-align: center;
 }
 
+input[type="radio"] {
+  display: none;
+}
+
 button {
   border: none;
   outline: none;
@@ -161,6 +165,26 @@ body {
 
     th {
       padding: 0.4rem;
+
+      label {
+        position: relative;
+        display: block;
+        width: 100%;
+        padding-left: 2rem;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0.6rem;
+          transform: translate(-50%, -50%);
+          display: none;
+          width: 0.7rem;
+          height: 0.7rem;
+          border: solid 0.4rem;
+          border-radius: 100%;
+        }
+      }
 
       .custom-lvl__input-number {
         font-size: 1.8rem;
