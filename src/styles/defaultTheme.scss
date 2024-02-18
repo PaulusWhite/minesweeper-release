@@ -3,9 +3,9 @@ $whiteColor: #fafafa;
 $closedColor: #0d0f18;
 $minedColor: #c41f13;
 
-@mixin bgColor{
+@mixin bgColor {
   background: #242b38;
-  background: linear-gradient(135deg, #242C38, #150D36);
+  background: linear-gradient(135deg, #242c38, #150d36);
 }
 
 @mixin closedColorStyle {
@@ -14,13 +14,13 @@ $minedColor: #c41f13;
 }
 
 @mixin openColorStyle {
-  background: #4668DA;
-  background: linear-gradient(135deg, #4668DA, #3054C8);
+  background: #4668da;
+  background: linear-gradient(135deg, #4668da, #3054c8);
 }
 
 @mixin indicatedColorStyle {
-  background: #756FC6;
-  background: linear-gradient(135deg, #756FC6, #9790EE);
+  background: #756fc6;
+  background: linear-gradient(135deg, #756fc6, #9790ee);
 }
 
 #default {
@@ -58,18 +58,18 @@ $minedColor: #c41f13;
   }
 
   .cell__flagged {
-    background: #FF9C2F;
-    background-image: url(./../icons/default/flag.svg), linear-gradient(135deg, #FF9C2F, #EB820F);
+    background: #ff9c2f;
+    background-image: url(./../icons/default/flag.svg), linear-gradient(135deg, #ff9c2f, #eb820f);
   }
 
   .cell__mined {
-    background: #C52013;
-    background-image: url(./../icons/default/blow.svg), linear-gradient(135deg, #C52013, #F31B0B);
+    background: #c52013;
+    background-image: url(./../icons/default/blow.svg), linear-gradient(135deg, #c52013, #f31b0b);
   }
 
   .cell__mined-revealed {
-    background: #58C341;
-    background-image: url(./../icons/default/mineIcon.svg), linear-gradient(135deg, #58C341, #68DF4E);
+    background: #58c341;
+    background-image: url(./../icons/default/mineIcon.svg), linear-gradient(135deg, #58c341, #68df4e);
   }
 
   //info-field
@@ -121,7 +121,7 @@ $minedColor: #c41f13;
   .settings-section {
     @include bgColor;
   }
-  
+
   //common saved-record
   .saved-record {
     @include indicatedColorStyle;

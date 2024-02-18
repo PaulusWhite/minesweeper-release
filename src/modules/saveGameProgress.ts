@@ -86,7 +86,7 @@ const saveProgress = () => {
       const record: HTMLLIElement = target.parentElement as HTMLLIElement;
       const recordId: number = +(record.dataset.savedRecordId as string);
 
-      const name = recordName ? recordName : `Record ${recordId}`;
+      const name = recordName ? recordName : `Record ${recordId + 1}`;
       const gameDifficulty: TDifficultyLvl = currentGameSettings.difficulty;
 
       const prevRecordData: ISavedGame = currentGameSettings.savedProgress[recordId] as ISavedGame;
