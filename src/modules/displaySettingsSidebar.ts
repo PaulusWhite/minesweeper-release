@@ -1,5 +1,6 @@
 //Modules
 import hideSettingsSidebar from "./common/hideSettingsSidebar";
+import stopGameTimer from "./common/stopGameTimer";
 
 const displaySettingsSidebar = () => {
   const displayBtn: HTMLButtonElement = document.querySelector(".info-field__settings-btn") as HTMLButtonElement;
@@ -8,6 +9,7 @@ const displaySettingsSidebar = () => {
 
   displayBtn.addEventListener("click", () => {
     settingsMenu.classList.add("show-sidebar");
+    stopGameTimer();
   });
 
   closeBtn.addEventListener("click", () => {

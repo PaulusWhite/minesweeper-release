@@ -6,7 +6,7 @@ const stopGameTimer = () => {
 
   clearInterval(gameTimerID);
 
-  sessionStorage.removeItem(`${gameTimerID}`);
+  sessionStorage.removeItem(`${GAME_TIMER_ID_NAME}`);
 };
 
 export default stopGameTimer;

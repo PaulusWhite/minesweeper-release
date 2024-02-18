@@ -8,7 +8,6 @@ import { IGameSettings, ISavedGame, TDifficultyLvl, IGameInfo } from "../interfa
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./common/setGameSettingsData";
-import setGameTimer from "./setGameTimer";
 import showPopupMessage from "./common/showPopupMessage";
 
 //Utils
@@ -108,7 +107,6 @@ const saveProgress = () => {
 
       setGameSettingsData({ ...currentGameSettings, savedProgress });
       navigateTo("/");
-      setGameTimer();
     }
   });
 };

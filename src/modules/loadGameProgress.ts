@@ -89,9 +89,9 @@ const loadGameProgress = () => {
       rerenderMinesField();
       revealCellsFromRecord(recordState);
       setRecordGameInfo(recordGameInfo);
-      navigateTo("/");
       removeSStorageGameTimerID();
       setGameTimer();
+      navigateTo("/");
     }
   });
 };
