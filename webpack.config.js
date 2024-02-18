@@ -7,7 +7,7 @@ module.exports = {
   entry: "./src/index.ts",
   mode: "production",
   performance: {
-    hints: "warning",
+    hints: false,
   },
   output: {
     filename: "bundle.js",

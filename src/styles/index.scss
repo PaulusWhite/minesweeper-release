@@ -259,18 +259,3 @@ body {
     cursor: pointer;
   }
 }
-
-//theme-settings
- .themes-list{
-  width: 50%;
-  max-width: 40rem;
-
-  label{
-    display: block;
-    width: 100%;
-    height: 7rem;
-    background-color: red;
-    text-align: center;
-    background-image: url(./../img/default.png);
-  }
- }
