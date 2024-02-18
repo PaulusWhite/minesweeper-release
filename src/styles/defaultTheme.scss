@@ -1,15 +1,30 @@
 //colors
-$bgColor: #242b38;
 $whiteColor: #fafafa;
-$closedColor: #131721;
-$openColor: #4568da;
-$indicatedColor: #756ec5;
-$flaggedColor: #ff9b2f;
+$closedColor: #0d0f18;
 $minedColor: #c41f13;
-$revealedColor: #57c340;
+
+@mixin bgColor{
+  background: #242b38;
+  background: linear-gradient(135deg, #242C38, #150D36);
+}
+
+@mixin closedColorStyle {
+  background: #131821;
+  background: linear-gradient(135deg, #131821, #040110);
+}
+
+@mixin openColorStyle {
+  background: #4668DA;
+  background: linear-gradient(135deg, #4668DA, #3054C8);
+}
+
+@mixin indicatedColorStyle {
+  background: #756FC6;
+  background: linear-gradient(135deg, #756FC6, #9790EE);
+}
 
 #default {
-  background-color: $bgColor;
+  @include bgColor;
 
   .game-window {
     border-color: $whiteColor;
@@ -26,41 +41,45 @@ $revealedColor: #57c340;
 
   //Components
   .cell {
+    @include closedColorStyle;
+    background-size: cover !important;
+    background-repeat: no-repeat;
     border-radius: 0.2rem;
-    background-color: $closedColor;
-    border-color: $closedColor;
   }
 
   //css mods for cell
   .cell__open {
-    background-color: $openColor;
+    @include openColorStyle;
   }
 
   .cell__indicated {
-    background-color: $indicatedColor;
+    @include indicatedColorStyle;
     color: $whiteColor;
   }
 
   .cell__flagged {
-    background: url(./../icons/default/flag.svg) no-repeat $flaggedColor center;
+    background: #FF9C2F;
+    background-image: url(./../icons/default/flag.svg), linear-gradient(135deg, #FF9C2F, #EB820F);
   }
 
   .cell__mined {
-    background: url(./../icons/default/blow.svg) no-repeat $minedColor center;
+    background: #C52013;
+    background-image: url(./../icons/default/blow.svg), linear-gradient(135deg, #C52013, #F31B0B);
   }
 
   .cell__mined-revealed {
-    background: url(./../icons/default/mine.svg) no-repeat $revealedColor center;
+    background: #58C341;
+    background-image: url(./../icons/default/mineIcon.svg), linear-gradient(135deg, #58C341, #68DF4E);
   }
 
   //info-field
   .info-field__bomb-icon {
-    background: url(./../icons/default/mine.svg) no-repeat center;
+    background: url(./../icons/default/mineIcon.svg) no-repeat center;
   }
 
   //settings-sidebar
   .settings-sidebar {
-    background-color: $bgColor;
+    @include bgColor;
 
     .settings-btn {
       color: $whiteColor;
@@ -73,16 +92,9 @@ $revealedColor: #57c340;
     border-color: $whiteColor;
 
     tr {
-      background-color: $indicatedColor;
+      @include indicatedColorStyle;
 
       th {
-        label {
-          &::before {
-            border-color: $whiteColor;
-            background-color: $revealedColor;
-          }
-        }
-
         //css-mod for label
         .showRadio {
           &::before {
@@ -107,14 +119,14 @@ $revealedColor: #57c340;
 
   //settings-section
   .settings-section {
-    background-color: $bgColor;
+    @include bgColor;
   }
-
+  
   //common saved-record
   .saved-record {
+    @include indicatedColorStyle;
     border-color: $whiteColor;
     color: $whiteColor;
-    background-color: $indicatedColor;
 
     .saved-record__clear-btn {
       color: $whiteColor;

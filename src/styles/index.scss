@@ -171,18 +171,17 @@ body {
         display: block;
         width: 100%;
         padding-left: 2rem;
+        cursor: pointer;
 
         &::before {
-          content: "";
+          content: url(./../icons/default/cursor.svg);
           position: absolute;
-          top: 50%;
+          top: 55%;
           left: 0.6rem;
           transform: translate(-50%, -50%);
           display: none;
-          width: 0.7rem;
-          height: 0.7rem;
-          border: solid 0.4rem;
-          border-radius: 100%;
+          width: 1.7rem;
+          height: 1.7rem;
         }
       }
 
@@ -260,3 +259,18 @@ body {
     cursor: pointer;
   }
 }
+
+//theme-settings
+ .themes-list{
+  width: 50%;
+  max-width: 40rem;
+
+  label{
+    display: block;
+    width: 100%;
+    height: 7rem;
+    background-color: red;
+    text-align: center;
+    background-image: url(./../img/default.png);
+  }
+ }
