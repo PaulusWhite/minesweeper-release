@@ -46,7 +46,7 @@ interface ISavedGame {
   gameInfo: IGameInfo;
 }
 
-type TTheme = "default" | "construction" | "nature" | "weather" | "sea";
+type TTheme = "default";
 
 interface IGameSettings {
   theme: TTheme;
