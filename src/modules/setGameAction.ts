@@ -55,10 +55,10 @@ const checkIsFieldClicked = (): boolean => {
 
 const setGameAction = () => {
   const mineField: HTMLDivElement = getMineFieldHTMLNode();
-  let isFirstCellClick: boolean = checkIsFieldClicked(); // indicator for creating mines matrix after first click
 
   mineField.addEventListener("click", (Event: Event) => {
     const target: HTMLElement = Event.target as HTMLElement;
+    let isFirstCellClick: boolean = checkIsFieldClicked(); // indicator for creating mines matrix after first click
 
     if (target.closest(".cell")) {
       if (target.classList.contains("cell__flagged")) return;

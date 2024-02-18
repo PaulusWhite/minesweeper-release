@@ -1,3 +1,9 @@
+//store
+import store from "../redux/createStore";
+
+//actions
+import createMineFieldMatrixAction from "../redux/actions,";
+
 //Modules
 import rerenderMinesField from "./common/rerenderMinesField";
 import { GAME_TIMER_ID_NAME, removeSStorageGameTimerID } from "./common/resetGameTimer";
@@ -28,6 +34,7 @@ const restartGame = () => {
 
     clearInterval(prevGameTimer);
     rerenderMinesField();
+    store.dispatch(createMineFieldMatrixAction([]));
   });
 };
 
