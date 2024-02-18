@@ -259,3 +259,29 @@ body {
     cursor: pointer;
   }
 }
+
+//popup
+.popup {
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  right: -21rem;
+  transform: translate(-0%, -50%);
+  width: 20rem;
+  padding: 1rem;
+  border: solid black 0.15rem;
+  border-radius: 0.3rem;
+  opacity: 0;
+  transition: 0.6s;
+
+  .popup__message {
+    margin: 0;
+    font-size: 1.3rem;
+  }
+}
+
+//css-mod for popup
+.show-popup {
+  right: 2rem;
+  opacity: 1;
+}

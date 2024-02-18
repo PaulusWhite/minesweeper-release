@@ -9,6 +9,7 @@ import { IGameSettings, ISavedGame, TDifficultyLvl, IGameInfo } from "../interfa
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./common/setGameSettingsData";
 import setGameTimer from "./setGameTimer";
+import showPopupMessage from "./common/showPopupMessage";
 
 //Utils
 import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
@@ -22,7 +23,9 @@ const getCurrentState = (): ICell[][] | undefined => {
   const currentFieldMatrix: ICell[][] = store.getState().state;
 
   if (currentFieldMatrix.length === 0) {
-    console.log("You have started the game yet");
+    const popupMessage: string = "You can save the game only after having at least one move";
+
+    showPopupMessage(popupMessage);
     return;
   }
 
@@ -76,9 +79,9 @@ const saveProgress = () => {
     if (target.className === "saved-record__save-btn") {
       const currentGameState: ICell[][] | undefined = getCurrentState();
 
-      const recordName: string | null = prompt("Enter the record name");
-
       if (!currentGameState) return; // If player tries to save the game with no move made
+
+      const recordName: string | null = prompt("Enter the record name");
 
       const currentGameSettings: IGameSettings = getGameSettingsData() as IGameSettings;
       const savedProgress: (ISavedGame | null)[] = currentGameSettings.savedProgress;

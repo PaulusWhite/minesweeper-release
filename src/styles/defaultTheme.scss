@@ -136,4 +136,14 @@ $minedColor: #c41f13;
       color: $whiteColor;
     }
   }
+
+  //popup
+  .popup {
+    @include bgColor;
+    border-color: $whiteColor;
+
+    .popup__message {
+      color: $whiteColor;
+    }
+  }
 }
