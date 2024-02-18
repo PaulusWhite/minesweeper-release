@@ -16,6 +16,7 @@ import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./common/setGameSettingsData";
 import rerenderMinesField from "./common/rerenderMinesField";
 import { setRadioIndicator, setDifficultySettingsInitValue } from "./common/setDifficultySettingsInitValue";
+import showPopupMessage from "./common/showPopupMessage";
 
 const MAX_CELLS_QUANTITY = 1600;
 const MIN_CELLS_QUANTITY_IN_DIRECTION = 5;
@@ -81,22 +82,22 @@ const validateCustomSettings = (widthCellsQuantity: number, heightCellsQuantity:
   const minesPrecentOfCells: number = (minesQuantity * 100) / totalCellsQuantity; // 100 is procent
 
   if (totalCellsQuantity > MAX_CELLS_QUANTITY) {
-    alert("Max cells quantity can be no more than 1600");
+    showPopupMessage("Max cells quantity can be no more than 1600");
     return false;
   }
 
   if (widthCellsQuantity < MIN_CELLS_QUANTITY_IN_DIRECTION || heightCellsQuantity < MIN_CELLS_QUANTITY_IN_DIRECTION) {
-    alert("Min cells quantity in any direction can not be less than 5");
+    showPopupMessage("Min cells quantity in any direction can not be less than 5");
     return false;
   }
 
   if (minesQuantity < MIN_MINES_QUANTITY) {
-    alert("MIN Mines quantity can not be less than 10");
+    showPopupMessage("Min Mines quantity can not be less than 10");
     return false;
   }
 
   if (minesPrecentOfCells > MAX_MINES_PRECENT_OF_THE_CELLS) {
-    alert("Max mines procent of total cells quantity cen not be more than 70");
+    showPopupMessage("Max mines procent of total cells quantity cen not be more than 70");
     return false;
   }
 

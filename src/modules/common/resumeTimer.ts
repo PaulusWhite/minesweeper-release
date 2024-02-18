@@ -12,10 +12,10 @@ const resumeTimer = () => {
 
   const moveValue: number = +movesCounter.innerHTML;
 
-  if(moveValue > 0 && !gameTimerID){
+  if (moveValue > 0 && !gameTimerID) {
     removeSStorageGameTimerID();
     setGameTimer();
   }
-}
+};
 
 export default resumeTimer;
