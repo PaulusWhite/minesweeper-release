@@ -7,6 +7,7 @@ import createMineFieldMatrixAction from "../redux/actions,";
 //Modules
 import rerenderMinesField from "./common/rerenderMinesField";
 import { GAME_TIMER_ID_NAME, removeSStorageGameTimerID } from "./common/resetGameTimer";
+import setEmoji from "./common/setEmoji";
 
 //Utils
 import getGameInfoNodes from "../utils/getGameInfoNodes";
@@ -35,6 +36,7 @@ const restartGame = () => {
     clearInterval(prevGameTimer);
     rerenderMinesField();
     store.dispatch(createMineFieldMatrixAction([]));
+    setEmoji("default");
   });
 };
 
