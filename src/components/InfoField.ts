@@ -1,3 +1,6 @@
+//icons
+import defaultIcon from "./../icons/defaulEmoji.svg";
+
 const InfoField = () => {
   const view = `
   <div class="info-field">
@@ -33,6 +36,10 @@ const InfoField = () => {
         </span>
         <span class="info-field__flags-counter-value"></span>
       </span>
+    </div>
+
+    <div class="info-field__emoji">
+      <img src="${defaultIcon}" alt="lose-emoji" class="info-field__lose-emoji">
     </div>
     
   </div>

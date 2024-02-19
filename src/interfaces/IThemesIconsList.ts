@@ -8,4 +8,10 @@ interface IThemesIconsList {
   default: IIconsList;
 }
 
-export default IThemesIconsList;
+interface IEmojiIconList {
+  default: string;
+  lose: string;
+  win: string;
+}
+
+export {IThemesIconsList, IEmojiIconList};

@@ -3,7 +3,7 @@ import getGameSettingsData from "./getGameSettingsData";
 
 //interfaces
 import { TTheme } from "../../interfaces/IGameSettings";
-import IThemesIconsList from "../../interfaces/IThemesIconsList";
+import { IThemesIconsList } from "../../interfaces/IThemesIconsList";
 
 //Icons
 import defaultMineIcon from "../../icons/default/mineIcon.svg";

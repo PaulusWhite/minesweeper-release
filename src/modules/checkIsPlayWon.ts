@@ -8,9 +8,10 @@ import { IGameSettings } from "../interfaces/IGameSettings";
 import getGameSettingsData from "./common/getGameSettingsData";
 import revealAllCells from "./revealAllCells";
 import stopGameTimer from "./common/stopGameTimer";
+import setEmoji from "./common/setEmoji";
 
 const showWinMessage = () => {
-  alert("you are won!");
+  alert("You won! Congratulations! You can save this result like the progress or just start a new game!");
 };
 
 const checkIsPlayWon = () => {
@@ -29,6 +30,7 @@ const checkIsPlayWon = () => {
     revealAllCells("cell__mined-revealed");
     showWinMessage();
     stopGameTimer();
+    setEmoji("win");
   }
 };
 

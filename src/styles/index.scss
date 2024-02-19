@@ -53,6 +53,7 @@ body {
   .info-field {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     margin-bottom: 1rem;
     border: solid black 0.1rem;
@@ -86,6 +87,11 @@ body {
           width: 1.8rem;
         }
       }
+    }
+
+    .info-field__emoji {
+      width: 2rem;
+      padding-bottom: 1rem;
     }
   }
 

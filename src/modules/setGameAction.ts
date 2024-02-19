@@ -16,6 +16,7 @@ import setMovesCounterValue from "./setMovesCounterValue";
 import setGameTimer from "./setGameTimer";
 import stopGameTimer from "./common/stopGameTimer";
 import { GAME_TIMER_ID_NAME } from "./common/resetGameTimer";
+import setEmoji from "./common/setEmoji";
 
 //Interfaces
 import { IGameSettings } from "../interfaces/IGameSettings";
@@ -40,6 +41,7 @@ const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
   if (matrixCellData.isMined) {
     revealAllCells("cell__mined");
     stopGameTimer();
+    setEmoji("lose");
     return;
   }
 
