@@ -3,9 +3,9 @@ import { setDifficultySettingsInitValue } from "./common/setDifficultySettingsIn
 import validateCustomDifficultyInput from "./validateCustomDifficultyInput";
 import applyGameDifficulty from "./applyGameDifficulty";
 import handleProgressRecords from "./handleProgressRecords";
-import setGameThemeInitValue from "./setGameThemeInitValue";
+// import setGameThemeInitValue from "./setGameThemeInitValue";
 
-const runComponentFunctional = (url: "/difficulty" | "/save" | "/load" | "/theme") => {
+const runComponentFunctional = (url: "/difficulty" | "/save" | "/load" | "/faq") => {
   if (url === "/difficulty") {
     setDifficultySettingsInitValue();
     validateCustomDifficultyInput();
@@ -17,9 +17,9 @@ const runComponentFunctional = (url: "/difficulty" | "/save" | "/load" | "/theme
   if (url === "/save") {
     handleProgressRecords("data-entry-list");
   }
-  if (url === "/theme") {
-    setGameThemeInitValue();
-  }
+  // if (url === "/theme") {
+  //   setGameThemeInitValue();
+  // }
 };
 
 export default runComponentFunctional;

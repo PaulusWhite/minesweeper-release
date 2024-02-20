@@ -156,7 +156,6 @@ body {
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-color: white;
 }
 
 .difficulty-settings {
@@ -209,6 +208,37 @@ body {
   .saved-games-list,
   .data-entry-list {
     margin-bottom: 10rem;
+  }
+}
+
+.faq-section{
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 2rem;
+  color: $whiteColor;
+
+  h1{
+    font-size: 2rem;
+  }
+
+  p{
+    font-size: 1.3rem;
+  }
+
+  .faq-section__description{
+    display: flex;
+    align-items: center;
+
+    .faq-section__img-frame{
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 25rem;
+
+      .faq-section__game-img{
+        width: 100%;
+      }
+    }
   }
 }
 

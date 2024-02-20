@@ -2,6 +2,7 @@
 import DifficultySettingsSection from "./components/settingsSidebarComponents/DifficultySettingsSection";
 import ProgressLoadingSection from "./components/settingsSidebarComponents/ProgressLoadingSection";
 import ProgressSavingSection from "./components/settingsSidebarComponents/ProgressSavingSection";
+import FaqSection from "./components/settingsSidebarComponents/FaqSection";
 
 //Interfaces
 import IRouter from "./interfaces/IRouter";
@@ -32,6 +33,7 @@ const router = () => {
     { path: "/save", view: ProgressSavingSection() },
     { path: "/load", view: ProgressLoadingSection() },
     { path: "/difficulty", view: DifficultySettingsSection() },
+    { path: "/faq", view: FaqSection() }
   ];
 
   const currentPath: string = window.location.pathname;
