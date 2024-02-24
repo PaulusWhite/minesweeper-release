@@ -21,9 +21,9 @@ const InfoSection = () => {
 
       ${CloseBtn("info-section__close-btn")}
     </section>
-  `
+  `;
 
   return view;
-}
+};
 
 export default InfoSection;

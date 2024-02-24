@@ -29,8 +29,8 @@ const FaqSection = () => {
 
       ${CloseBtn("faq-section__close-btn")}
     </section>
-  `
+  `;
   return view;
-}
+};
 
 export default FaqSection;

@@ -12,7 +12,7 @@ input {
   text-align: center;
 }
 
-a{
+a {
   color: unset;
   text-decoration: none;
 }
@@ -96,7 +96,7 @@ body {
 
     .info-field__emoji {
       width: 2.2rem;
-      padding-bottom: .8rem;
+      padding-bottom: 0.8rem;
     }
   }
 
@@ -216,61 +216,60 @@ body {
   }
 }
 
-.faq-section{
+.faq-section {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
   padding: 2rem;
   color: $whiteColor;
 
-  h1{
+  h1 {
     font-size: 2rem;
   }
 
-  p{
+  p {
     font-size: 1.3rem;
   }
 
-  .faq-section__description{
+  .faq-section__description {
     display: flex;
     align-items: center;
 
-    .faq-section__img-frame{
+    .faq-section__img-frame {
       flex-shrink: 0;
       width: 100%;
       max-width: 25rem;
 
-      .faq-section__game-img{
+      .faq-section__game-img {
         width: 100%;
       }
     }
   }
 }
 
-.info-section{
+.info-section {
   flex-direction: column;
   color: $whiteColor;
-  h1{
+  h1 {
     display: flex;
     align-items: center;
     font-size: 4rem;
 
-    img{
+    img {
       width: 3rem;
       margin-left: 1rem;
     }
   }
 
-  .info-section__contact-list{
-
-    .info-section__contact{
+  .info-section__contact-list {
+    .info-section__contact {
       margin: 1em 0;
       font-size: 2rem;
-      transition: .1s;
+      transition: 0.1s;
     }
 
-    .info-section__contact:not(.email-contact){
-      &:hover{
+    .info-section__contact:not(.email-contact) {
+      &:hover {
         text-decoration: underline;
       }
     }

@@ -14,4 +14,4 @@ interface IEmojiIconList {
   win: string;
 }
 
-export {IThemesIconsList, IEmojiIconList};
+export { IThemesIconsList, IEmojiIconList };

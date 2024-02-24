@@ -5,7 +5,7 @@ import applyGameDifficulty from "./applyGameDifficulty";
 import handleProgressRecords from "./handleProgressRecords";
 // import setGameThemeInitValue from "./setGameThemeInitValue";
 
-const runComponentFunctional = (url: "/difficulty" | "/save" | "/load" | "/faq" | "/info") => {
+const runComponentFunctional = (url: "/difficulty" | "/save" | "/load" | "/faq" | "/info" | "/last-results") => {
   if (url === "/difficulty") {
     setDifficultySettingsInitValue();
     validateCustomDifficultyInput();
