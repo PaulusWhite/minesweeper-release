@@ -1,5 +1,5 @@
 interface IRouter {
-  path: "/difficulty" | "/save" | "/load" | "/faq";
+  path: "/difficulty" | "/save" | "/load" | "/faq" | "/info";
   view: string;
 }
 
