@@ -98,7 +98,7 @@ const setGameAction = () => {
     const target: HTMLElement = Event.target as HTMLElement;
 
     if (target.closest(".cell")) {
-      if (target.classList.contains("cell__open") || target.classList.contains("cell__indicated")) return;
+      if (target.classList.length > 1 && !target.classList.contains("cell__flagged")) return;
 
       const clickedCellIndex: number = +(target.dataset.cellIndex as string);
 
