@@ -73,7 +73,7 @@ const setGameAction = () => {
     let isFirstCellClick: boolean = checkIsFieldClicked(); // indicator for creating mines matrix after first click
 
     if (target.closest(".cell")) {
-      if (target.classList.contains("cell__flagged")) return;
+      if (target.classList.length > 1) return;
 
       const clickedCellIndex: number = +(target.dataset.cellIndex as string);
 
