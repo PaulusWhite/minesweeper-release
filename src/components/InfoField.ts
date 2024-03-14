@@ -16,7 +16,7 @@ const InfoField = () => {
         <span class="info-field__bombs-quantity"></span>
       </span>
 
-      <button class="info-field__restart-btn info-field__indicator">restart</button>
+      <button class="info-field__restart-btn info-field__indicator">Restart</button>
       <button class="info-field__settings-btn info-field__indicator">Settings</button>
     </div>
 
@@ -29,7 +29,7 @@ const InfoField = () => {
       </span>
 
       <span class="info-field__moves-counter info-field__indicator">
-        moves
+        Moves
         <span class="info-field__moves-counter-value"></span>
       </span>
 

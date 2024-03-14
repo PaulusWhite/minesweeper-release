@@ -2,6 +2,7 @@
 $whiteColor: #fafafa;
 $closedColor: #0d0f18;
 $minedColor: #c41f13;
+$bodyBgColor: #bfd3f3;
 
 @mixin bgColor {
   background: #242b38;
@@ -62,7 +63,7 @@ ul {
 //
 
 body {
-  @include bgColor;
+  background: $bodyBgColor;
   min-height: 100vh;
   margin: 0;
   padding: 1rem;
@@ -70,6 +71,7 @@ body {
 }
 
 .game-window {
+  @include bgColor();
   position: relative;
   display: inline-flex;
   flex-direction: column;
