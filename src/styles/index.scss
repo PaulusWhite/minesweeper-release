@@ -276,6 +276,37 @@ body {
   }
 }
 
+//last results section
+.last-result-section {
+  flex-direction: column;
+
+  h1 {
+    font-size: 3rem;
+    color: $whiteColor;
+  }
+
+  .last-results-list {
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    grid-template-columns: repeat(2, auto);
+    gap: 2rem;
+  }
+
+  .last-result-record {
+    @include indicatedColorStyle;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    border: solid $whiteColor 0.1rem;
+    font-size: 1.6rem;
+
+    * {
+      text-align: left;
+    }
+  }
+}
+
 //Common components
 .close-btn {
   position: absolute;

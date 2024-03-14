@@ -3,7 +3,7 @@ import { setDifficultySettingsInitValue } from "./common/setDifficultySettingsIn
 import validateCustomDifficultyInput from "./validateCustomDifficultyInput";
 import applyGameDifficulty from "./applyGameDifficulty";
 import handleProgressRecords from "./handleProgressRecords";
-// import setGameThemeInitValue from "./setGameThemeInitValue";
+import showLastResultsList from "./showLastResultsList";
 
 const runComponentFunctional = (url: "/difficulty" | "/save" | "/load" | "/faq" | "/info" | "/last-results") => {
   if (url === "/difficulty") {
@@ -17,9 +17,9 @@ const runComponentFunctional = (url: "/difficulty" | "/save" | "/load" | "/faq" 
   if (url === "/save") {
     handleProgressRecords("data-entry-list");
   }
-  // if (url === "/theme") {
-  //   setGameThemeInitValue();
-  // }
+  if (url === "/last-results") {
+    showLastResultsList();
+  }
 };
 
 export default runComponentFunctional;
