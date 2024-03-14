@@ -17,6 +17,8 @@ import getGameInfoNodes from "../utils/getGameInfoNodes";
 //router
 import { navigateTo } from "../router";
 
+const MAX_NAME_SYMBOLS_LENGTH: number = 25;
+
 const getCurrentState = (): ICell[][] | undefined => {
   const mineField: HTMLDivElement = getMineFieldHTMLNode();
   const currentFieldMatrix: ICell[][] = store.getState().state;
@@ -81,6 +83,12 @@ const saveProgress = () => {
       if (!currentGameState) return; // If player tries to save the game with no move made
 
       const recordName: string | null = prompt("Enter the record name");
+
+      if(recordName && recordName?.length > MAX_NAME_SYMBOLS_LENGTH){
+        const message: string = `Name of the record can not be more than ${MAX_NAME_SYMBOLS_LENGTH} symbols`;
+        showPopupMessage(message);
+        return;
+      }
 
       const currentGameSettings: IGameSettings = getGameSettingsData() as IGameSettings;
       const savedProgress: (ISavedGame | null)[] = currentGameSettings.savedProgress;
