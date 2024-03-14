@@ -1,0 +1,130 @@
+@media (max-width: 1024px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .game-window {
+    margin: 1rem auto 0 auto;
+  }
+
+  .cell {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .close-btn {
+    margin: 1rem 1rem;
+  }
+
+  input {
+    max-width: 8rem;
+  }
+
+  .difficulty-settings__table {
+    font-size: 1.4rem !important;
+  }
+
+  .faq-section__description {
+    .faq-section__img-frame {
+      max-width: 20rem !important;
+      margin: 0.5rem !important;
+    }
+
+    .faq-section__text {
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    padding: 0.1rem;
+  }
+
+  .game-window {
+    margin: 0;
+    border-width: 0.1rem;
+
+    .info-field {
+      margin-bottom: 0.4rem;
+
+      .info-field__indicator {
+        margin: 0.2rem 0.4rem !important;
+      }
+    }
+
+    .info-field__emoji {
+      padding-bottom: 0.3rem !important;
+    }
+  }
+
+  .cell {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0.05rem;
+  }
+
+  .saved-record {
+    * {
+      font-size: 1.4rem !important;
+    }
+  }
+
+  .close-btn {
+    width: 2.5rem;
+    margin: 0.3rem 0.5rem !important;
+  }
+
+  input {
+    max-width: 4rem;
+  }
+
+  .difficulty-settings__table {
+    font-size: 1rem !important;
+
+    th {
+      padding: 0.1rem !important;
+
+      label {
+        padding-left: 1rem !important;
+
+        &::before {
+          left: 0.4rem !important;
+          width: 1rem !important;
+          height: 1rem !important;
+        }
+      }
+    }
+  }
+
+  .last-results-list {
+    gap: 1rem !important;
+
+    .last-result-record {
+      font-size: 1rem !important;
+    }
+  }
+
+  .faq-section {
+    align-items: center;
+    padding: 0.5rem;
+
+    .faq-section__description {
+      flex-direction: column-reverse;
+
+      .faq-section__text {
+        p {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+
+  .settings-sidebar {
+    .settings-btn {
+      font-size: 3rem;
+    }
+  }
+}
