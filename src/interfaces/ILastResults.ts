@@ -1,12 +1,13 @@
 //Interfaces
 import { TDifficultyLvl } from "./IGameSettings";
 
-interface ILastResult {
+interface ILastResultRecord {
   difficulty: TDifficultyLvl;
-  minesQuantity: number;
   time: string;
   moves: string;
-  date: Date;
+  date: string;
 }
 
-export default ILastResult;
+type ILastResultsData = ILastResultRecord[];
+
+export { ILastResultRecord, ILastResultsData };

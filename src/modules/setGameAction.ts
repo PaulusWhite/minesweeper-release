@@ -25,6 +25,9 @@ import { ICell } from "../interfaces/IRedux";
 //Utils
 import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
 
+// //IMPORT FOR TEST
+// import saveWinResult from "./saveWinResult";
+
 const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
   const clickedCell: HTMLSpanElement = field.children[clickedCellIndex] as HTMLSpanElement;
   const { difficulty } = getGameSettingsData() as IGameSettings;
@@ -47,6 +50,13 @@ const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
 
   revealFreeCells(matrixCellData, fieldMatrix, difficulty.rowCellsQuantity);
   checkIsPlayWon();
+
+  //   // FOR TEST
+  //   revealAllCells("cell__mined-revealed");
+  // alert("You won! Congratulations! You can save this result like the progress or just start a new game!");
+  //     stopGameTimer();
+  //     setEmoji("win");
+  //     saveWinResult();
 };
 
 const checkIsFieldClicked = (): boolean => {

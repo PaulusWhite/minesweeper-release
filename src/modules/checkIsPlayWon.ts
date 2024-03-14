@@ -9,6 +9,7 @@ import getGameSettingsData from "./common/getGameSettingsData";
 import revealAllCells from "./revealAllCells";
 import stopGameTimer from "./common/stopGameTimer";
 import setEmoji from "./common/setEmoji";
+import saveWinResult from "./saveWinResult";
 
 const showWinMessage = () => {
   alert("You won! Congratulations! You can save this result like the progress or just start a new game!");
@@ -31,6 +32,7 @@ const checkIsPlayWon = () => {
     showWinMessage();
     stopGameTimer();
     setEmoji("win");
+    saveWinResult();
   }
 };
 
