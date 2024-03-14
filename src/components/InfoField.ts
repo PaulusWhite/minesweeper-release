@@ -1,5 +1,8 @@
 //icons
 import defaultIcon from "./../icons/defaulEmoji.svg";
+import bombIcon from "./../icons/mineIcon.svg";
+import timerIcon from "./../icons/timerIcon.svg";
+import flagIcon from "./../icons/flagIcon.svg";
 
 const InfoField = () => {
   const view = `
@@ -8,7 +11,7 @@ const InfoField = () => {
     <div class="info-field__level-info">
       <span class="info-field__bombs-info info-field__indicator">
         <span class="info-field__bomb-icon">
-          <img class="info-field__icon" id="bomb-icon">
+          <img src="${bombIcon}" class="info-field__icon" id="bomb-icon">
         </span>
         <span class="info-field__bombs-quantity"></span>
       </span>
@@ -20,7 +23,7 @@ const InfoField = () => {
     <div class="info_field__game-info">
       <span class="info-field__time-counter info-field__indicator">
         <span class="info-field__time-counter-icon">
-          <img class="info-field__icon" id="timer-icon">
+          <img src="${timerIcon}" class="info-field__icon" id="timer-icon">
         </span>
         <span class="info-field__time-counter-value"></span>
       </span>
@@ -32,7 +35,7 @@ const InfoField = () => {
 
       <span class="info-field__flags-counter info-field__indicator">
         <span class="info-field__flags-counter-icon">
-          <img class="info-field__icon" id="flag-icon">
+          <img src="${flagIcon}" class="info-field__icon" id="flag-icon">
         </span>
         <span class="info-field__flags-counter-value"></span>
       </span>

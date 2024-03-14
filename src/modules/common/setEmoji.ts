@@ -4,7 +4,7 @@ import loseEmoji from "./../../icons/lose.svg";
 import winEmoji from "./../../icons/win.svg";
 
 //interfaces
-import { IEmojiIconList } from "../../interfaces/IThemesIconsList";
+import IEmojiIconList from "../../interfaces/IThemeIconsList";
 
 const EMOJI: IEmojiIconList = {
   default: defaultEmoji,

@@ -58,11 +58,10 @@ const checkIfSettingsSame = (lvlInputs: NodeListOf<HTMLInputElement>): boolean =
 
 const setDifficultySettingsData = (newDifficultyLvl: TDifficultyLvl) => {
   const currentGameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
-  const { theme, savedProgress } = currentGameSettingsData;
+  const { savedProgress } = currentGameSettingsData;
 
   const newGameSettingsData: IGameSettings = {
     difficulty: newDifficultyLvl,
-    theme,
     savedProgress,
   };
 

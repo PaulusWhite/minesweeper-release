@@ -24,7 +24,6 @@ const DEFAULT_GAME_SETTINGS_DATA: IGameSettings = {
     columnCellsQuantity: 10,
     minesQuantity: 10,
   },
-  theme: "default",
   savedProgress: getDefaultSavedProgress(),
 };
 

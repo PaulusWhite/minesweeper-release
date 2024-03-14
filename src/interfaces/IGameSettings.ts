@@ -46,10 +46,7 @@ interface ISavedGame {
   gameInfo: IGameInfo;
 }
 
-type TTheme = "default";
-
 interface IGameSettings {
-  theme: TTheme;
   difficulty: TDifficultyLvl;
   savedProgress: (ISavedGame | null)[];
 }
@@ -77,5 +74,4 @@ export {
   ICustomDifficultyInputs,
   ISavedGame,
   IGameInfo,
-  TTheme,
 };
