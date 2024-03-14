@@ -76,9 +76,8 @@ body {
   display: inline-flex;
   flex-direction: column;
   min-width: 20rem;
-  padding: 0.3rem;
+  padding: 0.5rem;
   margin: 4rem auto 0 auto;
-  border: solid $whiteColor 0.2rem;
   border-radius: 0.2rem;
   color: $whiteColor;
 
@@ -218,7 +217,7 @@ body {
 
 .settings-section {
   @include bgColor;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
