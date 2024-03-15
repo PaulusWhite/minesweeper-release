@@ -18,10 +18,10 @@ import rerenderMinesField from "./common/rerenderMinesField";
 import { setRadioIndicator, setDifficultySettingsInitValue } from "./common/setDifficultySettingsInitValue";
 import showPopupMessage from "./common/showPopupMessage";
 
-const MAX_CELLS_QUANTITY = 1600;
-const MIN_CELLS_QUANTITY_IN_DIRECTION = 5;
-const MIN_MINES_QUANTITY = 10;
-const MAX_MINES_PRECENT_OF_THE_CELLS = 17;
+const MAX_CELLS_QUANTITY: number = 1225;
+const MIN_CELLS_QUANTITY_IN_DIRECTION: number = 5;
+const MIN_MINES_QUANTITY: number = 10;
+const MINES_CELLS_DIFFERENTIAL: number = 10;
 
 const DIFFICULTY_LEVELS_DATA: IDifficultySettingsData = {
   "easy-lvl": {
@@ -78,25 +78,26 @@ const clearCustomInputs = () => {
 
 const validateCustomSettings = (widthCellsQuantity: number, heightCellsQuantity: number, minesQuantity: number): boolean => {
   const totalCellsQuantity: number = widthCellsQuantity * heightCellsQuantity;
-  const minesPrecentOfCells: number = (minesQuantity * 100) / totalCellsQuantity; // 100 is procent
+
+  // const minesPrecentOfCells: number = (minesQuantity * 100) / totalCellsQuantity; // 100 is procent
 
   if (totalCellsQuantity > MAX_CELLS_QUANTITY) {
-    showPopupMessage("Max cells quantity can be no more than 1600");
+    showPopupMessage(`Max cells quantity can be no more than ${MAX_CELLS_QUANTITY}`);
     return false;
   }
 
   if (widthCellsQuantity < MIN_CELLS_QUANTITY_IN_DIRECTION || heightCellsQuantity < MIN_CELLS_QUANTITY_IN_DIRECTION) {
-    showPopupMessage("Min cells quantity in any direction can not be less than 5");
+    showPopupMessage(`Min cells quantity in any direction can not be less than ${MIN_CELLS_QUANTITY_IN_DIRECTION}`);
     return false;
   }
 
   if (minesQuantity < MIN_MINES_QUANTITY) {
-    showPopupMessage("Min Mines quantity can not be less than 10");
+    showPopupMessage(`Min Mines quantity can not be less than ${MIN_MINES_QUANTITY}`);
     return false;
   }
 
-  if (minesPrecentOfCells > MAX_MINES_PRECENT_OF_THE_CELLS) {
-    showPopupMessage("Max mines procent of total cells quantity cen not be more than 70");
+  if ((totalCellsQuantity - MINES_CELLS_DIFFERENTIAL) < minesQuantity) {
+    showPopupMessage(`Mines quantity must be at least ${MINES_CELLS_DIFFERENTIAL} less than total cells quantity`);
     return false;
   }
 
