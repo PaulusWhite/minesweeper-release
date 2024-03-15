@@ -23,52 +23,22 @@ import { GAME_TIMER_ID_NAME } from "./resetGameTimer";
 const setMobileGameAction = () => {
   const mineField: HTMLDivElement = getMineFieldHTMLNode();
 
-  // let timerId: number | null = null;
-
-  // window.addEventListener("contextmenu", (Event: Event) => {
-  //   Event.preventDefault();
-  // })
-
   window.addEventListener("contextmenu", (Event: Event) => {
     Event.preventDefault();
 
     const target: HTMLElement = Event.target as HTMLElement;
-    console.log(target);
+      console.log(target)
 
-    if (target.closest(".cell")) {
-      if (target.classList.length > 1 && !target.classList.contains("cell__flagged")) return;
+      if (target.closest(".cell")) {
+        if (target.classList.length > 1 && !target.classList.contains("cell__flagged")) return;
 
-      const clickedCellIndex: number = +(target.dataset.cellIndex as string);
+        const clickedCellIndex: number = +(target.dataset.cellIndex as string);
 
-      setCellFlag(mineField, clickedCellIndex);
-    }
-
-    // const newTimerID = setTimeout(() => {
-
-    //   const target: HTMLElement = Event.target as HTMLElement;
-    //   console.log(target)
-
-    //   if (target.closest(".cell")) {
-    //     if (target.classList.length > 1 && !target.classList.contains("cell__flagged")) return;
-
-    //     const clickedCellIndex: number = +(target.dataset.cellIndex as string);
-
-    //     setCellFlag(mineField, clickedCellIndex);
-    //   }
-
-    //   clearTimeout(Number(timerId));
-    //   timerId = null;
-    // }, 2000);
-
-    // timerId = +newTimerID;
+        setCellFlag(mineField, clickedCellIndex);
+      }
   });
 
   window.addEventListener("click", (Event: Event) => {
-    // if (timerId === null) return;
-
-    // clearTimeout(Number(timerId));
-    // timerId = null;
-
     const target: HTMLElement = Event.target as HTMLElement;
     let isFirstCellClick: boolean = checkIsFieldClicked(); // indicator for creating mines matrix after first click
 
