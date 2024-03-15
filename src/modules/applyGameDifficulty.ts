@@ -151,6 +151,8 @@ const applyGameDifficulty = () => {
     }
 
     lvlInputs.forEach((lvlInput: HTMLInputElement) => {
+      const message: string = "Game difficulty was changed";
+
       if (lvlInput.checked && lvlInput.id !== "custom-lvl") {
         const inputId: keyof IDifficultySettingsData = lvlInput.id as keyof IDifficultySettingsData;
         const newDifficultyLvl: IEasyLvl | IMediumLvl | IHardLvl = DIFFICULTY_LEVELS_DATA[inputId];
@@ -158,7 +160,6 @@ const applyGameDifficulty = () => {
         setDifficultySettingsData(newDifficultyLvl);
         setDifficultySettingsInitValue();
 
-        const message: string = "Game difficulty was changed";
         showPopupMessage(message);
       }
 
@@ -170,6 +171,7 @@ const applyGameDifficulty = () => {
         setDifficultySettingsData(newDifficultyLvl);
         clearCustomInputs();
         setDifficultySettingsInitValue();
+        showPopupMessage(message);
       }
     });
   });
