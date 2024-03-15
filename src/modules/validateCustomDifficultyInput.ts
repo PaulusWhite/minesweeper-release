@@ -1,3 +1,6 @@
+//Modules
+import unfocusOtherDifficultyOptions from "./common/unfocusOtherDifficultyOptions";
+
 const validateCustomDifficultyInput = () => {
   const numberInputs: NodeListOf<HTMLInputElement> = document.querySelectorAll(".custom-lvl__input-number");
 
@@ -14,6 +17,12 @@ const validateCustomDifficultyInput = () => {
         numberInput.value = newValue;
       }
     });
+
+    numberInput.addEventListener("focus", () => {
+      const customLvlInput: HTMLInputElement = document.querySelector("#custom-lvl")!;
+      
+      unfocusOtherDifficultyOptions(customLvlInput);
+    })
   });
 };
 

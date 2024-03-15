@@ -15,8 +15,9 @@ import { IGameSettings } from "../interfaces/IGameSettings";
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./common/setGameSettingsData";
 import rerenderMinesField from "./common/rerenderMinesField";
-import { setRadioIndicator, setDifficultySettingsInitValue } from "./common/setDifficultySettingsInitValue";
+import { setDifficultySettingsInitValue } from "./common/setDifficultySettingsInitValue";
 import showPopupMessage from "./common/showPopupMessage";
+import unfocusOtherDifficultyOptions from "./common/unfocusOtherDifficultyOptions";
 
 const MAX_CELLS_QUANTITY: number = 1225;
 const MIN_CELLS_QUANTITY_IN_DIRECTION: number = 5;
@@ -79,8 +80,6 @@ const clearCustomInputs = () => {
 const validateCustomSettings = (widthCellsQuantity: number, heightCellsQuantity: number, minesQuantity: number): boolean => {
   const totalCellsQuantity: number = widthCellsQuantity * heightCellsQuantity;
 
-  // const minesPrecentOfCells: number = (minesQuantity * 100) / totalCellsQuantity; // 100 is procent
-
   if (totalCellsQuantity > MAX_CELLS_QUANTITY) {
     showPopupMessage(`Max cells quantity can be no more than ${MAX_CELLS_QUANTITY}`);
     return false;
@@ -131,11 +130,7 @@ const clickGameDifficultyLvls = () => {
 
   allInputs.forEach((input: HTMLInputElement) => {
     input.addEventListener("change", () => {
-      setRadioIndicator(input, true);
-
-      allInputs.forEach((anotherInput: HTMLInputElement) => {
-        if (anotherInput !== input) setRadioIndicator(anotherInput, false);
-      });
+      unfocusOtherDifficultyOptions(input)
     });
   });
 };
