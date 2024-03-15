@@ -16,9 +16,9 @@ const getCurrentDate = (): string => {
   const day: string = String(date.getDate()).padStart(2, "0");
   const month: string = String(date.getMonth() + 1).padStart(2, "0");
   const year: number = date.getFullYear();
-  const time: string = `${date.getHours()} ${date.getMinutes()}`;
+  const time: string = `${date.getHours()}:${date.getMinutes()}`;
 
-  const currentDate: string = `${day}/${month}/${year}/${time}`;
+  const currentDate: string = `${day}/${month}/${year}, ${time}`;
 
   return currentDate;
 };
