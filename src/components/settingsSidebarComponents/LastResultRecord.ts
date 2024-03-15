@@ -24,7 +24,7 @@ const LastResultRecord = (lastResultRecordData: ILastResultRecord) => {
     </span>
 
     <span class="lvl-info__difficulty">
-      Difficulty: ${difficulty.lvlValue}
+      Difficulty: ${difficulty.lvlName}
     </span>
   </li>
   `;

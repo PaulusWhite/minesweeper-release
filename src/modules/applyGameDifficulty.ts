@@ -18,6 +18,7 @@ import rerenderMinesField from "./common/rerenderMinesField";
 import { setDifficultySettingsInitValue } from "./common/setDifficultySettingsInitValue";
 import showPopupMessage from "./common/showPopupMessage";
 import unfocusOtherDifficultyOptions from "./common/unfocusOtherDifficultyOptions";
+import setEmoji from "./common/setEmoji";
 
 const MAX_CELLS_QUANTITY: number = 1225;
 const MIN_CELLS_QUANTITY_IN_DIRECTION: number = 5;
@@ -30,18 +31,21 @@ const DIFFICULTY_LEVELS_DATA: IDifficultySettingsData = {
     rowCellsQuantity: 10,
     columnCellsQuantity: 10,
     minesQuantity: 10,
+    lvlName: "Beginner",
   },
   "medium-lvl": {
     lvlValue: "medium-lvl",
     rowCellsQuantity: 15,
     columnCellsQuantity: 15,
     minesQuantity: 35,
+    lvlName: "Intermediate",
   },
   "hard-lvl": {
     lvlValue: "hard-lvl",
     rowCellsQuantity: 25,
     columnCellsQuantity: 25,
     minesQuantity: 99,
+    lvlName: "Expert",
   },
 };
 
@@ -145,6 +149,7 @@ const getNewCustomDifficultyLvlData = (): ICustomLvl | null => {
     rowCellsQuantity: widthCellsQuantity,
     columnCellsQuantity: heightCellsQuantity,
     minesQuantity: minesQuantity,
+    lvlName: "Custom",
   };
 
   return newDifficultyLvl;
@@ -186,6 +191,7 @@ const applyGameDifficulty = () => {
         setDifficultySettingsInitValue();
 
         showPopupMessage(message);
+        setEmoji("default");
       }
 
       if (lvlInput.checked && lvlInput.id === "custom-lvl") {
@@ -197,6 +203,7 @@ const applyGameDifficulty = () => {
         clearCustomInputs();
         setDifficultySettingsInitValue();
         showPopupMessage(message);
+        setEmoji("default");
       }
     });
   });

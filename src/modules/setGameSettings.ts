@@ -23,6 +23,7 @@ const DEFAULT_GAME_SETTINGS_DATA: IGameSettings = {
     rowCellsQuantity: 10,
     columnCellsQuantity: 10,
     minesQuantity: 10,
+    lvlName: "Beginner",
   },
   savedProgress: getDefaultSavedProgress(),
 };
