@@ -15,9 +15,9 @@ const FaqSection = () => {
 
           <p>Our Minesweeper always makes the first click safe. You open squares with the left mouse button and put flags on mines with the right mouse button. Pressing the right mouse button again changes your flag into a questionmark. When you open a square that does not touch any mines, it will be empty and the adjacent squares will automatically open in all directions until reaching squares that contain numbers. A common strategy for starting games is to randomly click until you get a big opening with lots of numbers.</p>
     
-          <p>The three difficulty levels are Beginner (10x10 with 10 mines), Intermediate (15x15 with 35 mines) and Expert (25x25 with 99 mines). The game ends when all safe squares have been opened. </p>
+          <p>The three difficulty levels are Beginner (10x10 with 10 mines), Intermediate (15x15 with 35 mines) and Expert (25x25 with 99 mines). The game ends when all safe squares have been opened. Minesweeper can save up to 10 winning results of yours.</p>
     
-          <p>You also can play Custom games up to 1600 squares with a minimum of 10 mines and maximum of (x-1)(y-1) mines.</p>
+          <p>You also can play Custom games up to 1225 squares with a minimum of 10 mines and maximum of (x-1)(y-1) mines.</p>
     
           <p>Above the grid you can see game timer, mines quantity, moves counter and flags counter.</p>
         </div>
