@@ -45,13 +45,38 @@ const DIFFICULTY_LEVELS_DATA: IDifficultySettingsData = {
   },
 };
 
+const checkIsNewCustomSettingsSame = (difficultyData: TDifficultyLvl): boolean => {
+  let isNewCustomSettingsSame: boolean = false;
+  const {columnCellsQuantity, rowCellsQuantity, minesQuantity} = difficultyData;
+
+  const rowCellsInput: HTMLInputElement = document.querySelector("#custom-lvl__row-cells-custom-value")!;
+  const columnCellsInput: HTMLInputElement = document.querySelector("#custom-lvl__width-cells-custom-value")!;
+  const minesInput: HTMLInputElement = document.querySelector("#custom-lvl__mines-quantity-custom-value")!;
+
+  if(+columnCellsInput.value === columnCellsQuantity && +rowCellsInput.value === rowCellsQuantity && +minesInput.value === minesQuantity){
+    isNewCustomSettingsSame = true;
+  } 
+
+  return isNewCustomSettingsSame;
+}
+
 const checkIfSettingsSame = (lvlInputs: NodeListOf<HTMLInputElement>): boolean => {
   const currentGameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
   const currentLvlValue: string = currentGameSettingsData.difficulty.lvlValue;
   let isSettingsSame = false;
 
   lvlInputs.forEach((lvlInput: HTMLInputElement) => {
-    if (currentLvlValue === lvlInput.id && lvlInput.checked) isSettingsSame = true;
+    if (currentLvlValue === lvlInput.id && lvlInput.checked){
+      if(lvlInput.id === "custom-lvl"){
+        const isNewCustomSettingsSame: boolean = checkIsNewCustomSettingsSame(currentGameSettingsData.difficulty);
+
+        isSettingsSame = isNewCustomSettingsSame;
+
+        return;
+      }
+
+      isSettingsSame = true
+    }
   });
 
   return isSettingsSame;
