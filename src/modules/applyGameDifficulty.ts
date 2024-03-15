@@ -148,7 +148,11 @@ const applyGameDifficulty = () => {
     const lvlInputs: NodeListOf<HTMLInputElement> = document.getElementsByName("difficulty") as NodeListOf<HTMLInputElement>;
     const isSettingsSame: boolean = checkIfSettingsSame(lvlInputs);
 
-    if (isSettingsSame) return;
+    if (isSettingsSame){
+      const message: string = "You already have this game difficulty";
+      showPopupMessage(message);
+      return;
+    }
 
     lvlInputs.forEach((lvlInput: HTMLInputElement) => {
       if (lvlInput.checked && lvlInput.id !== "custom-lvl") {
@@ -157,6 +161,9 @@ const applyGameDifficulty = () => {
 
         setDifficultySettingsData(newDifficultyLvl);
         setDifficultySettingsInitValue();
+
+        const message: string = "Game difficulty was changed";
+        showPopupMessage(message);
       }
 
       if (lvlInput.checked && lvlInput.id === "custom-lvl") {
