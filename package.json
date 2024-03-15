@@ -1,6 +1,7 @@
 {
   "main": "index.ts",
   "scripts": {
+    "deploy": "gh-pages -d dist",
     "build-prod": "webpack --mode=production",
     "build-dev": "webpack --mode=development",
     "serve": "webpack serve",
