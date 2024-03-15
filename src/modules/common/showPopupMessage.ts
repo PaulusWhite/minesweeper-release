@@ -5,10 +5,10 @@ const showPopupMessage = (messageText: string, timer: number = 5000) => {
   const messageField: HTMLParagraphElement = popup.firstElementChild as HTMLParagraphElement;
   messageField.textContent = messageText;
 
-  if (popup.classList.contains("show-popup")){
+  if (popup.classList.contains("show-popup")) {
     const popupTimerIdValue: string | null = sessionStorage.getItem(POPUP_TIMER_NAME);
 
-    if(popupTimerIdValue){
+    if (popupTimerIdValue) {
       const popupTimerID: number = Number(popupTimerIdValue);
       sessionStorage.removeItem(POPUP_TIMER_NAME);
 

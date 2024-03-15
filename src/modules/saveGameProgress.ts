@@ -24,7 +24,7 @@ const getCurrentState = (): ICell[][] | undefined => {
   const currentFieldMatrix: ICell[][] = store.getState().state;
   const emoji: HTMLImageElement = document.querySelector(".info-field__status-emoji")!;
 
-  if(emoji.id === "lose" || emoji.id === "win"){
+  if (emoji.id === "lose" || emoji.id === "win") {
     const popupMessage: string = "You can not save finished game";
     showPopupMessage(popupMessage);
 
@@ -92,7 +92,7 @@ const saveProgress = () => {
 
       const recordName: string | null = prompt("Enter the record name");
 
-      if(recordName && recordName?.length > MAX_NAME_SYMBOLS_LENGTH){
+      if (recordName && recordName?.length > MAX_NAME_SYMBOLS_LENGTH) {
         const message: string = `Name of the record can not be more than ${MAX_NAME_SYMBOLS_LENGTH} symbols`;
         showPopupMessage(message);
         return;

@@ -6,7 +6,7 @@ interface IEasyLvl {
   columnCellsQuantity: 10;
   minesQuantity: 10;
   lvlValue: "easy-lvl";
-  lvlName: "Beginner"
+  lvlName: "Beginner";
 }
 
 interface IMediumLvl {
@@ -14,7 +14,7 @@ interface IMediumLvl {
   columnCellsQuantity: 15;
   minesQuantity: 35;
   lvlValue: "medium-lvl";
-  lvlName: "Intermediate"
+  lvlName: "Intermediate";
 }
 
 interface IHardLvl {
@@ -22,7 +22,7 @@ interface IHardLvl {
   columnCellsQuantity: 25;
   minesQuantity: 99;
   lvlValue: "hard-lvl";
-  lvlName: "Expert"
+  lvlName: "Expert";
 }
 
 interface ICustomLvl {
@@ -30,7 +30,7 @@ interface ICustomLvl {
   columnCellsQuantity: number;
   minesQuantity: number;
   lvlValue: "custom-lvl";
-  lvlName: "Custom"
+  lvlName: "Custom";
 }
 
 type TDifficultyLvl = IEasyLvl | IMediumLvl | IHardLvl | ICustomLvl;

@@ -10,6 +10,6 @@ const unfocusOtherDifficultyOptions = (input: HTMLInputElement) => {
   allInputs.forEach((anotherInput: HTMLInputElement) => {
     if (anotherInput !== input) setRadioIndicator(anotherInput, false);
   });
-}
+};
 
 export default unfocusOtherDifficultyOptions;

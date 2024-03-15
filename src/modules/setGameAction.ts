@@ -1,110 +1,13 @@
-//store
-import store from "../redux/createStore";
-
-//actions
-import createMineFieldMatrixAction from "../redux/actions,";
-
 //Modules
-import createMineFieldMatrix from "./createMineFieldMatrix";
-import getGameSettingsData from "./common/getGameSettingsData";
-import revealFreeCells from "./revealFreeCells";
-import getFieldMatrixMine from "./common/getFieldMatrixMine";
-import revealAllCells from "./revealAllCells";
-import checkIsPlayWon from "./checkIsPlayWon";
-import setCellFlag from "./setCellFlag";
-import setMovesCounterValue from "./setMovesCounterValue";
-import setGameTimer from "./setGameTimer";
-import stopGameTimer from "./common/stopGameTimer";
-import { GAME_TIMER_ID_NAME } from "./common/resetGameTimer";
-import setEmoji from "./common/setEmoji";
-
-//Interfaces
-import { IGameSettings } from "../interfaces/IGameSettings";
-import { ICell } from "../interfaces/IRedux";
-
-//Utils
-import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
-
-// //IMPORT FOR TEST
-// import saveWinResult from "./saveWinResult";
-
-const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
-  const clickedCell: HTMLSpanElement = field.children[clickedCellIndex] as HTMLSpanElement;
-  const { difficulty } = getGameSettingsData() as IGameSettings;
-
-  if (clickedCell.classList.contains("cell__open") || clickedCell.classList.contains("cell__indicated")) return;
-
-  clickedCell.classList.add("cell__open");
-
-  const fieldMatrix: ICell[][] = store.getState().state;
-  const matrixCellData: ICell = getFieldMatrixMine(fieldMatrix, clickedCellIndex) as ICell;
-
-  setMovesCounterValue();
-
-  if (matrixCellData.isMined) {
-    revealAllCells("cell__mined");
-    stopGameTimer();
-    setEmoji("lose");
-    return;
-  }
-
-  revealFreeCells(matrixCellData, fieldMatrix, difficulty.rowCellsQuantity);
-  checkIsPlayWon();
-
-  //   // FOR TEST
-  //   revealAllCells("cell__mined-revealed");
-  // alert("You won! Congratulations! You can save this result like the progress or just start a new game!");
-  //     stopGameTimer();
-  //     setEmoji("win");
-  //     saveWinResult();
-};
-
-const checkIsFieldClicked = (): boolean => {
-  const isState = store.getState().state.length;
-
-  return !isState;
-};
+import setMobileGameAction from "./common/setMobileGameAction";
+import setDesktopGameAction from "./common/setDesktopGameAction";
 
 const setGameAction = () => {
-  const mineField: HTMLDivElement = getMineFieldHTMLNode();
-
-  mineField.addEventListener("click", (Event: Event) => {
-    const target: HTMLElement = Event.target as HTMLElement;
-    let isFirstCellClick: boolean = checkIsFieldClicked(); // indicator for creating mines matrix after first click
-
-    if (target.closest(".cell")) {
-      if (target.classList.length > 1) return;
-
-      const clickedCellIndex: number = +(target.dataset.cellIndex as string);
-
-      if (isFirstCellClick) {
-        isFirstCellClick = !isFirstCellClick;
-
-        const mineFieldMatrix: ICell[][] = createMineFieldMatrix(clickedCellIndex);
-
-        store.dispatch(createMineFieldMatrixAction(mineFieldMatrix));
-        setGameTimer();
-      } else {
-        if (!sessionStorage.getItem(GAME_TIMER_ID_NAME)) setGameTimer();
-      }
-
-      clickCell(mineField, clickedCellIndex);
-    }
-  });
-
-  mineField.addEventListener("contextmenu", (Event) => {
-    Event.preventDefault();
-
-    const target: HTMLElement = Event.target as HTMLElement;
-
-    if (target.closest(".cell")) {
-      if (target.classList.length > 1 && !target.classList.contains("cell__flagged")) return;
-
-      const clickedCellIndex: number = +(target.dataset.cellIndex as string);
-
-      setCellFlag(mineField, clickedCellIndex);
-    }
-  });
+  if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)
+  ) {
+    setMobileGameAction();
+  } else setDesktopGameAction();
 };
 
 export default setGameAction;

@@ -20,9 +20,9 @@ const validateCustomDifficultyInput = () => {
 
     numberInput.addEventListener("focus", () => {
       const customLvlInput: HTMLInputElement = document.querySelector("#custom-lvl")!;
-      
+
       unfocusOtherDifficultyOptions(customLvlInput);
-    })
+    });
   });
 };
 

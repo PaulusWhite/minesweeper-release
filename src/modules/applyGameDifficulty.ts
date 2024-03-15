@@ -51,18 +51,22 @@ const DIFFICULTY_LEVELS_DATA: IDifficultySettingsData = {
 
 const checkIsNewCustomSettingsSame = (difficultyData: TDifficultyLvl): boolean => {
   let isNewCustomSettingsSame: boolean = false;
-  const {columnCellsQuantity, rowCellsQuantity, minesQuantity} = difficultyData;
+  const { columnCellsQuantity, rowCellsQuantity, minesQuantity } = difficultyData;
 
   const rowCellsInput: HTMLInputElement = document.querySelector("#custom-lvl__row-cells-custom-value")!;
   const columnCellsInput: HTMLInputElement = document.querySelector("#custom-lvl__width-cells-custom-value")!;
   const minesInput: HTMLInputElement = document.querySelector("#custom-lvl__mines-quantity-custom-value")!;
 
-  if(+columnCellsInput.value === columnCellsQuantity && +rowCellsInput.value === rowCellsQuantity && +minesInput.value === minesQuantity){
+  if (
+    +columnCellsInput.value === columnCellsQuantity &&
+    +rowCellsInput.value === rowCellsQuantity &&
+    +minesInput.value === minesQuantity
+  ) {
     isNewCustomSettingsSame = true;
-  } 
+  }
 
   return isNewCustomSettingsSame;
-}
+};
 
 const checkIfSettingsSame = (lvlInputs: NodeListOf<HTMLInputElement>): boolean => {
   const currentGameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
@@ -70,8 +74,8 @@ const checkIfSettingsSame = (lvlInputs: NodeListOf<HTMLInputElement>): boolean =
   let isSettingsSame = false;
 
   lvlInputs.forEach((lvlInput: HTMLInputElement) => {
-    if (currentLvlValue === lvlInput.id && lvlInput.checked){
-      if(lvlInput.id === "custom-lvl"){
+    if (currentLvlValue === lvlInput.id && lvlInput.checked) {
+      if (lvlInput.id === "custom-lvl") {
         const isNewCustomSettingsSame: boolean = checkIsNewCustomSettingsSame(currentGameSettingsData.difficulty);
 
         isSettingsSame = isNewCustomSettingsSame;
@@ -79,7 +83,7 @@ const checkIfSettingsSame = (lvlInputs: NodeListOf<HTMLInputElement>): boolean =
         return;
       }
 
-      isSettingsSame = true
+      isSettingsSame = true;
     }
   });
 
@@ -124,7 +128,7 @@ const validateCustomSettings = (widthCellsQuantity: number, heightCellsQuantity:
     return false;
   }
 
-  if ((totalCellsQuantity - MINES_CELLS_DIFFERENTIAL) < minesQuantity) {
+  if (totalCellsQuantity - MINES_CELLS_DIFFERENTIAL < minesQuantity) {
     showPopupMessage(`Mines quantity must be at least ${MINES_CELLS_DIFFERENTIAL} less than total cells quantity`);
     return false;
   }
@@ -160,7 +164,7 @@ const clickGameDifficultyLvls = () => {
 
   allInputs.forEach((input: HTMLInputElement) => {
     input.addEventListener("change", () => {
-      unfocusOtherDifficultyOptions(input)
+      unfocusOtherDifficultyOptions(input);
     });
   });
 };
@@ -174,7 +178,7 @@ const applyGameDifficulty = () => {
     const lvlInputs: NodeListOf<HTMLInputElement> = document.getElementsByName("difficulty") as NodeListOf<HTMLInputElement>;
     const isSettingsSame: boolean = checkIfSettingsSame(lvlInputs);
 
-    if (isSettingsSame){
+    if (isSettingsSame) {
       const message: string = "You already have this game difficulty";
       showPopupMessage(message);
       return;
