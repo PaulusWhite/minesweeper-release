@@ -22,6 +22,14 @@ const MAX_NAME_SYMBOLS_LENGTH: number = 25;
 const getCurrentState = (): ICell[][] | undefined => {
   const mineField: HTMLDivElement = getMineFieldHTMLNode();
   const currentFieldMatrix: ICell[][] = store.getState().state;
+  const emoji: HTMLImageElement = document.querySelector(".info-field__status-emoji")!;
+
+  if(emoji.id === "lose" || emoji.id === "win"){
+    const popupMessage: string = "You can not save finished game";
+    showPopupMessage(popupMessage);
+
+    return;
+  }
 
   if (currentFieldMatrix.length === 0) {
     const popupMessage: string = "You can save the game only after having at least one move";

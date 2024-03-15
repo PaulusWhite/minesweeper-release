@@ -42,7 +42,7 @@ const InfoField = () => {
     </div>
 
     <div class="info-field__emoji">
-      <img src="${defaultIcon}" alt="lose-emoji" class="info-field__lose-emoji">
+      <img src="${defaultIcon}" alt="lose-emoji" class="info-field__status-emoji">
     </div>
     
   </div>

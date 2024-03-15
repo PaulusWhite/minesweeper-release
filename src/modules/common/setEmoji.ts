@@ -4,7 +4,7 @@ import loseEmoji from "./../../icons/lose.svg";
 import winEmoji from "./../../icons/win.svg";
 
 //interfaces
-import IEmojiIconList from "../../interfaces/IThemeIconsList";
+import {IEmojiIconList, TEmojiType} from "../../interfaces/IThemeIconsList";
 
 const EMOJI: IEmojiIconList = {
   default: defaultEmoji,
@@ -12,10 +12,11 @@ const EMOJI: IEmojiIconList = {
   win: winEmoji,
 };
 
-const setEmoji = (emojiType: "default" | "lose" | "win") => {
-  const emoji: HTMLImageElement = document.querySelector(".info-field__lose-emoji")!;
+const setEmoji = (emojiType: TEmojiType) => {
+  const emoji: HTMLImageElement = document.querySelector(".info-field__status-emoji")!;
 
   emoji.src = EMOJI[emojiType as keyof IEmojiIconList];
+  emoji.id = emojiType;
 };
 
 export default setEmoji;

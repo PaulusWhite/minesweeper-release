@@ -4,4 +4,6 @@ interface IEmojiIconList {
   win: string;
 }
 
-export default IEmojiIconList;
+type TEmojiType = "default" | "lose" | "win";
+
+export { IEmojiIconList, TEmojiType };
