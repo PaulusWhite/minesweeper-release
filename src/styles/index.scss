@@ -61,7 +61,7 @@ ul {
 }
 //
 
-html{
+html {
   @include bgColor();
   overflow-x: hidden;
 }
@@ -81,7 +81,7 @@ body {
   min-width: 20rem;
   padding: 0.5rem;
   margin: 4rem auto 0 auto;
-  border: solid $whiteColor .1rem;
+  border: solid $whiteColor 0.1rem;
   border-radius: 0.2rem;
   color: $whiteColor;
 
@@ -141,7 +141,7 @@ body {
   .field {
     align-self: center;
     display: grid;
-    grid-gap: .2rem;
+    grid-gap: 0.2rem;
     width: 100%;
     justify-items: center;
   }
@@ -484,6 +484,72 @@ body {
 .show-popup {
   right: 2rem;
   opacity: 1;
+}
+
+//preloader
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  transition: 0.1s;
+  opacity: 0;
+  pointer-events: none;
+
+  .spinner {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .spinner div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    margin: 0.5rem;
+    border: 0.5rem solid $whiteColor;
+    border-radius: 50%;
+    animation: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: $whiteColor transparent transparent transparent;
+  }
+  .spinner div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .spinner div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .spinner div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+//css-mod for preloader
+.show-preloader {
+  opacity: 1;
+  pointer-events: unset;
+}
+
+.show-preloader__filled{
+  background: rgba(#150d36, 1);
+}
+
+.show-preloader__transparent{
+  background: rgba(#150d36, 0.8);
 }
 
 @import "./mediaqueries.scss";

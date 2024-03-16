@@ -14,6 +14,16 @@ import displaySettingsSidebar from "./modules/displaySettingsSidebar";
 import setSidebarMenuRouter from "./modules/setSidebarMenuRouter";
 import restartGame from "./modules/restartGame";
 import setGameLastResultsInitData from "./modules/setGameLastResults";
+import displayPreloader from "./modules/common/displayPreloader";
+
+document.addEventListener("DOMContentLoaded", () => {
+  displayPreloader(true, false);
+});
+
+window.addEventListener("load", () => {
+  console.log("DONE");
+  displayPreloader(false);
+})
 
 setGameSettings(); // init initial game settings in localStorage
 setGameLastResultsInitData(); // init initial game last resuts data in localStorage

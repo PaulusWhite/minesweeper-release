@@ -206,6 +206,7 @@ const applyGameDifficulty = () => {
         setDifficultySettingsData(newDifficultyLvl);
         clearCustomInputs();
         setDifficultySettingsInitValue();
+
         showPopupMessage(message);
         setEmoji("default");
       }
