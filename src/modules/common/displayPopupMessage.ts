@@ -1,8 +1,13 @@
 const POPUP_TIMER_NAME: string = "popupTimer";
 
-const showPopupMessage = (messageText: string, timer: number = 3500) => {
+const displayPopupMessage = (messageText: string | false, timer: number = 3500) => {
   const popup: HTMLDivElement = document.querySelector(".popup") as HTMLDivElement;
   const messageField: HTMLParagraphElement = popup.firstElementChild as HTMLParagraphElement;
+
+  if(!messageText) {
+    popup.classList.remove("show-popup");
+    return;
+  }
 
   messageField.textContent = messageText;
 
@@ -29,4 +34,4 @@ const showPopupMessage = (messageText: string, timer: number = 3500) => {
   sessionStorage.setItem(POPUP_TIMER_NAME, `${timerID}`);
 };
 
-export default showPopupMessage;
+export default displayPopupMessage;

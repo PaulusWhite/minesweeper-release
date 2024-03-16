@@ -8,7 +8,7 @@ import { IGameSettings, ISavedGame, TDifficultyLvl, IGameInfo } from "../interfa
 //Modules
 import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./common/setGameSettingsData";
-import showPopupMessage from "./common/showPopupMessage";
+import displayPopupMessage from "./common/displayPopupMessage";
 
 //Utils
 import getMineFieldHTMLNode from "../utils/getMineFieldHTMLNode";
@@ -26,7 +26,7 @@ const getCurrentState = (): ICell[][] | undefined => {
 
   if (emoji.id === "lose" || emoji.id === "win") {
     const popupMessage: string = "You can not save finished game";
-    showPopupMessage(popupMessage);
+    displayPopupMessage(popupMessage);
 
     return;
   }
@@ -34,7 +34,7 @@ const getCurrentState = (): ICell[][] | undefined => {
   if (currentFieldMatrix.length === 0) {
     const popupMessage: string = "You can save the game only after having at least one move";
 
-    showPopupMessage(popupMessage);
+    displayPopupMessage(popupMessage);
     return;
   }
 
@@ -90,11 +90,13 @@ const saveProgress = () => {
 
       if (!currentGameState) return; // If player tries to save the game with no move made
 
+      displayPopupMessage(false); //remove popup message if it is
+      
       const recordName: string | null = prompt("Enter the record name");
 
       if (recordName && recordName?.length > MAX_NAME_SYMBOLS_LENGTH) {
         const message: string = `Name of the record can not be more than ${MAX_NAME_SYMBOLS_LENGTH} symbols`;
-        showPopupMessage(message);
+        displayPopupMessage(message);
         return;
       }
 

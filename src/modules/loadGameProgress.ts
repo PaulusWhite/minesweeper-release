@@ -10,7 +10,7 @@ import setGameSettingsData from "./common/setGameSettingsData";
 import rerenderMinesField from "./common/rerenderMinesField";
 import { removeSStorageGameTimerID } from "./common/resetGameTimer";
 import setGameTimer from "./setGameTimer";
-import showPopupMessage from "./common/showPopupMessage";
+import displayPopupMessage from "./common/displayPopupMessage";
 
 //Interfaces
 import { IGameSettings, TDifficultyLvl, ISavedGame, IGameInfo } from "../interfaces/IGameSettings";
@@ -76,7 +76,7 @@ const loadGameProgress = () => {
         if (recordGameData === null) {
           const popupMessage: string = "The record is empty";
 
-          showPopupMessage(popupMessage);
+          displayPopupMessage(popupMessage);
           return;
         }
 

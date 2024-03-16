@@ -16,7 +16,7 @@ import getGameSettingsData from "./common/getGameSettingsData";
 import setGameSettingsData from "./common/setGameSettingsData";
 import rerenderMinesField from "./common/rerenderMinesField";
 import { setDifficultySettingsInitValue } from "./common/setDifficultySettingsInitValue";
-import showPopupMessage from "./common/showPopupMessage";
+import displayPopupMessage from "./common/displayPopupMessage";
 import unfocusOtherDifficultyOptions from "./common/unfocusOtherDifficultyOptions";
 import setEmoji from "./common/setEmoji";
 
@@ -120,22 +120,22 @@ const validateCustomSettings = (widthCellsQuantity: number, heightCellsQuantity:
   const totalCellsQuantity: number = widthCellsQuantity * heightCellsQuantity;
 
   if (totalCellsQuantity > MAX_CELLS_QUANTITY) {
-    showPopupMessage(`Max cells quantity can be no more than ${MAX_CELLS_QUANTITY}`);
+    displayPopupMessage(`Max cells quantity can be no more than ${MAX_CELLS_QUANTITY}`);
     return false;
   }
 
   if (widthCellsQuantity < MIN_CELLS_QUANTITY_IN_DIRECTION || heightCellsQuantity < MIN_CELLS_QUANTITY_IN_DIRECTION) {
-    showPopupMessage(`Min cells quantity in any direction can not be less than ${MIN_CELLS_QUANTITY_IN_DIRECTION}`);
+    displayPopupMessage(`Min cells quantity in any direction can not be less than ${MIN_CELLS_QUANTITY_IN_DIRECTION}`);
     return false;
   }
 
   if (minesQuantity < MIN_MINES_QUANTITY) {
-    showPopupMessage(`Min Mines quantity can not be less than ${MIN_MINES_QUANTITY}`);
+    displayPopupMessage(`Min Mines quantity can not be less than ${MIN_MINES_QUANTITY}`);
     return false;
   }
 
   if (totalCellsQuantity - MINES_CELLS_DIFFERENTIAL < minesQuantity) {
-    showPopupMessage(`Mines quantity must be at least ${MINES_CELLS_DIFFERENTIAL} less than total cells quantity`);
+    displayPopupMessage(`Mines quantity must be at least ${MINES_CELLS_DIFFERENTIAL} less than total cells quantity`);
     return false;
   }
 
@@ -186,7 +186,7 @@ const applyGameDifficulty = () => {
 
     if (isSettingsSame) {
       const message: string = "You already have this game difficulty";
-      showPopupMessage(message);
+      displayPopupMessage(message);
       return;
     }
 
@@ -200,7 +200,7 @@ const applyGameDifficulty = () => {
         setDifficultySettingsData(newDifficultyLvl);
         setDifficultySettingsInitValue();
 
-        showPopupMessage(message);
+        displayPopupMessage(message);
         setEmoji("default");
       }
 
@@ -213,7 +213,7 @@ const applyGameDifficulty = () => {
         clearCustomInputs();
         setDifficultySettingsInitValue();
 
-        showPopupMessage(message);
+        displayPopupMessage(message);
         setEmoji("default");
       }
     });
