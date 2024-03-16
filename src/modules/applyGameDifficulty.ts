@@ -120,22 +120,22 @@ const validateCustomSettings = (widthCellsQuantity: number, heightCellsQuantity:
   const totalCellsQuantity: number = widthCellsQuantity * heightCellsQuantity;
 
   if (totalCellsQuantity > MAX_CELLS_QUANTITY) {
-    displayPopupMessage(`Max cells quantity can be no more than ${MAX_CELLS_QUANTITY}`);
+    displayPopupMessage(`Max cells quantity can be no more than ${MAX_CELLS_QUANTITY}`, 5000);
     return false;
   }
 
   if (widthCellsQuantity < MIN_CELLS_QUANTITY_IN_DIRECTION || heightCellsQuantity < MIN_CELLS_QUANTITY_IN_DIRECTION) {
-    displayPopupMessage(`Min cells quantity in any direction can not be less than ${MIN_CELLS_QUANTITY_IN_DIRECTION}`);
+    displayPopupMessage(`Min cells quantity in any direction can not be less than ${MIN_CELLS_QUANTITY_IN_DIRECTION}`, 5000);
     return false;
   }
 
   if (minesQuantity < MIN_MINES_QUANTITY) {
-    displayPopupMessage(`Min Mines quantity can not be less than ${MIN_MINES_QUANTITY}`);
+    displayPopupMessage(`Min Mines quantity can not be less than ${MIN_MINES_QUANTITY}`, 5000);
     return false;
   }
 
   if (totalCellsQuantity - MINES_CELLS_DIFFERENTIAL < minesQuantity) {
-    displayPopupMessage(`Mines quantity must be at least ${MINES_CELLS_DIFFERENTIAL} less than total cells quantity`);
+    displayPopupMessage(`Mines quantity must be at least ${MINES_CELLS_DIFFERENTIAL} less than total cells quantity`, 5000);
     return false;
   }
 
