@@ -5,11 +5,14 @@
 
   .game-window {
     margin: 2rem auto 0 auto;
+
+    .field{
+      grid-gap: .1rem;
+    }
   }
 
   .cell {
-    width: 1.6rem;
-    height: 1.6rem;
+    min-width: 1.6rem;
   }
 
   .close-btn {
@@ -57,12 +60,14 @@
     .info-field__emoji {
       padding-bottom: 0.3rem !important;
     }
+
+    .field{
+      grid-gap: .07rem;
+    }
   }
 
   .cell {
-    width: 1.2rem;
-    height: 1.2rem;
-    margin: 0.05rem;
+    min-width: 1.2rem;
   }
 
   .saved-record {
@@ -129,11 +134,10 @@
 
   .info-section{
     h1{
+      margin: 1rem 0;
+      flex-direction: column;
+      gap: 1rem;
       font-size: 3rem;
-
-      img{
-        width: 2.2rem;
-      }
     }
 
     .info-section__contact-list{

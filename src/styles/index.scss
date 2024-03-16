@@ -141,6 +141,8 @@ body {
   .field {
     align-self: center;
     display: grid;
+    grid-gap: .2rem;
+    width: 100%;
     justify-items: center;
   }
 }
@@ -185,9 +187,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0.1rem;
-  width: 2.2rem;
-  height: 2.2rem;
+  min-width: 2.2rem;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
   border: 0.05rem;
   border-radius: 0.2rem;
   background-size: cover !important;
