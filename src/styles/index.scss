@@ -63,7 +63,7 @@ ul {
 
 html{
   @include bgColor();
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
