@@ -90,18 +90,24 @@ const checkIfSettingsSame = (lvlInputs: NodeListOf<HTMLInputElement>): boolean =
   return isSettingsSame;
 };
 
-const setDifficultySettingsData = (newDifficultyLvl: TDifficultyLvl) => {
-  const currentGameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
-  const { savedProgress } = currentGameSettingsData;
+const setDifficultySettingsData = async (newDifficultyLvl: TDifficultyLvl) => {
+  try {
+    const currentGameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
+    const { savedProgress } = currentGameSettingsData;
 
-  const newGameSettingsData: IGameSettings = {
-    difficulty: newDifficultyLvl,
-    savedProgress,
-  };
+    const newGameSettingsData: IGameSettings = {
+      difficulty: newDifficultyLvl,
+      savedProgress,
+    };
 
-  setGameSettingsData(newGameSettingsData);
-  rerenderMinesField();
-  store.dispatch(createMineFieldMatrixAction([]));
+    setGameSettingsData(newGameSettingsData);
+
+    await rerenderMinesField();
+
+    store.dispatch(createMineFieldMatrixAction([]));
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const clearCustomInputs = () => {

@@ -24,19 +24,25 @@ const checkIsGameBegun = (): boolean => {
 const restartGame = () => {
   const restartBtn: HTMLButtonElement = document.querySelector(".info-field__restart-btn") as HTMLButtonElement;
 
-  restartBtn.addEventListener("click", () => {
-    const isGameBegun: boolean = checkIsGameBegun();
+  restartBtn.addEventListener("click", async () => {
+    try {
+      const isGameBegun: boolean = checkIsGameBegun();
 
-    if (!isGameBegun) return;
+      if (!isGameBegun) return;
 
-    const prevGameTimer: number = Number(sessionStorage.getItem(GAME_TIMER_ID_NAME));
+      const prevGameTimer: number = Number(sessionStorage.getItem(GAME_TIMER_ID_NAME));
 
-    removeSStorageGameTimerID();
+      removeSStorageGameTimerID();
 
-    clearInterval(prevGameTimer);
-    rerenderMinesField();
-    store.dispatch(createMineFieldMatrixAction([]));
-    setEmoji("default");
+      clearInterval(prevGameTimer);
+
+      await rerenderMinesField();
+
+      store.dispatch(createMineFieldMatrixAction([]));
+      setEmoji("default");
+    } catch (err) {
+      console.log(err);
+    }
   });
 };
 

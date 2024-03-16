@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 window.addEventListener("load", () => {
   displayPreloader(false);
-})
+});
 
 setGameSettings(); // init initial game settings in localStorage
 setGameLastResultsInitData(); // init initial game last resuts data in localStorage

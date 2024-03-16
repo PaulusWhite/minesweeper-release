@@ -7,12 +7,12 @@ const loadAssets = () => {
   const allImages: NodeListOf<HTMLImageElement> = document.querySelectorAll("img");
   let counter: number = 0;
 
-  allImages.forEach( (Img: HTMLImageElement) => {
+  allImages.forEach((Img: HTMLImageElement) => {
     Img.addEventListener("load", () => {
-      counter +=1;
-      if(counter === allImages.length) displayPreloader(false);
+      counter += 1;
+      if (counter === allImages.length) displayPreloader(false);
     });
-  })
-}
+  });
+};
 
 export default loadAssets;

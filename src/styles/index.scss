@@ -275,7 +275,7 @@ body {
             display: none;
             width: 1.3rem;
             height: 1.3rem;
-            border: solid $closedColor .2rem;
+            border: solid $closedColor 0.2rem;
             border-radius: 100%;
             background: $whiteColor;
           }
@@ -547,11 +547,11 @@ body {
   pointer-events: unset;
 }
 
-.show-preloader__filled{
+.show-preloader__filled {
   background: rgba(#150d36, 1);
 }
 
-.show-preloader__transparent{
+.show-preloader__transparent {
   background: rgba(#150d36, 0.8);
 }
 

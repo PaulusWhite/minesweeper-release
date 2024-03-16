@@ -6,12 +6,16 @@ import displayPreloader from "./displayPreloader";
 const rerenderMinesField = () => {
   displayPreloader(true);
 
-  setTimeout(() => {
-    createMineField();
-    setInitInfoFieldData();
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      createMineField();
+      setInitInfoFieldData();
 
-    displayPreloader(false);
-  }, 100);
+      displayPreloader(false);
+
+      resolve(true);
+    }, 1001);
+  });
 };
 
 export default rerenderMinesField;

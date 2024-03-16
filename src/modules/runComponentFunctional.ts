@@ -8,7 +8,7 @@ import loadAssets from "./loadAssets";
 
 const runComponentFunctional = (url: "/difficulty" | "/save" | "/load" | "/faq" | "/info" | "/last-results") => {
   loadAssets();
-  
+
   if (url === "/difficulty") {
     setDifficultySettingsInitValue();
     validateCustomDifficultyInput();

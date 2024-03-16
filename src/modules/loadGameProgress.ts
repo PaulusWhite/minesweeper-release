@@ -62,36 +62,42 @@ const setRecordGameInfo = (recordGameInfo: IGameInfo) => {
 const loadGameProgress = () => {
   const progressList: HTMLUListElement = document.querySelector(".saved-games-list") as HTMLUListElement;
 
-  progressList.addEventListener("click", (event: Event) => {
-    const target: HTMLElement = event.target as HTMLElement;
+  progressList.addEventListener("click", async (event: Event) => {
+    try {
+      const target: HTMLElement = event.target as HTMLElement;
 
-    if (target.className === "saved-record__load-btn") {
-      const gameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
+      if (target.className === "saved-record__load-btn") {
+        const gameSettingsData: IGameSettings = getGameSettingsData() as IGameSettings;
 
-      const record: HTMLLIElement = target.parentElement as HTMLLIElement;
-      const recordId: number = +(record.dataset.savedRecordId as string);
-      const recordGameData: ISavedGame | null = gameSettingsData.savedProgress[recordId];
+        const record: HTMLLIElement = target.parentElement as HTMLLIElement;
+        const recordId: number = +(record.dataset.savedRecordId as string);
+        const recordGameData: ISavedGame | null = gameSettingsData.savedProgress[recordId];
 
-      if (recordGameData === null) {
-        const popupMessage: string = "The record is empty";
+        if (recordGameData === null) {
+          const popupMessage: string = "The record is empty";
 
-        showPopupMessage(popupMessage);
-        return;
+          showPopupMessage(popupMessage);
+          return;
+        }
+
+        const recordState: ICell[][] = recordGameData.state as ICell[][];
+        const recordMineFieldMatrix: ICell[][] = recordGameData.mineFieldMatrix as ICell[][];
+        const recordGameDifficuty: TDifficultyLvl = recordGameData.gameDifficulty;
+        const recordGameInfo: IGameInfo = recordGameData.gameInfo as IGameInfo;
+
+        store.dispatch(createMineFieldMatrixAction(recordMineFieldMatrix));
+        setGameSettingsData({ ...gameSettingsData, difficulty: recordGameDifficuty });
+
+        await rerenderMinesField();
+
+        revealCellsFromRecord(recordState);
+        setRecordGameInfo(recordGameInfo);
+        removeSStorageGameTimerID();
+        setGameTimer();
+        navigateTo("/");
       }
-
-      const recordState: ICell[][] = recordGameData.state as ICell[][];
-      const recordMineFieldMatrix: ICell[][] = recordGameData.mineFieldMatrix as ICell[][];
-      const recordGameDifficuty: TDifficultyLvl = recordGameData.gameDifficulty;
-      const recordGameInfo: IGameInfo = recordGameData.gameInfo as IGameInfo;
-
-      store.dispatch(createMineFieldMatrixAction(recordMineFieldMatrix));
-      setGameSettingsData({ ...gameSettingsData, difficulty: recordGameDifficuty });
-      rerenderMinesField();
-      revealCellsFromRecord(recordState);
-      setRecordGameInfo(recordGameInfo);
-      removeSStorageGameTimerID();
-      setGameTimer();
-      navigateTo("/");
+    } catch (err) {
+      console.log(err);
     }
   });
 };
