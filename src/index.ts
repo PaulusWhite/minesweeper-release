@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("load", () => {
-  console.log("DONE");
   displayPreloader(false);
 })
 

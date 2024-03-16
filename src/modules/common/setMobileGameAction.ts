@@ -27,7 +27,6 @@ const setMobileGameAction = () => {
     Event.preventDefault();
 
     const target: HTMLElement = Event.target as HTMLElement;
-    console.log(target);
 
     if (target.closest(".cell")) {
       if (target.classList.length > 1 && !target.classList.contains("cell__flagged")) return;

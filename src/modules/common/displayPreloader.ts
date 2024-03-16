@@ -1,8 +1,6 @@
 const displayPreloader = (display: boolean, transparent: boolean = true) => {
   const preloader: HTMLDivElement = document.querySelector(".preloader")!;
 
-  console.log(transparent)
-
   if(display){
     preloader.classList.add("show-preloader");
 
