@@ -23,7 +23,7 @@ import { GAME_TIMER_ID_NAME } from "./resetGameTimer";
 const setMobileGameAction = () => {
   const mineField: HTMLDivElement = getMineFieldHTMLNode();
 
-  window.addEventListener("contextmenu", (Event: Event) => {
+  mineField.addEventListener("contextmenu", (Event: Event) => {
     Event.preventDefault();
 
     const target: HTMLElement = Event.target as HTMLElement;
@@ -37,7 +37,7 @@ const setMobileGameAction = () => {
     }
   });
 
-  window.addEventListener("click", (Event: Event) => {
+  mineField.addEventListener("click", (Event: Event) => {
     const target: HTMLElement = Event.target as HTMLElement;
     let isFirstCellClick: boolean = checkIsFieldClicked(); // indicator for creating mines matrix after first click
 
