@@ -36,7 +36,7 @@ const router = () => {
     { path: "/load", view: ProgressLoadingSection() },
     { path: "/difficulty", view: DifficultySettingsSection() },
     { path: "/faq", view: FaqSection() },
-    { path: "/info", view: InfoSection() },
+    { path: "/contacts", view: InfoSection() },
     { path: "/last-results", view: LastResult() },
   ];
 

@@ -386,16 +386,16 @@ body {
     color: $whiteColor;
   }
 
+  //css mod for heading
+  .show-message-heading {
+    display: block;
+  }
+
   .last-results-list {
     display: grid;
     grid-template-rows: repeat(5, auto);
     grid-template-columns: repeat(2, auto);
     gap: 2rem;
-
-    //css mod for heading
-    .show-message-heading {
-      display: block;
-    }
   }
 
   .last-result-record {

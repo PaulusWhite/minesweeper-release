@@ -8,7 +8,7 @@ const SettingsSidebar = () => {
       <button class="difficulty-settings__btn settings-btn" data-url="/difficulty">Game Difficulty</button>
       <button class="last-results-section settings-btn" data-url="/last-results">Last Results</button>
       <button class="FAQ-btn settings-btn" data-url="/faq">FAQ</button>
-      <button class="info-btn settings-btn" data-url="/info">Information</button>
+      <button class="info-btn settings-btn" data-url="/contacts">Contacts</button>
 
       ${CloseBtn("settings-sidebar__close-btn")}
     </aside>
