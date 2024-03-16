@@ -8,9 +8,9 @@ const DifficultySettingsSection = () => {
 
         <tr class="values-names-list">
           <th class="values-names-list__value-name empty-value-name"></th>
-          <th class="values-names-list__value-name">cells in width</th>
-          <th class="values-names-list__value-name">cells in height</th>
-          <th class="values-names-list__value-name">mines quantity</th>
+          <th class="values-names-list__value-name">Width</th>
+          <th class="values-names-list__value-name">Height</th>
+          <th class="values-names-list__value-name">Mines</th>
         </tr>
 
         <tr class="easy-lvl">

@@ -9,7 +9,7 @@ import { IGameSettings, ISavedGame } from "../interfaces/IGameSettings";
 import saveGameProgress from "./saveGameProgress";
 import setGameSettingsData from "./common/setGameSettingsData";
 
-const EMPTY_RECORD_NAME: string = "The Record is empty";
+const EMPTY_RECORD_NAME: string = "Empty";
 
 const removeGameRecord = (record: HTMLLIElement, recordName: HTMLSpanElement) => {
   const recordId: number = +(record.dataset.savedRecordId as string);

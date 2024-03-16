@@ -2,6 +2,7 @@
 $whiteColor: #fafafa;
 $closedColor: #0d0f18;
 $minedColor: #c41f13;
+$openColor: #3054c8;
 
 @mixin bgColor {
   background: #242b38;
@@ -30,9 +31,16 @@ $minedColor: #c41f13;
 input {
   max-width: 12rem;
   outline: none;
-  border: none;
+  border: solid rgba($openColor, 0);
+  box-shadow: 0 0 .1rem rgba($openColor, 0);
   border-radius: 0.1rem;
   text-align: center;
+
+  &:focus{
+    border: solid $openColor .2rem;
+    box-shadow: 0 0 .1rem $openColor;
+    transform: .2s;
+  }
 }
 
 a {
@@ -382,6 +390,14 @@ body {
     grid-template-rows: repeat(5, auto);
     grid-template-columns: repeat(2, auto);
     gap: 2rem;
+
+    .last-result-section__heading-message{
+      display: none;
+    }
+    //css mod for heading
+    .show-message-heading{
+      display: block;
+    }
   }
 
   .last-result-record {
@@ -458,6 +474,12 @@ body {
     color: $whiteColor;
     font-size: 1.5rem;
     cursor: pointer;
+
+    @media (pointer: fine){
+      &:hover {
+        color: $closedColor;
+      }
+    }
   }
 }
 

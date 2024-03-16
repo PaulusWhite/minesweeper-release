@@ -15,9 +15,10 @@ const showLastResultsList = () => {
     lastResultsList.innerHTML += LastResultRecord(lastResultRecord);
   });
 
-  // if(!lastResultsList.children){
-  //   lastResultsList.innerHTML += "You do not have any results"
-  // }
+  if(!lastResultsList.children.length){
+    const headingMessage: HTMLHeadingElement = document.querySelector(".last-result-section__heading-message")!;
+    headingMessage.classList.add("show-message-heading");
+  }
 };
 
 export default showLastResultsList;
