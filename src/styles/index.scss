@@ -114,7 +114,27 @@ body {
 
       .info-field__restart-btn,
       .info-field__settings-btn {
+        position: relative;
         cursor: pointer;
+        
+        &::after{
+          content: "";
+          position: absolute;
+          bottom: 20%;
+          left: 0;
+          width: 0;
+          height: .1rem;
+          background-color: $whiteColor;
+          transition: .2s;
+        }
+
+        @media (pointer:fine){
+          &:hover{
+            &::after{
+              width: 100%;
+            }
+          }
+        }
       }
 
       .info-field__indicator {
