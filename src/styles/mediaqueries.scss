@@ -126,4 +126,22 @@
       font-size: 3rem;
     }
   }
+
+  .info-section{
+    h1{
+      font-size: 3rem;
+
+      img{
+        width: 2.2rem;
+      }
+    }
+
+    .info-section__contact-list{
+      .info-section__contact{
+        font-size: 1.4rem;
+      }
+    }
+
+
+  }
 }
