@@ -12,7 +12,7 @@ const validateCustomDifficultyInput = () => {
     numberInput.addEventListener("input", () => {
       let newValue: string = numberInput.value;
 
-      if (!Number.isInteger(+newValue)) {
+      if (!Number.isInteger(+newValue) || newValue.length > 4) {
         newValue = newValue.slice(0, newValue.length - 1);
         numberInput.value = newValue;
       }
