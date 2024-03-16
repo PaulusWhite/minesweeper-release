@@ -145,6 +145,13 @@
   }
 
   .settings-sidebar {
+    @media (orientation: landscape){
+      gap: .9rem;
+
+      .settings-btn {
+        font-size: 1.5rem !important;
+      }
+    }
     .settings-btn {
       font-size: 3rem;
     }
