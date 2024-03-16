@@ -1,6 +1,6 @@
 const POPUP_TIMER_NAME: string = "popupTimer";
 
-const showPopupMessage = (messageText: string, timer: number = 5000) => {
+const showPopupMessage = (messageText: string, timer: number = 3500) => {
   const popup: HTMLDivElement = document.querySelector(".popup") as HTMLDivElement;
   const messageField: HTMLParagraphElement = popup.firstElementChild as HTMLParagraphElement;
 

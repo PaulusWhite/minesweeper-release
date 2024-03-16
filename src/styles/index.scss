@@ -24,6 +24,28 @@ $openColor: #3054c8;
   background: linear-gradient(135deg, #756fc6, #9790ee);
 }
 
+@mixin btnHoverEffect {
+  position: relative;
+  &::after{
+    content: "";
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    width: 0;
+    height: .1rem;
+    background-color: $whiteColor;
+    transition: .2s;
+  }
+
+  @media (pointer:fine){
+    &:hover{
+      &::after{
+        width: 100%;
+      }
+    }
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -114,27 +136,10 @@ body {
 
       .info-field__restart-btn,
       .info-field__settings-btn {
-        position: relative;
+        @include btnHoverEffect;
         cursor: pointer;
-        
-        &::after{
-          content: "";
-          position: absolute;
-          bottom: 20%;
-          left: 0;
-          width: 0;
-          height: .1rem;
-          background-color: $whiteColor;
-          transition: .2s;
-        }
 
-        @media (pointer:fine){
-          &:hover{
-            &::after{
-              width: 100%;
-            }
-          }
-        }
+
       }
 
       .info-field__indicator {
@@ -191,9 +196,15 @@ body {
   transition: 0.3s ease-in-out;
 
   .settings-btn {
+    @include btnHoverEffect;
     font-size: 4rem;
     color: $whiteColor;
     cursor: pointer;
+
+    &::after{
+      bottom: 10%;
+      height: .2rem;
+    }
   }
 
   .settings-sidebar__close-btn {
