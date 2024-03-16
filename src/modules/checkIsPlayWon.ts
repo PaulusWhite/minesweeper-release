@@ -12,7 +12,7 @@ import setEmoji from "./common/setEmoji";
 import saveWinResult from "./saveWinResult";
 
 const showWinMessage = () => {
-  alert("You won! Congratulations! You can save this result like the progress or just start a new game!");
+  alert("You won! Congratulations! Your result was saved");
 };
 
 const checkIsPlayWon = () => {
@@ -24,7 +24,10 @@ const checkIsPlayWon = () => {
     const cell: HTMLSpanElement = fieldCell as HTMLSpanElement;
 
     // if the cell is not revealed then it has only 1 class - .cell
-    if (cell.classList.length === 1) remainedCellsQuantity++;
+    // if the cell has 2 classes and one of them is cell__flagged
+    if (cell.classList.length === 1 || (cell.classList.length === 2 && cell.classList.contains("cell__flagged"))) {
+      remainedCellsQuantity++;
+    }
   });
 
   if (remainedCellsQuantity === difficulty.minesQuantity) {

@@ -15,7 +15,7 @@ const showLastResultsList = () => {
     lastResultsList.innerHTML += LastResultRecord(lastResultRecord);
   });
 
-  if(!lastResultsList.children.length){
+  if (!lastResultsList.children.length) {
     const headingMessage: HTMLHeadingElement = document.querySelector(".last-result-section__heading-message")!;
     headingMessage.classList.add("show-message-heading");
   }

@@ -32,14 +32,14 @@ input {
   max-width: 12rem;
   outline: none;
   border: solid rgba($openColor, 0);
-  box-shadow: 0 0 .1rem rgba($openColor, 0);
+  box-shadow: 0 0 0.1rem rgba($openColor, 0);
   border-radius: 0.1rem;
   text-align: center;
 
-  &:focus{
-    border: solid $openColor .2rem;
-    box-shadow: 0 0 .1rem $openColor;
-    transform: .2s;
+  &:focus {
+    border: solid $openColor 0.2rem;
+    box-shadow: 0 0 0.1rem $openColor;
+    transform: 0.2s;
   }
 }
 
@@ -391,11 +391,11 @@ body {
     grid-template-columns: repeat(2, auto);
     gap: 2rem;
 
-    .last-result-section__heading-message{
+    .last-result-section__heading-message {
       display: none;
     }
     //css mod for heading
-    .show-message-heading{
+    .show-message-heading {
       display: block;
     }
   }
@@ -475,7 +475,7 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
 
-    @media (pointer: fine){
+    @media (pointer: fine) {
       &:hover {
         color: $closedColor;
       }

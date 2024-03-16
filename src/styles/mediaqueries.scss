@@ -99,18 +99,18 @@
 
         &::before {
           left: 0.4rem !important;
-          width: .5rem !important;
-          height: .5rem !important;
+          width: 0.5rem !important;
+          height: 0.5rem !important;
           border-width: 0.15rem !important;
         }
       }
     }
 
-    .custom-lvl{
-      th{
-        padding: .2rem .1rem !important;
+    .custom-lvl {
+      th {
+        padding: 0.2rem 0.1rem !important;
 
-        .custom-lvl__input-number{
+        .custom-lvl__input-number {
           font-size: 1.5rem !important;
         }
       }
@@ -120,7 +120,7 @@
   .last-results-list {
     gap: 1rem !important;
 
-    h1{
+    h1 {
       font-size: 2rem;
     }
 
