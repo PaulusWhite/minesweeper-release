@@ -380,7 +380,8 @@ body {
 .last-result-section {
   flex-direction: column;
 
-  h1 {
+  .last-result-section__heading-message {
+    display: none;
     font-size: 3rem;
     color: $whiteColor;
   }
@@ -391,9 +392,6 @@ body {
     grid-template-columns: repeat(2, auto);
     gap: 2rem;
 
-    .last-result-section__heading-message {
-      display: none;
-    }
     //css mod for heading
     .show-message-heading {
       display: block;
