@@ -9,6 +9,7 @@ Minesweeper is a logic puzzle video game where you need to to clear the board wi
 
 ## Stack :wrench:
 - HTML/SCSS
+- JavaScript
 - TypeScript
 - Webpack
 
