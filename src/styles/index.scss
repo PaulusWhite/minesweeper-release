@@ -1,0 +1,609 @@
+//colors
+$whiteColor: #fafafa;
+$closedColor: #0d0f18;
+$minedColor: #c41f13;
+$openColor: #3054c8;
+
+@mixin bgColor {
+  background: #242b38;
+  background: linear-gradient(135deg, #242c38, #150d36);
+}
+
+@mixin closedColorStyle {
+  background: #131821;
+  background: linear-gradient(135deg, #131821, #040110);
+}
+
+@mixin openColorStyle {
+  background: #4668da;
+  background: linear-gradient(135deg, #4668da, #3054c8);
+}
+
+@mixin indicatedColorStyle {
+  background: #756fc6;
+  background: linear-gradient(135deg, #756fc6, #9790ee);
+}
+
+@mixin btnHoverEffect {
+  position: relative;
+  &::after{
+    content: "";
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    width: 0;
+    height: .1rem;
+    background-color: $whiteColor;
+    transition: .2s;
+  }
+
+  @media (pointer:fine){
+    &:hover{
+      &::after{
+        width: 100%;
+      }
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input {
+  max-width: 12rem;
+  outline: none;
+  border: solid rgba($openColor, 0);
+  box-shadow: 0 0 0.1rem rgba($openColor, 0);
+  border-radius: 0.1rem;
+  text-align: center;
+
+  &:focus {
+    border: solid $openColor 0.2rem;
+    box-shadow: 0 0 0.1rem $openColor;
+    transform: 0.2s;
+  }
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 0;
+  background: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding: 0;
+  }
+}
+//
+
+html {
+  @include bgColor();
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  overflow: auto;
+}
+
+.game-window {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 20rem;
+  padding: 0.5rem;
+  margin: 4rem auto 0 auto;
+  border: solid $whiteColor 0.1rem;
+  border-radius: 0.2rem;
+  color: $whiteColor;
+
+  button {
+    color: $whiteColor;
+  }
+
+  .info-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+    border: solid $whiteColor 0.1rem;
+    border-radius: 0.2rem;
+
+    .info-field__level-info,
+    .info_field__game-info {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+      .info-field__restart-btn,
+      .info-field__settings-btn {
+        @include btnHoverEffect;
+        cursor: pointer;
+
+
+      }
+
+      .info-field__indicator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        max-width: 7rem;
+        width: 100%;
+        margin: 0.5rem 0.7rem;
+        padding: 0.5rem;
+        text-align: center;
+
+        .info-field__icon {
+          display: block;
+          max-width: 100%;
+          width: 1.8rem;
+        }
+      }
+    }
+
+    .info-field__emoji {
+      width: 2.2rem;
+      padding-bottom: 0.8rem;
+    }
+  }
+
+  .info-field__bomb-icon {
+    background: url(./../icons/mineIcon.svg) no-repeat center;
+  }
+
+  .field {
+    align-self: center;
+    display: grid;
+    grid-gap: 0.2rem;
+    width: 100%;
+    justify-items: center;
+  }
+}
+
+.settings-sidebar {
+  @include bgColor;
+  position: fixed;
+  top: 0;
+  left: -102%;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: whitesmoke;
+  transition: 0.3s ease-in-out;
+
+  .settings-btn {
+    @include btnHoverEffect;
+    font-size: 4rem;
+    color: $whiteColor;
+    cursor: pointer;
+
+    &::after{
+      bottom: 10%;
+      height: .2rem;
+    }
+  }
+
+  .settings-sidebar__close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+//css-mod for settings-sidebar
+.show-sidebar {
+  left: 0%;
+}
+//
+
+//Components
+.cell {
+  @include closedColorStyle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 2.2rem;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border: 0.05rem;
+  border-radius: 0.2rem;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  font-size: 1.5rem;
+}
+//css mods for cell
+.cell__open {
+  @include openColorStyle;
+}
+
+.cell__indicated {
+  @include indicatedColorStyle;
+  color: $whiteColor;
+}
+
+.cell__flagged {
+  background: #ff9c2f;
+  background-image: url(./../icons/flag.svg), linear-gradient(135deg, #ff9c2f, #eb820f);
+}
+
+.cell__mined {
+  background: #c52013;
+  background-image: url(./../icons/blow.svg), linear-gradient(135deg, #c52013, #f31b0b);
+}
+
+.cell__mined-revealed {
+  background: #58c341;
+  background-image: url(./../icons/mineIcon.svg), linear-gradient(135deg, #58c341, #68df4e);
+}
+
+.settings-section {
+  @include bgColor;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0.5rem;
+}
+
+.difficulty-settings {
+  display: flex;
+  flex-direction: column;
+  padding: 0.2rem;
+
+  .difficulty-settings__table {
+    border: solid $whiteColor 0.2rem;
+    border-radius: 0.2rem;
+    color: $whiteColor;
+    font-size: 1.8rem;
+
+    tr {
+      @include indicatedColorStyle;
+
+      th {
+        @include indicatedColorStyle;
+        padding: 0.4rem;
+
+        .showRadio {
+          &::before {
+            display: block;
+          }
+        }
+
+        label {
+          position: relative;
+          display: block;
+          width: 100%;
+          padding-left: 2rem;
+          cursor: pointer;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 55%;
+            left: 0.6rem;
+            transform: translate(-50%, -50%);
+            display: none;
+            width: 1.3rem;
+            height: 1.3rem;
+            border: solid $closedColor 0.2rem;
+            border-radius: 100%;
+            background: $whiteColor;
+          }
+        }
+
+        .custom-lvl__input-number {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+
+  .difficulty-settings__apply-btn {
+    margin-top: 3rem;
+    color: $whiteColor;
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+}
+
+.progress-loading-section,
+.progress-saving-section {
+  padding: 0.5rem;
+  .saved-games-list,
+  .data-entry-list {
+    max-width: 50rem;
+    width: 100%;
+    margin-bottom: 10rem;
+  }
+}
+
+.faq-section {
+  position: absolute !important;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 2rem;
+  color: $whiteColor;
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.3rem;
+  }
+
+  .faq-section__description {
+    display: flex;
+    align-items: center;
+
+    .faq-section__img-frame {
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 25rem;
+
+      .faq-section__game-img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.info-section {
+  flex-direction: column;
+  color: $whiteColor;
+  h1 {
+    display: flex;
+    align-items: center;
+    font-size: 4rem;
+
+    img {
+      width: 3rem;
+      margin-left: 1rem;
+    }
+  }
+
+  .info-section__contact-list {
+    .info-section__contact {
+      margin: 1em 0;
+      font-size: 2rem;
+      transition: 0.1s;
+    }
+
+    .info-section__contact:not(.email-contact) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+//last results section
+.last-result-section {
+  flex-direction: column;
+
+  .last-result-section__heading-message {
+    display: none;
+    font-size: 3rem;
+    color: $whiteColor;
+  }
+
+  //css mod for heading
+  .show-message-heading {
+    display: block;
+  }
+
+  .last-results-list {
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    grid-template-columns: repeat(2, auto);
+    gap: 2rem;
+  }
+
+  .last-result-record {
+    @include indicatedColorStyle;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    border: solid $whiteColor 0.1rem;
+    font-size: 1.6rem;
+
+    * {
+      text-align: left;
+    }
+  }
+}
+
+//Common components
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: rotate(0);
+  width: 5rem;
+  height: 5rem;
+  margin: 2rem 5rem 0 0;
+  cursor: pointer;
+  transition: 0.2s;
+
+  * {
+    background-color: $whiteColor !important;
+  }
+
+  .close-btn__crossbar-one,
+  .close-btn__crossbar-two {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 100%;
+    height: 0.5rem;
+    background-color: black;
+  }
+
+  .close-btn__crossbar-one {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .close-btn__crossbar-two {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &:hover {
+    transform: rotate(90deg);
+  }
+}
+
+.saved-record {
+  @include indicatedColorStyle;
+  border-color: $whiteColor;
+  color: $whiteColor;
+  display: flex;
+  margin: 0.4rem 0;
+  border: solid $whiteColor 0.1rem;
+
+  .saved-record__name {
+    width: 100%;
+    font-size: 2rem;
+  }
+
+  .saved-record__clear-btn,
+  .saved-record__load-btn,
+  .saved-record__save-btn {
+    margin: 0 0.5rem;
+    color: $whiteColor;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    @media (pointer: fine) {
+      &:hover {
+        color: $closedColor;
+      }
+    }
+  }
+}
+
+//popup
+.popup {
+  @include bgColor;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  right: -21rem;
+  transform: translate(-0%, -50%);
+  width: 20rem;
+  padding: 1rem;
+  border: solid $whiteColor 0.15rem;
+  border-radius: 0.3rem;
+  opacity: 0;
+  transition: 0.6s;
+
+  .popup__message {
+    margin: 0;
+    color: $whiteColor;
+    font-size: 1.3rem;
+  }
+}
+
+//css-mod for popup
+.show-popup {
+  right: 2rem;
+  opacity: 1;
+}
+
+//preloader
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  transition: 0.1s;
+  opacity: 0;
+  pointer-events: none;
+
+  .spinner {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .spinner div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    margin: 0.5rem;
+    border: 0.5rem solid $whiteColor;
+    border-radius: 50%;
+    animation: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: $whiteColor transparent transparent transparent;
+  }
+  .spinner div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .spinner div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .spinner div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+//css-mod for preloader
+.show-preloader {
+  opacity: 1;
+  pointer-events: unset;
+}
+
+.show-preloader__filled {
+  background: rgba(#150d36, 1);
+}
+
+.show-preloader__transparent {
+  background: rgba(#150d36, 0.8);
+}
+
+@import "./mediaqueries.scss";

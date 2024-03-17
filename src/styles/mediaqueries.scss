@@ -1,0 +1,174 @@
+@media (max-width: 1024px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .game-window {
+    margin: 2rem auto 0 auto;
+
+    .field {
+      grid-gap: 0.1rem;
+    }
+  }
+
+  .cell {
+    min-width: 1.6rem;
+    font-size: 1.3rem;
+  }
+
+  .close-btn {
+    margin: 1rem 1rem;
+  }
+
+  input {
+    max-width: 8rem;
+  }
+
+  .difficulty-settings__table {
+    font-size: 1.4rem !important;
+  }
+
+  .faq-section__description {
+    .faq-section__img-frame {
+      max-width: 20rem !important;
+      margin: 0.5rem !important;
+    }
+
+    .faq-section__text {
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    padding: 0.3rem;
+  }
+
+  .game-window {
+    border-width: 0.1rem;
+
+    .info-field {
+      margin-bottom: 0.4rem;
+
+      .info-field__indicator {
+        margin: 0.2rem 0.4rem !important;
+      }
+    }
+
+    .info-field__emoji {
+      padding-bottom: 0.3rem !important;
+    }
+
+    .field {
+      grid-gap: 0.07rem;
+    }
+  }
+
+  .cell {
+    min-width: 1.2rem;
+    font-size: 1rem;
+  }
+
+  .saved-record {
+    * {
+      font-size: 1.25rem !important;
+    }
+  }
+
+  .close-btn {
+    width: 2.3rem;
+    height: 2.3rem;
+    margin: 0.6rem !important;
+  }
+
+  input {
+    max-width: 4rem;
+  }
+
+  .difficulty-settings__table {
+    font-size: 1rem !important;
+
+    th {
+      padding: 0.1rem !important;
+
+      label {
+        padding-left: 1rem !important;
+
+        &::before {
+          left: 0.4rem !important;
+          width: 0.5rem !important;
+          height: 0.5rem !important;
+          border-width: 0.15rem !important;
+        }
+      }
+    }
+
+    .custom-lvl {
+      th {
+        padding: 0.2rem 0.1rem !important;
+
+        .custom-lvl__input-number {
+          font-size: 1.5rem !important;
+        }
+      }
+    }
+  }
+
+  .last-results-list {
+    gap: 1rem !important;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .last-result-record {
+      font-size: 1rem !important;
+    }
+  }
+
+  .faq-section {
+    align-items: center;
+    padding: 0.5rem;
+
+    .faq-section__description {
+      flex-direction: column-reverse;
+
+      .faq-section__text {
+        p {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+
+  .settings-sidebar {
+    @media (orientation: landscape){
+      gap: .9rem;
+
+      .settings-btn {
+        font-size: 1.5rem !important;
+      }
+    }
+    .settings-btn {
+      font-size: 3rem;
+    }
+  }
+
+  .info-section {
+    h1 {
+      margin: 1rem 0;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 3rem;
+    }
+
+    .info-section__contact-list {
+      .info-section__contact {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
