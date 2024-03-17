@@ -37,13 +37,6 @@ const clickCell = (field: HTMLDivElement, clickedCellIndex: number) => {
 
   revealFreeCells(matrixCellData, fieldMatrix, difficulty.rowCellsQuantity);
   checkIsPlayWon();
-
-  //   // FOR TEST
-  //   revealAllCells("cell__mined-revealed");
-  // alert("You won! Congratulations! You can save this result like the progress or just start a new game!");
-  //     stopGameTimer();
-  //     setEmoji("win");
-  //     saveWinResult();
 };
 
 export default clickCell;
